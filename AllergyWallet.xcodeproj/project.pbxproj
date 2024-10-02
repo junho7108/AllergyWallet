@@ -8,17 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */; };
-		127EC0A82CACFFA100A3408C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0A72CACFFA100A3408C /* ContentView.swift */; };
 		127EC0AA2CACFFA300A3408C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0A92CACFFA300A3408C /* Assets.xcassets */; };
 		127EC0AD2CACFFA300A3408C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */; };
+		127EC0B52CAD02B700A3408C /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 127EC0B42CAD02B700A3408C /* TCACoordinators */; };
+		127EC0BA2CAD033300A3408C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0B92CAD033300A3408C /* SignUpView.swift */; };
+		127EC0BF2CAD059A00A3408C /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0BE2CAD059A00A3408C /* Color+Extensions.swift */; };
+		127EC0C12CAD08D600A3408C /* SignUpFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C02CAD08D600A3408C /* SignUpFeature.swift */; };
+		127EC0C32CAD16DB00A3408C /* SelectAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C22CAD16DB00A3408C /* SelectAllergyView.swift */; };
+		127EC0C52CAD177C00A3408C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C42CAD177C00A3408C /* Screen.swift */; };
+		127EC0C72CAD17B200A3408C /* SelectAllergyFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C62CAD17B200A3408C /* SelectAllergyFeature.swift */; };
+		127EC0C92CAD17FE00A3408C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C82CAD17FE00A3408C /* Coordinator.swift */; };
+		127EC0CB2CAD18B300A3408C /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0CA2CAD18B300A3408C /* CoordinatorView.swift */; };
+		127EC0CE2CAD477300A3408C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0CD2CAD477300A3408C /* UIColor+Extensions.swift */; };
+		127EC0D12CAD4E2C00A3408C /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 127EC0D02CAD4E2C00A3408C /* SwiftUIIntrospect */; };
+		127EC0D42CAD52F500A3408C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0D32CAD52F500A3408C /* User.swift */; };
+		127EC0D82CAD5CFA00A3408C /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0D72CAD5CFA00A3408C /* Allergy.swift */; };
+		127EC0DA2CAD6EAA00A3408C /* RegisterEmergencyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0D92CAD6EAA00A3408C /* RegisterEmergencyCardView.swift */; };
+		127EC0DC2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0DB2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift */; };
+		127EC0DF2CAD755600A3408C /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0DE2CAD755600A3408C /* InputTextField.swift */; };
+		127EC0E12CAD76A900A3408C /* AllergyCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0E02CAD76A900A3408C /* AllergyCheckBoxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		127EC0A22CACFFA100A3408C /* AllergyWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergyWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyWalletApp.swift; sourceTree = "<group>"; };
-		127EC0A72CACFFA100A3408C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		127EC0A92CACFFA300A3408C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		127EC0B92CAD033300A3408C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		127EC0BE2CAD059A00A3408C /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		127EC0C02CAD08D600A3408C /* SignUpFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFeature.swift; sourceTree = "<group>"; };
+		127EC0C22CAD16DB00A3408C /* SelectAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllergyView.swift; sourceTree = "<group>"; };
+		127EC0C42CAD177C00A3408C /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		127EC0C62CAD17B200A3408C /* SelectAllergyFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllergyFeature.swift; sourceTree = "<group>"; };
+		127EC0C82CAD17FE00A3408C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		127EC0CA2CAD18B300A3408C /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		127EC0CD2CAD477300A3408C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		127EC0D32CAD52F500A3408C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		127EC0D72CAD5CFA00A3408C /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
+		127EC0D92CAD6EAA00A3408C /* RegisterEmergencyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmergencyCardView.swift; sourceTree = "<group>"; };
+		127EC0DB2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEmergencyCardFeature.swift; sourceTree = "<group>"; };
+		127EC0DE2CAD755600A3408C /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		127EC0E02CAD76A900A3408C /* AllergyCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyCheckBoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127EC0B52CAD02B700A3408C /* TCACoordinators in Frameworks */,
+				127EC0D12CAD4E2C00A3408C /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +83,13 @@
 		127EC0A42CACFFA100A3408C /* AllergyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				127EC0D22CAD52EE00A3408C /* Model */,
+				127EC0CC2CAD46B300A3408C /* Protocol */,
+				127EC0BD2CAD057E00A3408C /* Extensions */,
+				127EC0BC2CAD037000A3408C /* Feature */,
+				127EC0B62CAD030300A3408C /* View */,
+				127EC0BB2CAD036B00A3408C /* Coordinator */,
 				127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */,
-				127EC0A72CACFFA100A3408C /* ContentView.swift */,
 				127EC0A92CACFFA300A3408C /* Assets.xcassets */,
 				127EC0AB2CACFFA300A3408C /* Preview Content */,
 			);
@@ -65,6 +102,71 @@
 				127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		127EC0B62CAD030300A3408C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0DD2CAD752A00A3408C /* Component */,
+				127EC0B92CAD033300A3408C /* SignUpView.swift */,
+				127EC0C22CAD16DB00A3408C /* SelectAllergyView.swift */,
+				127EC0D92CAD6EAA00A3408C /* RegisterEmergencyCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		127EC0BB2CAD036B00A3408C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0C42CAD177C00A3408C /* Screen.swift */,
+				127EC0C82CAD17FE00A3408C /* Coordinator.swift */,
+				127EC0CA2CAD18B300A3408C /* CoordinatorView.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		127EC0BC2CAD037000A3408C /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0C02CAD08D600A3408C /* SignUpFeature.swift */,
+				127EC0C62CAD17B200A3408C /* SelectAllergyFeature.swift */,
+				127EC0DB2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		127EC0BD2CAD057E00A3408C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0BE2CAD059A00A3408C /* Color+Extensions.swift */,
+				127EC0CD2CAD477300A3408C /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		127EC0CC2CAD46B300A3408C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		127EC0D22CAD52EE00A3408C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0D32CAD52F500A3408C /* User.swift */,
+				127EC0D72CAD5CFA00A3408C /* Allergy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		127EC0DD2CAD752A00A3408C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0DE2CAD755600A3408C /* InputTextField.swift */,
+				127EC0E02CAD76A900A3408C /* AllergyCheckBoxView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +185,10 @@
 			dependencies = (
 			);
 			name = AllergyWallet;
+			packageProductDependencies = (
+				127EC0B42CAD02B700A3408C /* TCACoordinators */,
+				127EC0D02CAD4E2C00A3408C /* SwiftUIIntrospect */,
+			);
 			productName = AllergyWallet;
 			productReference = 127EC0A22CACFFA100A3408C /* AllergyWallet.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +217,10 @@
 				Base,
 			);
 			mainGroup = 127EC0992CACFFA100A3408C;
+			packageReferences = (
+				127EC0B32CAD02B700A3408C /* XCRemoteSwiftPackageReference "TCACoordinators" */,
+				127EC0CF2CAD4E2C00A3408C /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+			);
 			productRefGroup = 127EC0A32CACFFA100A3408C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +247,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				127EC0A82CACFFA100A3408C /* ContentView.swift in Sources */,
+				127EC0E12CAD76A900A3408C /* AllergyCheckBoxView.swift in Sources */,
+				127EC0C92CAD17FE00A3408C /* Coordinator.swift in Sources */,
+				127EC0CE2CAD477300A3408C /* UIColor+Extensions.swift in Sources */,
+				127EC0CB2CAD18B300A3408C /* CoordinatorView.swift in Sources */,
+				127EC0DA2CAD6EAA00A3408C /* RegisterEmergencyCardView.swift in Sources */,
+				127EC0C32CAD16DB00A3408C /* SelectAllergyView.swift in Sources */,
+				127EC0DC2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift in Sources */,
+				127EC0D82CAD5CFA00A3408C /* Allergy.swift in Sources */,
+				127EC0C12CAD08D600A3408C /* SignUpFeature.swift in Sources */,
+				127EC0DF2CAD755600A3408C /* InputTextField.swift in Sources */,
+				127EC0BA2CAD033300A3408C /* SignUpView.swift in Sources */,
 				127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */,
+				127EC0C72CAD17B200A3408C /* SelectAllergyFeature.swift in Sources */,
+				127EC0BF2CAD059A00A3408C /* Color+Extensions.swift in Sources */,
+				127EC0C52CAD177C00A3408C /* Screen.swift in Sources */,
+				127EC0D42CAD52F500A3408C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +468,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		127EC0B32CAD02B700A3408C /* XCRemoteSwiftPackageReference "TCACoordinators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnpatrickmorgan/TCACoordinators";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
+		127EC0CF2CAD4E2C00A3408C /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		127EC0B42CAD02B700A3408C /* TCACoordinators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 127EC0B32CAD02B700A3408C /* XCRemoteSwiftPackageReference "TCACoordinators" */;
+			productName = TCACoordinators;
+		};
+		127EC0D02CAD4E2C00A3408C /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 127EC0CF2CAD4E2C00A3408C /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 127EC09A2CACFFA100A3408C /* Project object */;
 }
