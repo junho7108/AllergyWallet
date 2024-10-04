@@ -16,34 +16,37 @@ struct SelectAllergyView: View {
         
         WithViewStore(store, observe: { $0 }) { viewStore in
             
-            VStack(alignment: .leading) {
-    
-                Text("What Allergies Do You Have?")
-                    .font(.system(size: 28, weight: .semibold))
-                    .padding(.bottom, 12)
+            VStack {
                 
-                Text("You can select up to 20 allergies")
-                    .font(.system(size: 16, weight: .medium))
-                    .foregroundColor(.gray700)
-                    .padding(.bottom, 48)
+                ScrollView(.vertical, showsIndicators: false) {
+                    
+                    LazyVStack(alignment: .leading) {
+            
+                        Text("What Allergies Do You Have?")
+                            .font(.system(size: 28, weight: .semibold))
+                            .padding(.bottom, 12)
+                        
+                        Text("You can select up to 20 allergies")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.gray700)
+                            .padding(.bottom, 48)
+                        
+                        Spacer()
+                        
+                        ForEach(Allergy.allCases) { allergy in
+                            AllergyCheckBoxView(allegry: allergy, didSelect: { selectedInfo in
+                                viewStore.send(.didSelectAllegry(selectedInfo))
+                            })
+                            .padding(.bottom, 8)
+                        }
+                    }
+                }
                 
                 Spacer()
-                
-                List(Allergy.allCases) { allegy in
-
-                    AllergyCheckBoxView(allegry: allegy, didSelect: { selectedInfo in
-                        viewStore.send(.didSelectAllegry(selectedInfo))
-                    })
-                    .padding(.bottom, 8)
-                }
-                .listStyle(.plain)
-                .scrollIndicators(.hidden)
                 
                 Rectangle()
                     .frame(height: 0.8)
                     .foregroundColor(Color.gray200)
-                
-                Spacer()
                 
                 Button(action: {
                     viewStore.send(.navigationToRegisterCard(viewStore.user))
@@ -53,7 +56,7 @@ struct SelectAllergyView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 51)
-                        .background(viewStore.isEnabledButton ? Color(hex: "#00986A") : Color.gray200)
+                        .background(viewStore.isEnabledButton ? Color.primary500 : Color.gray200)
                         .cornerRadius(12)
                 }
                 .disabled(!viewStore.isEnabledButton)

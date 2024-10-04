@@ -58,7 +58,7 @@ struct SignUpView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 51)
-                        .background(Color(hex: "#00986A"))
+                        .background(Color.primary500)
                         .cornerRadius(12)
                 }
                 .disabled(!(viewStore.isValidNickname ?? false))

@@ -29,6 +29,9 @@ struct CoordinatorView: View {
                 
             case .registerEmergencyCard(let store):
                 RegisterEmergencyCardView(store: store)
+                
+            case .mainHome(let store):
+                MainHomeView(store: store)
             }
         }
     }

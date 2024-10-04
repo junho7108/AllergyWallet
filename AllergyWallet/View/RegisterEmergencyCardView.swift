@@ -81,31 +81,31 @@ struct RegisterEmergencyCardView: View {
 
                 HStack {
                     Button(action: {
-                        
+                        viewStore.send(.didTapSkip)
                     }) {
                         Text("Skip")
                             .font(.system(size: 16))
-                            .foregroundColor(Color(hex: "#00986A"))
+                            .foregroundColor(Color.primary500)
                             .frame(width: 185, height: 51)
                             .background(.white)
                             .cornerRadius(12)
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color(hex: "#00986A"), lineWidth: 0.8)
+                            .stroke(Color.primary500, lineWidth: 0.8)
                     )
                     
                     
                     Spacer()
                     
                     Button(action: {
-                        
+                        viewStore.send(.didTapRegisterEmergencyCard)
                     }) {
                         Text("Save")
                             .font(.system(size: 16))
                             .foregroundColor(.white)
                             .frame(width: 185, height: 51)
-                            .background(Color(hex: "#00986A"))
+                            .background(Color.primary500)
                             .cornerRadius(12)
                     }
                 }

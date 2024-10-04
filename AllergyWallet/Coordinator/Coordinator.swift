@@ -34,6 +34,10 @@ struct Coordinator {
                 state.routes.push(.registerEmergencyCard(.init(user: user)))
                 return .none
                 
+            case .router(.routeAction(_, action: .registerEmergencyCard(.navigationToHome(let user)))):
+                state.routes.removeAll()
+                state.routes = [.root(.mainHome(.init(user: user)), embedInNavigationView: true)]
+                return .none
                 
             default:
                 return .none
