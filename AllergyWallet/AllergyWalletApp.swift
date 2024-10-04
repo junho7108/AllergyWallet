@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct AllergyWalletApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoordinatorView(store: StoreOf<Coordinator>(
+                initialState: Coordinator.State(),
+                reducer: { Coordinator() }))
         }
     }
 }
