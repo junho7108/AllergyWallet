@@ -30,8 +30,12 @@ struct RegisterEmergencyCardFeature {
         case didChangeEmergencyContact(String)
         case didTapSkip
         case didTapRegisterEmergencyCard
+        
+        case signUpUser(User)
         case navigationToHome(User)
     }
+    
+    @Dependency(\.signUpUsecase) var usecase: SignUpUsecase
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
@@ -55,7 +59,7 @@ struct RegisterEmergencyCardFeature {
                 
             case .didChangeEmergencyContact(let emergencyContact):
                 state.emergencyContact = emergencyContact
-                return .send(.navigationToHome(state.user))
+                return .none
                 
             case .didTapSkip:
                 return .send(.navigationToHome(state.user))
@@ -64,21 +68,20 @@ struct RegisterEmergencyCardFeature {
                 return .none
                 
             case .didTapRegisterEmergencyCard:
-                if let firstName = state.firstName, let lastName = state.lastName,
-                   let birthDate = state.birthDate, let nationality = state.nationality,
-                   let emergencyContact = state.emergencyContact, let koreanContact = state.koreanContact {
-                    
-                    state.user.emergencyCard = EmergencyCard(firstName: firstName,
-                                                       lastName: lastName,
-                                                       birthDate: birthDate,
-                                                       nationality: nationality,
-                                                       emergencyContact: emergencyContact,
-                                                       koreanContact: koreanContact)
+                state.user.emergencyCard = EmergencyCard(firstName: state.firstName ?? "",
+                                                         lastName: state.lastName ?? "",
+                                                         birthDate: state.birthDate ?? "",
+                                                         nationality: state.nationality ?? "",
+                                                         emergencyContact: state.emergencyContact ?? "",
+                                                         koreanContact: state.koreanContact ?? "")
+ 
+                return .send(.signUpUser(state.user))
+                
+            case .signUpUser(let user):
+                return .run { send in
+                    let result = await usecase.signUpUser(user: user)
+                    await send(.navigationToHome(user))
                 }
-                    
-                    
-               
-                return .none
             }
         }
     }

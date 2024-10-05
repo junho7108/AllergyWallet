@@ -19,15 +19,49 @@ struct MainHomeView: View {
                 Text("Safe Travels,")
                     .font(.system(size: 28, weight: .semibold))
                 
-                Text("\(viewStore.user.name)")
+                Text(viewStore.user.name)
                     .font(.system(size: 28, weight: .semibold))
                     .foregroundColor(Color.primary500)
                 
-                AllergyInfoView()
+                AllergyInfoView(store: store)
+                    .padding(.bottom, 16)
+                
+                ZStack {
+                    CheckMenuForAllergyView(store: store, didTapButton: {
+                        viewStore.send(.navigationToMenuOption(.checkCrossContamination))
+                    })
+                    .offset(x: 0, y: 0)
+                    .zIndex(0)
+                    
+                    RecommendMenuView(store: store, didTapButton: {
+                        viewStore.send(.navigationToMenuOption(.recommendMenu))
+                    })
+                    .offset(x: 0, y: 60)
+                    .zIndex(1)
+                    
+                    AllergenFreeRequestView(store: store, didTapButton: {
+                        viewStore.send(.navigationToMenuOption(.requestAllergenFree))
+                    })
+                    .offset(x: 0, y: 120)
+                    .zIndex(2)
+                    
+                    CrossContaminationCheckView(store: store, didTapButton: {
+                        viewStore.send(.navigationToMenuOption(.checkCrossContamination))
+                    })
+                    .offset(x: 0, y: 180)
+                    .zIndex(3)
+                    
+                    EmergencySituationView(store: store, didTapButton: {
+                        viewStore.send(.navigationToMenuOption(.emergencySituation))
+                    })
+                    .offset(x: 0, y: 240)
+                    .zIndex(4)
+                    
+                }
                 
                 Spacer()
             }
+            .padding(.horizontal, 24)
         }
-      
     }
 }

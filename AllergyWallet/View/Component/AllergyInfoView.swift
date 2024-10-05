@@ -6,23 +6,79 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct AllergyInfoView: View {
+    
+    let store: StoreOf<MainHomeFeature>
+    
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color.primary500)
+        
+        WithViewStore(store, observe: { $0 }) { viewStore in
             
-            VStack {
+            ZStack(alignment: .bottomTrailing) {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color(hex: "#DFF3EC"))
                 
-                HStack {
-                    Text("My Allegry Info")
-                        .font(.system(size: 16))
+                Image("Character")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 194)
+                    .padding(.trailing, 12)
+                
+                VStack(alignment: .leading) {
                     
+                    HStack {
+                        Text("My Allegry Info")
+                            .font(.system(size: 16))
+                        
+                        Spacer()
+                        
+                        Button { } label: {
+                            HStack {
+                                Spacer()
+                                Image("Icon_arrow")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                            }
+                           
+                        }
+                        .frame(width: 40, height: 40)
+                    }
+                    .frame(height: 24)
+                    .padding(16)
                     
+                 
+                    let columns = [GridItem(.flexible()),
+                                   GridItem(.flexible()),
+                                   GridItem(.flexible())]
+                    
+
+                    LazyVGrid(columns: columns) {
+                        ForEach(viewStore.user.allergries) { allergy in
+                        
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(.white)
+                                
+                                Text("\(allergy.emoji) \(allergy.engName)")
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 2)
+                                
+                            }
+                            .fixedSize()
+                            
+                        }
+                    }
+                    .background(.red)
+                    .padding(.horizontal, 16)
+                    
+                    Spacer()
                 }
-               
             }
+            .shadow(color: .black.opacity(0.1), radius: 5)
+            .frame(maxWidth: .infinity, maxHeight: 248)
         }
     }
 }

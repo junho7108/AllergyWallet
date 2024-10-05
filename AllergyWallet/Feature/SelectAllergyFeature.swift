@@ -16,25 +16,43 @@ struct SelectAllergyFeature {
     
     struct State: Equatable {
         var user: User
-        var selectedAllergies: Set<Allergy> = []
+        var originAllergies: [AllergyType] = []
+        var selectedAllergies: [Allergy] = []
         var isEnabledButton: Bool = false
     }
     
     enum Action {
+        case fetchData
+        case fetchAllergies([AllergyType])
         case didSelectAllegry(AllegrySelectInfo)
         case navigationToRegisterCard(User)
     }
+    
+    @Dependency(\.allergiesUsecase) var usecase: AllergyUsecase
 
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             
             switch action {
-            case .didSelectAllegry(let selectedInfo):
+            case .fetchData:
+                return .run { send in
+                    let allergies = await usecase.fetchAllergies()
+                    await send(.fetchAllergies(allergies))
+                }
                 
+                
+            case .fetchAllergies(let allergies):
+                state.originAllergies = allergies
+                return .none
+                
+            case .didSelectAllegry(let selectedInfo):
+            
                 if selectedInfo.isSelected {
-                    state.selectedAllergies.insert(selectedInfo.allegry)
+                    state.selectedAllergies.append(selectedInfo.allegry)
                 } else {
-                    state.selectedAllergies.remove(selectedInfo.allegry)
+                    if let firstIndex = state.selectedAllergies.firstIndex(where: { $0 == selectedInfo.allegry}) {
+                        state.selectedAllergies.remove(at: firstIndex)
+                    }
                 }
                 
                 state.user.allergries = state.selectedAllergies
@@ -44,10 +62,8 @@ struct SelectAllergyFeature {
                 return .none
                 
             case .navigationToRegisterCard(let user):
-                print("🟢 선택된 알레르기 \(user.allergries)")
+                return .none
             }
-            
-            return .none
         }
     }
 }

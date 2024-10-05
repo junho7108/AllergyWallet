@@ -21,7 +21,7 @@ struct SignUpFeature {
         case createUser
         case navigateToSelectAllergies(User)
     }
-    
+
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             

@@ -7,26 +7,21 @@
 
 import Foundation
 
-enum Allergy: String, CaseIterable {
-    case milk, egg, soy, peanut, treeNut, wheat, seed, grain, gluten
+struct AllergyType: Codable, Equatable {
+    var category: String
+    var allergies: [Allergy]
 }
 
-extension Allergy: Codable, Equatable, Identifiable {
-    var id: String { rawValue }
+extension AllergyType: Identifiable {
+    var id: String { return category }
 }
 
-extension Allergy {
-    var text: String {
-        switch self {
-        case .milk: return "🥛 Milk"
-        case .egg: return "🥚 Egg"
-        case .soy: return "🫛 Soy"
-        case .peanut: return "🥜 Peanut"
-        case .treeNut: return "🌰 Tree Nut"
-        case .wheat: return "🌾 Wheat"
-        case .seed: return "🌱 Seed"
-        case .grain: return "🌾 Grain"
-        case .gluten: return "🍞 Gluten"
-        }
-    }
+struct Allergy: Codable, Equatable {
+    var korName: String
+    var engName: String
+    var emoji: String
+}
+
+extension Allergy: Identifiable {
+    var id: String { return engName }
 }

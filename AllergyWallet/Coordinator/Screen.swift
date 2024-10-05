@@ -9,6 +9,7 @@ import ComposableArchitecture
 
 @Reducer(state: .equatable)
 enum Screen {
+    case splash(SplashFeature)
     case signUp(SignUpFeature)
     case selectAllergy(SelectAllergyFeature)
     case registerEmergencyCard(RegisterEmergencyCardFeature)

@@ -29,6 +29,10 @@ extension Color {
         return .init(hex: "#00986A")
     }
     
+    static var primary50: Color {
+        return .init(Color(hex: "#DFF3EC"))
+    }
+    
     init(hex: String) {
             let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
             var int: UInt64 = 0

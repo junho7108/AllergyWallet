@@ -9,6 +9,6 @@ import Dependencies
 
 struct User: Codable, Equatable {
     var name: String
-    var allergries: Set<Allergy> = []
+    var allergries: [Allergy] = []
     var emergencyCard: EmergencyCard?
 }

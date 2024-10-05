@@ -33,11 +33,26 @@ struct SelectAllergyView: View {
                         
                         Spacer()
                         
-                        ForEach(Allergy.allCases) { allergy in
-                            AllergyCheckBoxView(allegry: allergy, didSelect: { selectedInfo in
-                                viewStore.send(.didSelectAllegry(selectedInfo))
-                            })
-                            .padding(.bottom, 8)
+                        ForEach(viewStore.originAllergies) { allergy in
+                            
+                            if allergy.allergies.count == 1 {
+                                
+                                AllergyCheckBoxView(allegry: allergy.allergies[0]) { selectedInfo in
+                                    viewStore.send(.didSelectAllegry(selectedInfo))
+                                }
+                                
+                                
+                            } else {
+                                
+                                AllergyPickerView(category: allergy.category,
+                                                  allergies: allergy.allergies) { selectedInfo in
+                
+                                    viewStore.send(.didSelectAllegry(selectedInfo))
+                                }
+                                
+                            }
+                            
+                            
                         }
                     }
                 }
@@ -62,6 +77,9 @@ struct SelectAllergyView: View {
                 .disabled(!viewStore.isEnabledButton)
             }
             .padding([.leading, .trailing], 24)
+            .onAppear {
+                viewStore.send(.fetchData)
+            }
         }
     }
 }
