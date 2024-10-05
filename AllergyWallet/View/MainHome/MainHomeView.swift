@@ -28,31 +28,31 @@ struct MainHomeView: View {
                 
                 ZStack {
                     CheckMenuForAllergyView(store: store, didTapButton: {
-                        viewStore.send(.navigationToMenuOption(.checkCrossContamination))
+                        viewStore.send(.navigationToMenuOption(.checkMenu(viewStore.user)))
                     })
                     .offset(x: 0, y: 0)
                     .zIndex(0)
                     
                     RecommendMenuView(store: store, didTapButton: {
-                        viewStore.send(.navigationToMenuOption(.recommendMenu))
+                        viewStore.send(.navigationToMenuOption(.recommendMenu(viewStore.user)))
                     })
                     .offset(x: 0, y: 60)
                     .zIndex(1)
                     
                     AllergenFreeRequestView(store: store, didTapButton: {
-                        viewStore.send(.navigationToMenuOption(.requestAllergenFree))
+                        viewStore.send(.navigationToMenuOption(.requestAllergenFree(viewStore.user)))
                     })
                     .offset(x: 0, y: 120)
                     .zIndex(2)
                     
                     CrossContaminationCheckView(store: store, didTapButton: {
-                        viewStore.send(.navigationToMenuOption(.checkCrossContamination))
+                        viewStore.send(.navigationToMenuOption(.checkCrossContamination(viewStore.user)))
                     })
                     .offset(x: 0, y: 180)
                     .zIndex(3)
                     
                     EmergencySituationView(store: store, didTapButton: {
-                        viewStore.send(.navigationToMenuOption(.emergencySituation))
+                        viewStore.send(.navigationToMenuOption(.emergencySituation(viewStore.user)))
                     })
                     .offset(x: 0, y: 240)
                     .zIndex(4)

@@ -11,11 +11,11 @@ import ComposableArchitecture
 struct MainHomeFeature {
     
     enum MenuOption {
-        case checkMenu
-        case recommendMenu
-        case requestAllergenFree
-        case checkCrossContamination
-        case emergencySituation
+        case checkMenu(User)
+        case recommendMenu(User)
+        case requestAllergenFree(User)
+        case checkCrossContamination(User)
+        case emergencySituation(User)
     }
     
     struct State: Equatable {

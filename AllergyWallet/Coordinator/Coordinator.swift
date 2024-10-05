@@ -26,15 +26,14 @@ struct Coordinator {
             
             switch action {
             case .router(.routeAction(_, action: .splash(.navigationToSignUp))):
-                state.routes.removeAll()
                 state.routes = [.root(.signUp(.init()),
                                       embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .splash(.navigationToMainHome(let user)))):
-                state.routes.removeAll()
                 state.routes = [.root(.mainHome(.init(user: user)),
                                       embedInNavigationView: true)]
+                
                 return .none
                 
             case .router(.routeAction(_, action: .signUp(.navigateToSelectAllergies(let user)))):
@@ -46,9 +45,22 @@ struct Coordinator {
                 return .none
                 
             case .router(.routeAction(_, action: .registerEmergencyCard(.navigationToHome(let user)))):
-                state.routes.removeAll()
                 state.routes = [.root(.mainHome(.init(user: user)),
                                       embedInNavigationView: true)]
+                return .none
+                
+            case .router(.routeAction(_, action: .mainHome(.navigationToMenuOption(let option)))):
+                switch option {
+                case .checkMenu(let user):
+                    state.routes.presentCover(.checkMenuForAllergy(.init(user: user,
+                                                                         grid: .init(allergies: user.allergries))))
+                    return .none
+                default:
+                    return .none
+                }
+                
+            case .router(.routeAction(_, action: .checkMenuForAllergy(.didTapBackButton))):
+                state.routes.removeLast()
                 return .none
                 
             default:
