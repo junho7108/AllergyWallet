@@ -30,8 +30,6 @@ struct MainHomeFeature {
         Reduce { state, action in
             switch action {
             case .navigationToMenuOption(let option):
-                print("🟢 \(action)")
-                
                 return .none
             }
         }

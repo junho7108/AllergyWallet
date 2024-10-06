@@ -62,7 +62,7 @@ struct RegisterEmergencyCardFeature {
                 return .none
                 
             case .didTapSkip:
-                return .send(.navigationToHome(state.user))
+                return .send(.signUpUser(state.user))
                 
             case .navigationToHome:
                 return .none

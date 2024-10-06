@@ -30,10 +30,8 @@ struct SplashFeature {
                     let user = await usecase.fetchUser()
                     
                     if let user {
-                        print("🟢 유저 정보 \(user)")
                         await send(.navigationToMainHome(user))
                     } else {
-                        print("🟢 로그인 정보 없음")
                         await send(.navigationToSignUp)
                     }
                 }
