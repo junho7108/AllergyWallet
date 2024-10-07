@@ -47,7 +47,7 @@ struct EmergencyCardView: View {
                                     allergies: .constant(viewStore.user.allergries))
                         .padding(.bottom, 48)
                     
-                    if let emergency = viewStore.user.emergencyCard {
+                    if let _ = viewStore.user.emergencyCard {
                         EmergencyContactInfoView(language: .constant(viewStore.languageState.language),
                                                  user: .constant(viewStore.user))
                         

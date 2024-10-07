@@ -26,14 +26,11 @@ struct Coordinator {
             
             switch action {
             case .router(.routeAction(_, action: .splash(.navigationToSignUp))):
-                state.routes = [.root(.signUp(.init()),
-                                      embedInNavigationView: true)]
+                state.routes = [.root(.signUp(.init()), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .splash(.navigationToMainHome(let user)))):
-                state.routes = [.root(.mainHome(.init(user: user)),
-                                      embedInNavigationView: true)]
-                
+                state.routes = [.root(.mainHome(.init(user: user)), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .signUp(.navigateToSelectAllergies(let user)))):
@@ -45,13 +42,10 @@ struct Coordinator {
                 return .none
                 
             case .router(.routeAction(_, action: .registerEmergencyCard(.navigationToHome(let user)))):
-                state.routes = [.root(.mainHome(.init(user: user)),
-                                      embedInNavigationView: true)]
+                state.routes = [.root(.mainHome(.init(user: user)), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .mainHome(.navigationToAllergyGuide(let guide)))):
-                
-                
                 switch guide {
                 case .checkMenu(let user),
                         .recommendMenu(let user),
@@ -70,8 +64,11 @@ struct Coordinator {
                 
             case .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))),
                     .router(.routeAction(_, action: .emergencyCard(.didTapBackButton))):
-                
                 state.routes.removeLast()
+                return .none
+                
+            case .router(.routeAction(_, action: .mainHome(.navigationToCreateEmergencyCard(let user)))):
+                state.routes.push(.registerEmergencyCard(.init(user: user)))
                 return .none
                 
             default:

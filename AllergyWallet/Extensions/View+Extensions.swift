@@ -28,4 +28,8 @@ extension View {
     func saveImageToGallery(_ image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
+    
+    func defaultShadow() -> some View {
+        return self.shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 0)
+    }
 }
