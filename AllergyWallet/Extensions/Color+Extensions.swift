@@ -9,6 +9,10 @@ import SwiftUI
 
 extension Color {
     
+    static var gray50: Color {
+        return .init(hex: "#f2f2f2")
+    }
+    
     static var gray200: Color {
         return .init(hex: "#dbdbdb")
     }

@@ -10,26 +10,18 @@ import ComposableArchitecture
 @Reducer
 struct MainHomeFeature {
     
-    enum MenuOption {
-        case checkMenu(User)
-        case recommendMenu(User)
-        case requestAllergenFree(User)
-        case checkCrossContamination(User)
-        case emergencySituation(User)
-    }
-    
     struct State: Equatable {
         var user: User
     }
     
     enum Action {
-        case navigationToMenuOption(MenuOption)
+        case navigationToAllergyGuide(AllergyGuideType)
     }
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .navigationToMenuOption(let option):
+            case .navigationToAllergyGuide:
                 return .none
             }
         }

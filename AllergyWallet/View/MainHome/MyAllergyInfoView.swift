@@ -8,10 +8,9 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct CheckMenuForAllergyCardView: View {
+struct MyAllergyInfoView: View {
     
-    @State private var currentLanguage: LanguageType = Const.language
-    let store: StoreOf<CheckMenuForAllergyFeature>
+    let store: StoreOf<AllergyGuideCardFeature>
     
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in

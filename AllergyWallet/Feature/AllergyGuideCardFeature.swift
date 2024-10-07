@@ -1,5 +1,5 @@
 //
-//  CheckMenuForAllergyFeature.swift
+//  AllergyGuideCardFeature.swift
 //  AllergyWallet
 //
 //  Created by Junho Yoon on 10/5/24.
@@ -8,24 +8,26 @@
 import ComposableArchitecture
 
 @Reducer
-struct CheckMenuForAllergyFeature {
+struct AllergyGuideCardFeature {
     
     struct State: Equatable {
-        var user: User
+        let user: User
+        let type: AllergyGuideType
         var grid: AllergyGridState
         var languageState: LanguageFeature.State = .init()
+        var hasAllergen: Bool?
     }
     
     enum Action {
         case didTapBackButton
         case languageAction(LanguageFeature.Action)
+        case didTapAllergenIncluded(Bool)
     }
     
     var body: some Reducer<State, Action> {
         
         Scope(state: \.languageState, action: \.languageAction) {
             LanguageFeature()
-                ._printChanges()
         }
         
         Reduce { state, action in
@@ -34,6 +36,10 @@ struct CheckMenuForAllergyFeature {
                 return .none
                 
             case .languageAction(.didChangeLanguage(_)):
+                return .none
+                
+            case .didTapAllergenIncluded(let selected):
+                state.hasAllergen = selected
                 return .none
             }
         }

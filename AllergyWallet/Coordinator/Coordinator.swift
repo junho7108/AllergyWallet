@@ -49,17 +49,25 @@ struct Coordinator {
                                       embedInNavigationView: true)]
                 return .none
                 
-            case .router(.routeAction(_, action: .mainHome(.navigationToMenuOption(let option)))):
-                switch option {
-                case .checkMenu(let user):
-                    state.routes.presentCover(.checkMenuForAllergy(.init(user: user,
-                                                                         grid: .init(allergies: user.allergries))))
+            case .router(.routeAction(_, action: .mainHome(.navigationToAllergyGuide(let guide)))):
+                
+                
+                switch guide {
+                case .checkMenu(let user),
+                        .recommendMenu(let user),
+                        .requestAllergenFree(let user),
+                        .checkCrossContamination(let user):
+                    
+                    state.routes.presentCover(.allergyGuideCard(.init(user: user,
+                                                                      type: guide,
+                                                                      grid: .init(allergies: user.allergries))))
                     return .none
-                default:
+                    
+                case .emergencySituation(let user):
                     return .none
                 }
                 
-            case .router(.routeAction(_, action: .checkMenuForAllergy(.didTapBackButton))):
+            case .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))):
                 state.routes.removeLast()
                 return .none
                 

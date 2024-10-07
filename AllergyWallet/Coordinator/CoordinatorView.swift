@@ -36,8 +36,8 @@ struct CoordinatorView: View {
             case .mainHome(let store):
                 MainHomeView(store: store)
                 
-            case .checkMenuForAllergy(let store):
-                CheckMenuForAllergyCardView(store: store)
+            case .allergyGuideCard(let store):
+                AllergyGuideCardView(store: store)
             }
         }
     }
