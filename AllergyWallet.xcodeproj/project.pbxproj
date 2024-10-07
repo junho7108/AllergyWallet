@@ -31,6 +31,11 @@
 		125159EC2CB28D70000D0ADA /* LanguageFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159EB2CB28D70000D0ADA /* LanguageFeature.swift */; };
 		125159EE2CB29643000D0ADA /* AllergyGuideCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159ED2CB29643000D0ADA /* AllergyGuideCardView.swift */; };
 		125159F22CB3D5A2000D0ADA /* AllergyGuideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159F12CB3D5A2000D0ADA /* AllergyGuideType.swift */; };
+		125159F42CB3DD4D000D0ADA /* EmergencyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159F32CB3DD4D000D0ADA /* EmergencyCardView.swift */; };
+		125159F62CB3DD61000D0ADA /* EmergencyCardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159F52CB3DD61000D0ADA /* EmergencyCardFeature.swift */; };
+		125159F82CB3E296000D0ADA /* AllergySymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159F72CB3E296000D0ADA /* AllergySymptomsView.swift */; };
+		125159FA2CB3EECC000D0ADA /* AllergyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159F92CB3EECC000D0ADA /* AllergyListView.swift */; };
+		125159FC2CB3FADF000D0ADA /* EmergencyContactInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159FB2CB3FADF000D0ADA /* EmergencyContactInfoView.swift */; };
 		127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */; };
 		127EC0AA2CACFFA300A3408C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0A92CACFFA300A3408C /* Assets.xcassets */; };
 		127EC0AD2CACFFA300A3408C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */; };
@@ -82,6 +87,11 @@
 		125159EB2CB28D70000D0ADA /* LanguageFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFeature.swift; sourceTree = "<group>"; };
 		125159ED2CB29643000D0ADA /* AllergyGuideCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyGuideCardView.swift; sourceTree = "<group>"; };
 		125159F12CB3D5A2000D0ADA /* AllergyGuideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyGuideType.swift; sourceTree = "<group>"; };
+		125159F32CB3DD4D000D0ADA /* EmergencyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyCardView.swift; sourceTree = "<group>"; };
+		125159F52CB3DD61000D0ADA /* EmergencyCardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyCardFeature.swift; sourceTree = "<group>"; };
+		125159F72CB3E296000D0ADA /* AllergySymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergySymptomsView.swift; sourceTree = "<group>"; };
+		125159F92CB3EECC000D0ADA /* AllergyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyListView.swift; sourceTree = "<group>"; };
+		125159FB2CB3FADF000D0ADA /* EmergencyContactInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactInfoView.swift; sourceTree = "<group>"; };
 		127EC0A22CACFFA100A3408C /* AllergyWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergyWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyWalletApp.swift; sourceTree = "<group>"; };
 		127EC0A92CACFFA300A3408C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +164,7 @@
 				127EC0E42CAE656400A3408C /* MainHomeView.swift */,
 				125159D72CB18951000D0ADA /* MyAllergyInfoView.swift */,
 				125159ED2CB29643000D0ADA /* AllergyGuideCardView.swift */,
+				125159F32CB3DD4D000D0ADA /* EmergencyCardView.swift */,
 			);
 			path = MainHome;
 			sourceTree = "<group>";
@@ -169,6 +180,9 @@
 				125159C42CB15285000D0ADA /* EmergencySituationView.swift */,
 				125159DF2CB18E65000D0ADA /* AllergyGridView.swift */,
 				125159E72CB283B5000D0ADA /* LanguageSelectButton.swift */,
+				125159F72CB3E296000D0ADA /* AllergySymptomsView.swift */,
+				125159F92CB3EECC000D0ADA /* AllergyListView.swift */,
+				125159FB2CB3FADF000D0ADA /* EmergencyContactInfoView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -263,8 +277,9 @@
 				127EC0C62CAD17B200A3408C /* SelectAllergyFeature.swift */,
 				127EC0DB2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift */,
 				127EC0E62CAE668E00A3408C /* MainHomeFeature.swift */,
-				125159DD2CB189D7000D0ADA /* AllergyGuideCardFeature.swift */,
 				125159EB2CB28D70000D0ADA /* LanguageFeature.swift */,
+				125159DD2CB189D7000D0ADA /* AllergyGuideCardFeature.swift */,
+				125159F52CB3DD61000D0ADA /* EmergencyCardFeature.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -393,7 +408,9 @@
 				127EC0E12CAD76A900A3408C /* AllergyCheckBoxView.swift in Sources */,
 				127EC0E72CAE668E00A3408C /* MainHomeFeature.swift in Sources */,
 				125159F22CB3D5A2000D0ADA /* AllergyGuideType.swift in Sources */,
+				125159FC2CB3FADF000D0ADA /* EmergencyContactInfoView.swift in Sources */,
 				127EC0C92CAD17FE00A3408C /* Coordinator.swift in Sources */,
+				125159FA2CB3EECC000D0ADA /* AllergyListView.swift in Sources */,
 				125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */,
 				125159E02CB18E65000D0ADA /* AllergyGridView.swift in Sources */,
 				125159BF2CB151CB000D0ADA /* RecommendMenuView.swift in Sources */,
@@ -404,6 +421,8 @@
 				125159E82CB283B5000D0ADA /* LanguageSelectButton.swift in Sources */,
 				125159D42CB16398000D0ADA /* AuthRepository.swift in Sources */,
 				127EC0DA2CAD6EAA00A3408C /* RegisterEmergencyCardView.swift in Sources */,
+				125159F42CB3DD4D000D0ADA /* EmergencyCardView.swift in Sources */,
+				125159F82CB3E296000D0ADA /* AllergySymptomsView.swift in Sources */,
 				125159DE2CB189D7000D0ADA /* AllergyGuideCardFeature.swift in Sources */,
 				125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */,
 				125159EC2CB28D70000D0ADA /* LanguageFeature.swift in Sources */,
@@ -426,6 +445,7 @@
 				125159C72CB15CB6000D0ADA /* SplashView.swift in Sources */,
 				125159D82CB18951000D0ADA /* MyAllergyInfoView.swift in Sources */,
 				125159EA2CB284E1000D0ADA /* LanguageType.swift in Sources */,
+				125159F62CB3DD61000D0ADA /* EmergencyCardFeature.swift in Sources */,
 				127EC0C52CAD177C00A3408C /* Screen.swift in Sources */,
 				127EC0D42CAD52F500A3408C /* User.swift in Sources */,
 				125159D62CB16447000D0ADA /* SignUpUsecase.swift in Sources */,

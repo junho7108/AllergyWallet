@@ -38,6 +38,9 @@ struct CoordinatorView: View {
                 
             case .allergyGuideCard(let store):
                 AllergyGuideCardView(store: store)
+                
+            case .emergencyCard(let store):
+                EmergencyCardView(store: store)
             }
         }
     }

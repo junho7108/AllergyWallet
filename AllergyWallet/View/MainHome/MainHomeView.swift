@@ -52,7 +52,11 @@ struct MainHomeView: View {
                     .zIndex(3)
                     
                     EmergencySituationView(store: store, didTapButton: {
-                        viewStore.send(.navigationToAllergyGuide(.emergencySituation(viewStore.user)))
+                        if let _ = viewStore.user.emergencyCard {
+                            viewStore.send(.navigationToAllergyGuide(.emergencySituation(viewStore.user)))
+                        } else {
+                            
+                        }
                     })
                     .offset(x: 0, y: 240)
                     .zIndex(4)

@@ -34,7 +34,11 @@ extension Color {
     }
     
     static var primary50: Color {
-        return .init(Color(hex: "#DFF3EC"))
+        return .init(hex: "#DFF3EC")
+    }
+    
+    static var semanticError: Color {
+        return .init(hex: "#DD4040")
     }
     
     init(hex: String) {

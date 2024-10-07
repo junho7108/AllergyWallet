@@ -64,10 +64,13 @@ struct Coordinator {
                     return .none
                     
                 case .emergencySituation(let user):
+                    state.routes.presentCover(.emergencyCard(.init(user: user)))
                     return .none
                 }
                 
-            case .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))):
+            case .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))),
+                    .router(.routeAction(_, action: .emergencyCard(.didTapBackButton))):
+                
                 state.routes.removeLast()
                 return .none
                 

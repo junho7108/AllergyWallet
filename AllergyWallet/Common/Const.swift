@@ -8,5 +8,5 @@
 import Foundation
 
 struct Const {
-    static var language: LanguageType = .eng
+    static var language: LanguageType = .kor
 }

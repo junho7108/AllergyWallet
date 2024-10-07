@@ -52,15 +52,15 @@ struct AllergyGuideCardView: View {
                     }) {
                         Text(makePositiveButtonTitle(guide: viewStore.type,
                                                      language: viewStore.languageState.language))
-                            .font(.system(size: 16))
-                            .foregroundColor(viewStore.hasAllergen == false
-                                             ? Color.white
-                                             : Color.primary500)
-                            .frame(maxWidth: .infinity, maxHeight: 51)
-                            .background(viewStore.hasAllergen == false
-                                        ? Color.primary500
-                                        : Color.white)
-                            .cornerRadius(12)
+                        .font(.system(size: 16))
+                        .foregroundColor(viewStore.hasAllergen == false
+                                         ? Color.white
+                                         : Color.primary500)
+                        .frame(maxWidth: .infinity, maxHeight: 51)
+                        .background(viewStore.hasAllergen == false
+                                    ? Color.primary500
+                                    : Color.white)
+                        .cornerRadius(12)
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
@@ -73,32 +73,27 @@ struct AllergyGuideCardView: View {
                     }) {
                         Text(makeNegativeButtonTitle(guide: viewStore.type,
                                                      language: viewStore.languageState.language))
-                            .font(.system(size: 16))
-                            .foregroundColor(viewStore.hasAllergen == true
-                                             ? Color.white
-                                             : Color.primary500)
-                            .frame(maxWidth: .infinity, maxHeight: 51)
-                            .background(viewStore.hasAllergen == true
-                                        ? Color.primary500
-                                        : Color.white)
-                            .cornerRadius(12)
+                        .font(.system(size: 16))
+                        .foregroundColor(viewStore.hasAllergen == true
+                                         ? Color.white
+                                         : Color.primary500)
+                        .frame(maxWidth: .infinity, maxHeight: 51)
+                        .background(viewStore.hasAllergen == true
+                                    ? Color.primary500
+                                    : Color.white)
+                        .cornerRadius(12)
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.primary500, lineWidth: 0.8)
                     )
-
                 }
-
-               
-                
             }
             .padding(.horizontal, 24)
             .background(makeBackgroundColor(guid: viewStore.type))
         }
         .statusBarHidden(true)
         .ignoresSafeArea(edges: .top)
-        .frame(maxWidth: .infinity)
     }
 }
 

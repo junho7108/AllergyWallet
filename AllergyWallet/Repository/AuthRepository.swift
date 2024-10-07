@@ -18,7 +18,9 @@ final class AuthRepository: AuthRepositoryType {
     }
     
     func fetchUser() async -> User? {
-        return UserDefaults.standard.loadUser()
+        let user = await UserDefaults.standard.loadUser()
+        print("🟢 user \(user)")
+        return user
     }
 }
 
