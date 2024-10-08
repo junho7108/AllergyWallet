@@ -74,6 +74,15 @@ struct RegisterEmergencyCardView: View {
                                        ))
                         .frame(maxWidth: .infinity)
                         .padding(.bottom, 24)
+                        
+                        InputTextField(title: "Korean Contact",
+                                       placeholder: "Korean Contact",
+                                       textBinding: Binding<String>(
+                                        get: { viewStore.koreanContact ?? "" },
+                                        set: { viewStore.send(.didChangeKoreanContact($0)) }
+                                       ))
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom, 24)
                     }
                 }
                
@@ -83,7 +92,7 @@ struct RegisterEmergencyCardView: View {
                     Button(action: {
                         viewStore.send(.didTapSkip)
                     }) {
-                        Text("Skip")
+                        Text("Cancel")
                             .font(.system(size: 16))
                             .foregroundColor(Color.primary500)
                             .frame(width: 185, height: 51)
@@ -101,7 +110,7 @@ struct RegisterEmergencyCardView: View {
                     Button(action: {
                         viewStore.send(.didTapRegisterEmergencyCard)
                     }) {
-                        Text("Save")
+                        Text("Create")
                             .font(.system(size: 16))
                             .foregroundColor(.white)
                             .frame(width: 185, height: 51)

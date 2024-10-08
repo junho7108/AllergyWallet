@@ -8,10 +8,10 @@
 import Foundation
 
 struct EmergencyCard: Codable, Equatable {
-    var firstName: String
-    var lastName: String
-    var birthDate: String
-    var nationality: String
-    var emergencyContact: String
-    var koreanContact: String
+    var firstName: String?
+    var lastName: String?
+    var birthDate: String?
+    var nationality: String?
+    var emergencyContact: String?
+    var koreanContact: String?
 }

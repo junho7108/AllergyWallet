@@ -59,9 +59,13 @@ struct EmergencyCardView: View {
             .padding(.horizontal, 24)
             .background(
                 LinearGradient(
-                    gradient: Gradient(colors: [.white, Color(hex: "#FFE9E9")]),
-                    startPoint: .top,
-                    endPoint: .bottom
+                    stops: [
+                        Gradient.Stop(color: .white, location: 0.00),
+                        Gradient.Stop(color: Color(red: 0.99, green: 0.92, blue: 0.92), location: 0.47),
+                        Gradient.Stop(color: Color(red: 0.96, green: 0.75, blue: 0.75), location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 0.5, y: 0.06),
+                    endPoint: UnitPoint(x: 0.5, y: 1)
                 )
             )
         }

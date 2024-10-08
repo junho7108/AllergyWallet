@@ -28,6 +28,7 @@ struct RegisterEmergencyCardFeature {
         case didChangeBirthDate(String)
         case didChangeNationality(String)
         case didChangeEmergencyContact(String)
+        case didChangeKoreanContact(String)
         case didTapSkip
         case didTapRegisterEmergencyCard
         
@@ -61,6 +62,10 @@ struct RegisterEmergencyCardFeature {
                 state.emergencyContact = emergencyContact
                 return .none
                 
+            case .didChangeKoreanContact(let koreanContact):
+                state.koreanContact = koreanContact
+                return .none
+                
             case .didTapSkip:
                 return .send(.signUpUser(state.user))
                 
@@ -68,12 +73,12 @@ struct RegisterEmergencyCardFeature {
                 return .none
                 
             case .didTapRegisterEmergencyCard:
-                state.user.emergencyCard = EmergencyCard(firstName: state.firstName ?? "",
-                                                         lastName: state.lastName ?? "",
-                                                         birthDate: state.birthDate ?? "",
-                                                         nationality: state.nationality ?? "",
-                                                         emergencyContact: state.emergencyContact ?? "",
-                                                         koreanContact: state.koreanContact ?? "")
+                state.user.emergencyCard = EmergencyCard(firstName: state.firstName,
+                                                         lastName: state.lastName,
+                                                         birthDate: state.birthDate,
+                                                         nationality: state.nationality,
+                                                         emergencyContact: state.emergencyContact,
+                                                         koreanContact: state.koreanContact)
  
                 return .send(.signUpUser(state.user))
                 
