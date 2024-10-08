@@ -16,6 +16,7 @@ struct MainHomeFeature {
     }
     
     enum Action {
+        case didTapSetting
         case navigationToAllergyGuide(AllergyGuideType)
         case showEmergencyPopup(Bool)
         case navigationToCreateEmergencyCard(User)

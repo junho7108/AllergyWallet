@@ -18,17 +18,28 @@ struct MainHomeView: View {
             
             ZStack {
                 
-                VStack(alignment: .leading) {
-                    Text("Safe Travels,")
-                        .font(.system(size: 28, weight: .semibold))
+                VStack(alignment: .leading, spacing: 24) {
                     
-                    Text(viewStore.user.name)
-                        .font(.system(size: 28, weight: .semibold))
-                        .foregroundColor(Color.primary500)
+                    MainTopView {
+                        viewStore.send(.didTapSetting)
+                    }
                     
-                    AllergyInfoView(store: store)
-                        .padding(.bottom, 16)
-                    
+                    VStack(alignment: .leading, spacing: 12) {
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Safe Travels,")
+                                .font(.system(size: 28, weight: .semibold))
+                            
+                            Text(viewStore.user.name)
+                                .font(.system(size: 28, weight: .semibold))
+                                .foregroundColor(Color.primary500)
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 4)
+                     
+                        AllergyInfoView(store: store)
+                    }
+            
                     ZStack {
                         CheckMenuForAllergyView(store: store, didTapButton: {
                             viewStore.send(.navigationToAllergyGuide(.checkMenu(viewStore.user)))
