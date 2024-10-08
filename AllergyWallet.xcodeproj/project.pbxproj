@@ -38,6 +38,13 @@
 		125159FC2CB3FADF000D0ADA /* EmergencyContactInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159FB2CB3FADF000D0ADA /* EmergencyContactInfoView.swift */; };
 		125159FE2CB42934000D0ADA /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159FD2CB42934000D0ADA /* PopupView.swift */; };
 		12515A002CB51CA1000D0ADA /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159FF2CB51CA1000D0ADA /* MainTopView.swift */; };
+		12515A032CB520FC000D0ADA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A022CB520FC000D0ADA /* SettingView.swift */; };
+		12515A052CB5210C000D0ADA /* SettingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A042CB5210C000D0ADA /* SettingFeature.swift */; };
+		12515A082CB52248000D0ADA /* SettingTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A072CB52248000D0ADA /* SettingTopView.swift */; };
+		12515A0A2CB5253E000D0ADA /* ProfileSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A092CB5253E000D0ADA /* ProfileSettingView.swift */; };
+		12515A0C2CB52EBE000D0ADA /* ProfileEditFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A0B2CB52EBE000D0ADA /* ProfileEditFeature.swift */; };
+		12515A0E2CB532CE000D0ADA /* EditNicknamePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */; };
+		12515A102CB54C3B000D0ADA /* EditNicknameFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A0F2CB54C3B000D0ADA /* EditNicknameFeature.swift */; };
 		127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */; };
 		127EC0AA2CACFFA300A3408C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0A92CACFFA300A3408C /* Assets.xcassets */; };
 		127EC0AD2CACFFA300A3408C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */; };
@@ -96,6 +103,13 @@
 		125159FB2CB3FADF000D0ADA /* EmergencyContactInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactInfoView.swift; sourceTree = "<group>"; };
 		125159FD2CB42934000D0ADA /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		125159FF2CB51CA1000D0ADA /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
+		12515A022CB520FC000D0ADA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		12515A042CB5210C000D0ADA /* SettingFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFeature.swift; sourceTree = "<group>"; };
+		12515A072CB52248000D0ADA /* SettingTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTopView.swift; sourceTree = "<group>"; };
+		12515A092CB5253E000D0ADA /* ProfileSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingView.swift; sourceTree = "<group>"; };
+		12515A0B2CB52EBE000D0ADA /* ProfileEditFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditFeature.swift; sourceTree = "<group>"; };
+		12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknamePopup.swift; sourceTree = "<group>"; };
+		12515A0F2CB54C3B000D0ADA /* EditNicknameFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameFeature.swift; sourceTree = "<group>"; };
 		127EC0A22CACFFA100A3408C /* AllergyWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergyWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyWalletApp.swift; sourceTree = "<group>"; };
 		127EC0A92CACFFA300A3408C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,8 +229,20 @@
 		12515A012CB52032000D0ADA /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				12515A062CB52240000D0ADA /* Component */,
+				12515A022CB520FC000D0ADA /* SettingView.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		12515A062CB52240000D0ADA /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				12515A072CB52248000D0ADA /* SettingTopView.swift */,
+				12515A092CB5253E000D0ADA /* ProfileSettingView.swift */,
+				12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		127EC0992CACFFA100A3408C = {
@@ -294,6 +320,9 @@
 				125159EB2CB28D70000D0ADA /* LanguageFeature.swift */,
 				125159DD2CB189D7000D0ADA /* AllergyGuideCardFeature.swift */,
 				125159F52CB3DD61000D0ADA /* EmergencyCardFeature.swift */,
+				12515A042CB5210C000D0ADA /* SettingFeature.swift */,
+				12515A0B2CB52EBE000D0ADA /* ProfileEditFeature.swift */,
+				12515A0F2CB54C3B000D0ADA /* EditNicknameFeature.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -427,6 +456,7 @@
 				125159FA2CB3EECC000D0ADA /* AllergyListView.swift in Sources */,
 				125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */,
 				125159E02CB18E65000D0ADA /* AllergyGridView.swift in Sources */,
+				12515A082CB52248000D0ADA /* SettingTopView.swift in Sources */,
 				125159BF2CB151CB000D0ADA /* RecommendMenuView.swift in Sources */,
 				127EC0CE2CAD477300A3408C /* UIColor+Extensions.swift in Sources */,
 				127EC0CB2CAD18B300A3408C /* CoordinatorView.swift in Sources */,
@@ -437,16 +467,21 @@
 				127EC0DA2CAD6EAA00A3408C /* RegisterEmergencyCardView.swift in Sources */,
 				125159F42CB3DD4D000D0ADA /* EmergencyCardView.swift in Sources */,
 				125159F82CB3E296000D0ADA /* AllergySymptomsView.swift in Sources */,
+				12515A032CB520FC000D0ADA /* SettingView.swift in Sources */,
 				125159DE2CB189D7000D0ADA /* AllergyGuideCardFeature.swift in Sources */,
+				12515A0A2CB5253E000D0ADA /* ProfileSettingView.swift in Sources */,
 				125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */,
 				125159EC2CB28D70000D0ADA /* LanguageFeature.swift in Sources */,
 				127EC0E92CAFDAA500A3408C /* AllergyInfoView.swift in Sources */,
 				127EC0C32CAD16DB00A3408C /* SelectAllergyView.swift in Sources */,
 				127EC0DC2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift in Sources */,
+				12515A052CB5210C000D0ADA /* SettingFeature.swift in Sources */,
 				125159D22CB1632F000D0ADA /* UserDefaults+Extensions.swift in Sources */,
 				125159E42CB280B8000D0ADA /* View+Extensions.swift in Sources */,
+				12515A0C2CB52EBE000D0ADA /* ProfileEditFeature.swift in Sources */,
 				125159C32CB1525D000D0ADA /* CrossContaminationCheckView.swift in Sources */,
 				127EC0E32CAE5DAB00A3408C /* EmergencyCard.swift in Sources */,
+				12515A0E2CB532CE000D0ADA /* EditNicknamePopup.swift in Sources */,
 				125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */,
 				127EC0D82CAD5CFA00A3408C /* Allergy.swift in Sources */,
 				125159FE2CB42934000D0ADA /* PopupView.swift in Sources */,
@@ -466,6 +501,7 @@
 				127EC0D42CAD52F500A3408C /* User.swift in Sources */,
 				125159D62CB16447000D0ADA /* SignUpUsecase.swift in Sources */,
 				125159E62CB2829C000D0ADA /* Const.swift in Sources */,
+				12515A102CB54C3B000D0ADA /* EditNicknameFeature.swift in Sources */,
 				125159EE2CB29643000D0ADA /* AllergyGuideCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,6 @@ struct LanguageFeature {
         Reduce { state, action in
             switch action {
             case .didChangeLanguage(let language):
-                print("🟢 did change language \(language)")
                 Const.language = language
                 state.language = language
                 return .none

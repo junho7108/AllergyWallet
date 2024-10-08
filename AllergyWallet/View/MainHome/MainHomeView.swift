@@ -21,7 +21,7 @@ struct MainHomeView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     
                     MainTopView {
-                        viewStore.send(.didTapSetting)
+                        viewStore.send(.navigationToSetting(viewStore.user))
                     }
                     
                     VStack(alignment: .leading, spacing: 12) {

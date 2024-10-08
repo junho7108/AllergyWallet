@@ -63,12 +63,21 @@ struct Coordinator {
                 }
                 
             case .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))),
-                    .router(.routeAction(_, action: .emergencyCard(.didTapBackButton))):
+                    .router(.routeAction(_, action: .emergencyCard(.didTapBackButton))),
+                    .router(.routeAction(_, action: .setting(.didTapBack))):
                 state.routes.removeLast()
                 return .none
                 
             case .router(.routeAction(_, action: .mainHome(.navigationToCreateEmergencyCard(let user)))):
                 state.routes.push(.registerEmergencyCard(.init(user: user)))
+                return .none
+                
+            case .router(.routeAction(_, action: .mainHome(.navigationToSetting(let user)))):
+                state.routes.presentCover(.setting(.init(user: user,
+                                                         profileEditState: .init(
+                                                            user: user,
+                                                            editNicknameState: .init(username: user.name))
+                                                        )))
                 return .none
                 
             default:

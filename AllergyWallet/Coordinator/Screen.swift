@@ -16,4 +16,5 @@ enum Screen {
     case mainHome(MainHomeFeature)
     case allergyGuideCard(AllergyGuideCardFeature)
     case emergencyCard(EmergencyCardFeature)
+    case setting(SettingFeature)
 }

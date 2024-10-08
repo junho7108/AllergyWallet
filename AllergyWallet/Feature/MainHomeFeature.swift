@@ -16,10 +16,10 @@ struct MainHomeFeature {
     }
     
     enum Action {
-        case didTapSetting
-        case navigationToAllergyGuide(AllergyGuideType)
         case showEmergencyPopup(Bool)
+        case navigationToAllergyGuide(AllergyGuideType)
         case navigationToCreateEmergencyCard(User)
+        case navigationToSetting(User)
     }
     
     var body: some Reducer<State, Action> {
