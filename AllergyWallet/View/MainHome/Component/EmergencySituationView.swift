@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct EmergencySituationView: View {
     
-    var didTapButton: (() -> Void)
+    var didTapButton: (() -> Void)? = nil
     
     var body: some View {
         
@@ -26,7 +26,7 @@ struct EmergencySituationView: View {
                     
                     Spacer()
                     
-                    Button { didTapButton() } label: {
+                    Button { didTapButton?() } label: {
                         HStack {
                             Spacer()
                             Image("Icon_arrow")

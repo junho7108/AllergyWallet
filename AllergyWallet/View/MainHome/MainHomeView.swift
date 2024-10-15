@@ -22,6 +22,7 @@ struct MainHomeView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     
                     MainTopView { viewStore.send(.navigationToSetting(viewStore.users)) }
+                        .padding(.horizontal, 24)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         
@@ -31,18 +32,23 @@ struct MainHomeView: View {
                                 
                                 ScrollView(.vertical, showsIndicators: false) {
                                     
-                                    if index >= viewStore.users.count {
-                                        Spacer()
+                                    VStack(alignment: .leading, spacing: 0) {
+                                        Text("Safe Travels,")
+                                            .font(.system(size: 28, weight: .semibold))
                                         
-                                        Text("회원가입")
-                                        
-                                        Spacer()
-                                    } else {
-                                        let user = viewStore.users[index]
-                              
-                                        VStack(alignment: .leading, spacing: 0) {
-                                            Text("Safe Travels,")
+                                        if index >= viewStore.users.count {
+                                            Text("New Account")
                                                 .font(.system(size: 28, weight: .semibold))
+                                                .foregroundColor(Color.primary500)
+                                                .padding(.bottom, 16)
+                                            
+                                            AllergyInfoView(allergies: .constant([]))
+                                                .padding(.bottom, 48)
+                                            
+                                            createAllergyCardView()
+                                            
+                                        } else {
+                                            let user = viewStore.users[index]
                                             
                                             Text(user.name)
                                                 .font(.system(size: 28, weight: .semibold))
@@ -52,51 +58,60 @@ struct MainHomeView: View {
                                             AllergyInfoView(allergies: .constant(user.allergries))
                                                 .padding(.bottom, 48)
                                             
-                                            ZStack {
-                                                CheckMenuForAllergyView(didTapButton: {
-                                                    viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
-                                                })
-                                                .offset(x: 0, y: 0)
-                                                .zIndex(0)
-                                                
-                                                RecommendMenuView(didTapButton: {
-                                                    viewStore.send(.navigationToAllergyGuide(.recommendMenu(user)))
-                                                })
-                                                .offset(x: 0, y: 60)
-                                                .zIndex(1)
-                                                
-                                                AllergenFreeRequestView(didTapButton: {
-                                                    viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user)))
-                                                })
-                                                .offset(x: 0, y: 120)
-                                                .zIndex(2)
-                                                
-                                                CrossContaminationCheckView(didTapButton: {
-                                                    viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user)))
-                                                })
-                                                .offset(x: 0, y: 180)
-                                                .zIndex(3)
-                                                
-                                                EmergencySituationView(didTapButton: {
-                                                    viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
-                                                })
-                                                .offset(x: 0, y: 240)
-                                                .zIndex(4)
+                                            createAllergyCardView {
+                                                viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
+                                            } didTapRecommendMenu: {
+                                                viewStore.send(.navigationToAllergyGuide(.recommendMenu(user)))
+                                            } didTapReqeustAllergyFree: {
+                                                viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user)))
+                                            } didTapCrossContaminationCheck: {
+                                                viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user)))
+                                            } didTapEmergencySituation: {
+                                                viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
                                             }
-                                            
-                                            Spacer()
                                         }
+                                    
+                                        Spacer()
                                     }
+                                    .padding(.horizontal, 24)
                                 }
-                                .frame(width: UIScreen.main.bounds.width - 48)
+                                .frame(width: UIScreen.main.bounds.width)
                             }
                         }
                     }
                 }
                 .scrollTargetBehavior(.paging)
             }
-            .padding(.horizontal, 24)
         }
-        .background(.clear)
+    }
+}
+
+private extension MainHomeView {
+    func createAllergyCardView(didTapCheckMenu: (() -> Void)? = nil,
+                               didTapRecommendMenu: (() -> Void)? = nil,
+                               didTapReqeustAllergyFree: (() -> Void)? = nil,
+                               didTapCrossContaminationCheck: (() -> Void)? = nil,
+                               didTapEmergencySituation: (() -> Void)? = nil) -> some View {
+        return ZStack {
+            CheckMenuForAllergyView(didTapButton: didTapCheckMenu)
+                .offset(x: 0, y: 0)
+                .zIndex(0)
+            
+            RecommendMenuView(didTapButton: didTapRecommendMenu)
+                .offset(x: 0, y: 60)
+                .zIndex(1)
+            
+            AllergenFreeRequestView(didTapButton: didTapReqeustAllergyFree)
+                .offset(x: 0, y: 120)
+                .zIndex(2)
+            
+            CrossContaminationCheckView(didTapButton: didTapCrossContaminationCheck)
+                .offset(x: 0, y: 180)
+                .zIndex(3)
+            
+            EmergencySituationView(didTapButton: didTapEmergencySituation)
+                .offset(x: 0, y: 240)
+                .zIndex(4)
+        }
     }
 }

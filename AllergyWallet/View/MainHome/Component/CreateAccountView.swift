@@ -1,34 +1,28 @@
 //
-//  CrossContaminationCheckView.swift
+//  CreateAccountView.swift
 //  AllergyWallet
 //
-//  Created by Junho Yoon on 10/5/24.
+//  Created by Junho Yoon on 10/15/24.
 //
 
 import SwiftUI
-import ComposableArchitecture
 
-struct CrossContaminationCheckView: View {
-    
-    var didTapButton: (() -> Void)? = nil
-    
+struct CreateAccountView: View {
     var body: some View {
         
         ZStack(alignment: .bottomTrailing) {
-            
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white)
-            
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color(hex: "#DFF3EC"))
+           
             VStack(alignment: .leading) {
                 
                 HStack {
-                    Text("Cross Contamination Check")
+                    Text("My Allegry Info")
                         .font(.system(size: 16))
                     
                     Spacer()
                     
-                    Button { didTapButton?() } label: {
-                        
+                    Button { } label: {
                         HStack {
                             Spacer()
                             Image("Icon_arrow")
@@ -40,12 +34,15 @@ struct CrossContaminationCheckView: View {
                     }
                     .frame(width: 40, height: 40)
                 }
+                .frame(height: 24)
                 .padding(16)
                 
+                
+               
                 Spacer()
             }
         }
         .shadow(color: .black.opacity(0.1), radius: 5)
-        .frame(height: 116)
+        .frame(maxWidth: .infinity, maxHeight: 248)
     }
 }

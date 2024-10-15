@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct CheckMenuForAllergyView: View {
     
-    var didTapButton: (() -> Void)
+    var didTapButton: (() -> Void)? = nil
     
     var body: some View {
         
@@ -26,7 +26,7 @@ struct CheckMenuForAllergyView: View {
                     
                     Spacer()
                     
-                    Button { didTapButton() } label: {
+                    Button { didTapButton?() } label: {
                         
                         HStack {
                             Spacer()

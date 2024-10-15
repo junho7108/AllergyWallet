@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 struct AllergenFreeRequestView: View {
     
-    var didTapButton: (() -> Void)
+    var didTapButton: (() -> Void)? = nil
     
     var body: some View {
         
@@ -26,7 +26,7 @@ struct AllergenFreeRequestView: View {
                     
                     Spacer()
                     
-                    Button { didTapButton() } label: {
+                    Button { didTapButton?() } label: {
                         
                         HStack {
                             Spacer()

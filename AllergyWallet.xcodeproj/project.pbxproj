@@ -45,6 +45,7 @@
 		12515A0C2CB52EBE000D0ADA /* ProfileEditFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A0B2CB52EBE000D0ADA /* ProfileEditFeature.swift */; };
 		12515A0E2CB532CE000D0ADA /* EditNicknamePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */; };
 		12515A102CB54C3B000D0ADA /* EditNicknameFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A0F2CB54C3B000D0ADA /* EditNicknameFeature.swift */; };
+		12515A122CBE1E3F000D0ADA /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A112CBE1E3F000D0ADA /* CreateAccountView.swift */; };
 		127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */; };
 		127EC0AA2CACFFA300A3408C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0A92CACFFA300A3408C /* Assets.xcassets */; };
 		127EC0AD2CACFFA300A3408C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		12515A0B2CB52EBE000D0ADA /* ProfileEditFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditFeature.swift; sourceTree = "<group>"; };
 		12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknamePopup.swift; sourceTree = "<group>"; };
 		12515A0F2CB54C3B000D0ADA /* EditNicknameFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameFeature.swift; sourceTree = "<group>"; };
+		12515A112CBE1E3F000D0ADA /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		127EC0A22CACFFA100A3408C /* AllergyWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergyWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyWalletApp.swift; sourceTree = "<group>"; };
 		127EC0A92CACFFA300A3408C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				125159FF2CB51CA1000D0ADA /* MainTopView.swift */,
 				127EC0E82CAFDAA500A3408C /* AllergyInfoView.swift */,
+				12515A112CBE1E3F000D0ADA /* CreateAccountView.swift */,
 				125159BC2CB14C35000D0ADA /* CheckMenuForAllergyView.swift */,
 				125159BE2CB151CB000D0ADA /* RecommendMenuView.swift */,
 				125159C02CB15203000D0ADA /* AllergenFreeRequestView.swift */,
@@ -452,6 +455,7 @@
 				127EC0E72CAE668E00A3408C /* MainHomeFeature.swift in Sources */,
 				125159F22CB3D5A2000D0ADA /* AllergyGuideType.swift in Sources */,
 				125159FC2CB3FADF000D0ADA /* EmergencyContactInfoView.swift in Sources */,
+				12515A122CBE1E3F000D0ADA /* CreateAccountView.swift in Sources */,
 				127EC0C92CAD17FE00A3408C /* Coordinator.swift in Sources */,
 				125159FA2CB3EECC000D0ADA /* AllergyListView.swift in Sources */,
 				125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */,
