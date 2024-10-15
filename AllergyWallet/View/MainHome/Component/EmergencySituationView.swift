@@ -10,50 +10,45 @@ import ComposableArchitecture
 
 struct EmergencySituationView: View {
     
-    let store: StoreOf<MainHomeFeature>
-    
     var didTapButton: (() -> Void)
     
     var body: some View {
         
-        WithViewStore(store, observe: { $0 }) { viewStore in
+        ZStack(alignment: .bottomTrailing) {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color(red: 0.96, green: 0.75, blue: 0.75))
             
-            ZStack(alignment: .bottomTrailing) {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color(red: 0.96, green: 0.75, blue: 0.75))
+            VStack(alignment: .leading, spacing: 8) {
                 
-                VStack(alignment: .leading, spacing: 8) {
-                    
-                    HStack {
-                        Text("Emergency Situation")
-                            .font(.system(size: 16))
-                        
-                        Spacer()
-                        
-                        Button { didTapButton() } label: {
-                            HStack {
-                                Spacer()
-                                Image("Icon_arrow")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 24, height: 24)
-                            }
-                           
-                        }
-                        .frame(width: 40, height: 24)
-                    }
-                    
-                    Text("Use this when you need medical help due to an allergic reaction.")
-                        .foregroundColor(.gray700)
-                        .font(.system(size: 14))
+                HStack {
+                    Text("Emergency Situation")
+                        .font(.system(size: 16))
                     
                     Spacer()
+                    
+                    Button { didTapButton() } label: {
+                        HStack {
+                            Spacer()
+                            Image("Icon_arrow")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                        }
+                        
+                    }
+                    .frame(width: 40, height: 24)
                 }
-                .padding(16)
+                
+                Text("Use this when you need medical help due to an allergic reaction.")
+                    .foregroundColor(.gray700)
+                    .font(.system(size: 14))
+                
+                Spacer()
             }
-            .shadow(color: .black.opacity(0.1), radius: 5)
-            .frame(height: 116)
+            .padding(16)
         }
+        .shadow(color: .black.opacity(0.1), radius: 5)
+        .frame(height: 116)
     }
 }
 

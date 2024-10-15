@@ -5,13 +5,14 @@
 //  Created by Junho Yoon on 10/3/24.
 //
 
+import Foundation
 import SwiftUI
 import ComposableArchitecture
 
 struct MainHomeView: View {
     
     let store: StoreOf<MainHomeFeature>
-
+    
     var body: some View {
         
         WithViewStore(store, observe: { $0 }) { viewStore in
@@ -20,79 +21,82 @@ struct MainHomeView: View {
                 
                 VStack(alignment: .leading, spacing: 24) {
                     
-                    MainTopView {
-                        viewStore.send(.navigationToSetting(viewStore.user))
-                    }
+                    MainTopView { viewStore.send(.navigationToSetting(viewStore.users)) }
                     
-                    VStack(alignment: .leading, spacing: 12) {
+                    ScrollView(.horizontal, showsIndicators: false) {
                         
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("Safe Travels,")
-                                .font(.system(size: 28, weight: .semibold))
+                        LazyHStack(spacing: 0) {
                             
-                            Text(viewStore.user.name)
-                                .font(.system(size: 28, weight: .semibold))
-                                .foregroundColor(Color.primary500)
-                        }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 4)
-                     
-                        AllergyInfoView(store: store)
-                    }
-            
-                    ZStack {
-                        CheckMenuForAllergyView(store: store, didTapButton: {
-                            viewStore.send(.navigationToAllergyGuide(.checkMenu(viewStore.user)))
-                        })
-                        .offset(x: 0, y: 0)
-                        .zIndex(0)
-                        
-                        RecommendMenuView(store: store, didTapButton: {
-                            viewStore.send(.navigationToAllergyGuide(.recommendMenu(viewStore.user)))
-                        })
-                        .offset(x: 0, y: 60)
-                        .zIndex(1)
-                        
-                        AllergenFreeRequestView(store: store, didTapButton: {
-                            viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(viewStore.user)))
-                        })
-                        .offset(x: 0, y: 120)
-                        .zIndex(2)
-                        
-                        CrossContaminationCheckView(store: store, didTapButton: {
-                            viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(viewStore.user)))
-                        })
-                        .offset(x: 0, y: 180)
-                        .zIndex(3)
-                        
-                        EmergencySituationView(store: store, didTapButton: {
-                            if let _ = viewStore.user.emergencyCard {
-                                viewStore.send(.navigationToAllergyGuide(.emergencySituation(viewStore.user)))
-                            } else {
-                                viewStore.send(.showEmergencyPopup(true))
+                            ForEach(0 ..< viewStore.users.count + 1) { index in
+                                
+                                ScrollView(.vertical, showsIndicators: false) {
+                                    
+                                    if index >= viewStore.users.count {
+                                        Spacer()
+                                        
+                                        Text("회원가입")
+                                        
+                                        Spacer()
+                                    } else {
+                                        let user = viewStore.users[index]
+                              
+                                        VStack(alignment: .leading, spacing: 0) {
+                                            Text("Safe Travels,")
+                                                .font(.system(size: 28, weight: .semibold))
+                                            
+                                            Text(user.name)
+                                                .font(.system(size: 28, weight: .semibold))
+                                                .foregroundColor(Color.primary500)
+                                                .padding(.bottom, 16)
+                                            
+                                            AllergyInfoView(allergies: .constant(user.allergries))
+                                                .padding(.bottom, 48)
+                                            
+                                            ZStack {
+                                                CheckMenuForAllergyView(didTapButton: {
+                                                    viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
+                                                })
+                                                .offset(x: 0, y: 0)
+                                                .zIndex(0)
+                                                
+                                                RecommendMenuView(didTapButton: {
+                                                    viewStore.send(.navigationToAllergyGuide(.recommendMenu(user)))
+                                                })
+                                                .offset(x: 0, y: 60)
+                                                .zIndex(1)
+                                                
+                                                AllergenFreeRequestView(didTapButton: {
+                                                    viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user)))
+                                                })
+                                                .offset(x: 0, y: 120)
+                                                .zIndex(2)
+                                                
+                                                CrossContaminationCheckView(didTapButton: {
+                                                    viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user)))
+                                                })
+                                                .offset(x: 0, y: 180)
+                                                .zIndex(3)
+                                                
+                                                EmergencySituationView(didTapButton: {
+                                                    viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
+                                                })
+                                                .offset(x: 0, y: 240)
+                                                .zIndex(4)
+                                            }
+                                            
+                                            Spacer()
+                                        }
+                                    }
+                                }
+                                .frame(width: UIScreen.main.bounds.width - 48)
                             }
-                        })
-                        .offset(x: 0, y: 240)
-                        .zIndex(4)
+                        }
                     }
-                    
-                    Spacer()
                 }
-                .padding(.horizontal, 24)
-                
-                if viewStore.isPopupVisible {
-                    PopupView(title: "Create Another Account",
-                              description: "Would you like to create another user account?",
-                              cancelText: "Cancel",
-                              confirmText: "Create") {
-                        viewStore.send(.showEmergencyPopup(false))
-                    } confirm: {
-                        viewStore.send(.navigationToCreateEmergencyCard(viewStore.user))
-                    }
-                } else {
-                    
-                }
+                .scrollTargetBehavior(.paging)
             }
+            .padding(.horizontal, 24)
         }
+        .background(.clear)
     }
 }

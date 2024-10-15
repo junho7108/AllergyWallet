@@ -16,7 +16,9 @@ struct EmergencyCardView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
                 HStack {
+                    
                     LanguageSelectButton(store: store.scope(state: \.languageState, action: \.languageAction))
+                        .padding(.leading, 24)
                     
                     Spacer()
                     
@@ -30,33 +32,59 @@ struct EmergencyCardView: View {
                         }
                     }
                     .frame(width: 40, height: 40)
+                    .padding(.trailing, 24)
                 }
                 .frame(height: 65)
-                
+                .background(
+                    LinearGradient(
+                        stops: [
+                            Gradient.Stop(color: .white, location: 0.80),
+                            Gradient.Stop(color: .white.opacity(0), location: 1.00),
+                        ],
+                        startPoint: UnitPoint(x: 0.46, y: 0),
+                        endPoint: UnitPoint(x: 0.45, y: 1)
+                    )
+                )
+               
                 ScrollView(.vertical, showsIndicators: false) {
-                    Text(makeTitle(language: viewStore.languageState.language))
-                        .font(.system(size: 28, weight: .semibold))
-                        .foregroundColor(.semanticError)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 24)
-                    
-                    AllergySymptomsView(language: .constant(viewStore.languageState.language))
-                        .padding(.bottom, 48)
-                    
-                    AllergyListView(language: .constant(viewStore.languageState.language),
-                                    allergies: .constant(viewStore.user.allergries))
-                        .padding(.bottom, 48)
-                    
-                    if let _ = viewStore.user.emergencyCard {
-                        EmergencyContactInfoView(language: .constant(viewStore.languageState.language),
-                                                 user: .constant(viewStore.user))
-                        
+                    VStack(alignment: .leading, spacing: 24) {
+                        Text(makeTitle(language: viewStore.languageState.language))
+                            .font(.system(size: 28, weight: .semibold))
+                            .foregroundColor(.semanticError)
+                            .multilineTextAlignment(.center)
+                           
+                        VStack(alignment: .leading, spacing: 48) {
+                            AllergySymptomsView(language: .constant(viewStore.languageState.language))
+                               
+                            AllergyListView(language: .constant(viewStore.languageState.language),
+                                            allergies: .constant(viewStore.user.allergries))
+                               
+                            if let _ = viewStore.user.emergencyCard {
+                                EmergencyContactInfoView(language: .constant(viewStore.languageState.language),
+                                                         user: .constant(viewStore.user))
+                                
+                            } else {
+                                
+                                VStack(alignment: .leading, spacing: 16) {
+                                    Text(viewStore.languageState.language == .eng
+                                         ? "Emergency Contact Info"
+                                         : "응급 상황 개인 정보")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.gray900)
+                                    
+                                    Text(viewStore.languageState.language == .eng
+                                         ? "You can update info in the settings."
+                                         : "업데이트 필요")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.gray700)
+                                    
+                                }
+                            }
+                        }
                     }
-                   
-                    Spacer()
                 }
+                .padding(.horizontal, 24)
             }
-            .padding(.horizontal, 24)
             .background(
                 LinearGradient(
                     stops: [

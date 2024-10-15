@@ -15,7 +15,7 @@ struct EmergencyContactInfoView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             
-            Text(language == .eng ? "Allergy Information" : "알레르기 정보")
+            Text(language == .eng ? "Emergency Contact Info" : "응급 상황 개인 정보")
                 .font(.system(size: 16))
                 .foregroundColor(.gray900)
             
