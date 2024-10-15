@@ -17,7 +17,7 @@ struct SplashFeature {
     enum Action {
         case fetchUser
         case navigationToSignUp
-        case navigationToMainHome(User)
+        case navigationToMainHome([User])
     }
     
     @Dependency(\.splashUsecase) var usecase: SplashUsecase
@@ -27,12 +27,12 @@ struct SplashFeature {
             switch action {
             case .fetchUser:
                 return .run { send in
-                    let user = await usecase.fetchUser()
-                    
-                    if let user {
-                        await send(.navigationToMainHome(user))
-                    } else {
+                    let users = await usecase.fetchUser()
+                    print("🟢 Users \(users)")
+                    if users.isEmpty {
                         await send(.navigationToSignUp)
+                    } else {
+                        await send(.navigationToMainHome(users))
                     }
                 }
                 

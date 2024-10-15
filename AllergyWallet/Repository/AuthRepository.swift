@@ -9,17 +9,22 @@ import Foundation
 
 protocol AuthRepositoryType {
     func signUpUser(user: User) async -> Bool
-    func fetchUser() async -> User?
+    func fetchUser() async -> [User]
 }
 
 final class AuthRepository: AuthRepositoryType {
     func signUpUser(user: User) async -> Bool {
-        return UserDefaults.standard.saveUser(user)
+        var users = await fetchUser()
+        
+        guard users.count < 5 else { return false }
+        
+        users.append(user)
+        
+        return UserDefaults.standard.saveUsers(users)
     }
     
-    func fetchUser() async -> User? {
-        let user = await UserDefaults.standard.loadUser()
-        return user
+    func fetchUser() async -> [User] {
+        return await UserDefaults.standard.loadUser()
     }
 }
 
@@ -28,14 +33,16 @@ final class AuthRepositoryTest: AuthRepositoryType {
         return true
     }
     
-    func fetchUser() async -> User? {
-        return User(
-            name: "테스트",
-            allergries: [
-                Allergy(korName: "아몬드", engName: "Almonds", emoji: "🌰"),
-                Allergy(korName: "브라질너트", engName: "Brazil Nuts", emoji: "🌰"),
-                Allergy(korName: "캐슈넛", engName: "Cashews", emoji: "🌰")
-            ],
-            emergencyCard: nil)
+    func fetchUser() async -> [User] {
+        return [
+            User(
+                name: "테스트",
+                allergries: [
+                    Allergy(korName: "아몬드", engName: "Almonds", emoji: "🌰"),
+                    Allergy(korName: "브라질너트", engName: "Brazil Nuts", emoji: "🌰"),
+                    Allergy(korName: "캐슈넛", engName: "Cashews", emoji: "🌰")
+                ],
+                emergencyCard: nil)
+        ]
     }
 }

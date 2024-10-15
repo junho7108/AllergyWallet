@@ -18,7 +18,7 @@ final class SignUpUsecase {
         return await self.repository.signUpUser(user: user)
     }
     
-    func fetchUser() async -> User? {
+    func fetchUser() async -> [User] {
         return await self.repository.fetchUser()
     }
 }

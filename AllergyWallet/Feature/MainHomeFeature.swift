@@ -11,15 +11,13 @@ import ComposableArchitecture
 struct MainHomeFeature {
     
     struct State: Equatable {
-        var user: User
-        var isPopupVisible: Bool = false
+        var users: [User]
     }
     
     enum Action {
-        case showEmergencyPopup(Bool)
         case navigationToAllergyGuide(AllergyGuideType)
         case navigationToCreateEmergencyCard(User)
-        case navigationToSetting(User)
+        case navigationToSetting([User])
     }
     
     var body: some Reducer<State, Action> {
@@ -27,13 +25,9 @@ struct MainHomeFeature {
             switch action {
             case .navigationToAllergyGuide:
                 return .none
-                
-            case .showEmergencyPopup(let visible):
-                state.isPopupVisible = visible
-                return .none
-                
+            
             case .navigationToCreateEmergencyCard:
-                return .send(.showEmergencyPopup(false))
+                return .none
                 
             default:
                 return .none

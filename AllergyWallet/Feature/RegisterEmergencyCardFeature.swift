@@ -33,7 +33,7 @@ struct RegisterEmergencyCardFeature {
         case didTapRegisterEmergencyCard
         
         case signUpUser(User)
-        case navigationToHome(User)
+        case navigationToHome([User])
     }
     
     @Dependency(\.signUpUsecase) var usecase: SignUpUsecase
@@ -85,7 +85,7 @@ struct RegisterEmergencyCardFeature {
             case .signUpUser(let user):
                 return .run { send in
                     let result = await usecase.signUpUser(user: user)
-                    await send(.navigationToHome(user))
+                    await send(.navigationToHome([user]))
                 }
             }
         }

@@ -29,8 +29,8 @@ struct Coordinator {
                 state.routes = [.root(.signUp(.init()), embedInNavigationView: true)]
                 return .none
                 
-            case .router(.routeAction(_, action: .splash(.navigationToMainHome(let user)))):
-                state.routes = [.root(.mainHome(.init(user: user)), embedInNavigationView: true)]
+            case .router(.routeAction(_, action: .splash(.navigationToMainHome(let users)))):
+                state.routes = [.root(.mainHome(.init(users: users)), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .signUp(.navigateToSelectAllergies(let user)))):
@@ -41,8 +41,8 @@ struct Coordinator {
                 state.routes.push(.registerEmergencyCard(.init(user: user)))
                 return .none
                 
-            case .router(.routeAction(_, action: .registerEmergencyCard(.navigationToHome(let user)))):
-                state.routes = [.root(.mainHome(.init(user: user)), embedInNavigationView: true)]
+            case .router(.routeAction(_, action: .registerEmergencyCard(.navigationToHome(let users)))):
+                state.routes = [.root(.mainHome(.init(users: users)), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .mainHome(.navigationToAllergyGuide(let guide)))):
@@ -73,11 +73,11 @@ struct Coordinator {
                 return .none
                 
             case .router(.routeAction(_, action: .mainHome(.navigationToSetting(let user)))):
-                state.routes.presentCover(.setting(.init(user: user,
-                                                         profileEditState: .init(
-                                                            user: user,
-                                                            editNicknameState: .init(username: user.name))
-                                                        )))
+//                state.routes.presentCover(.setting(.init(user: [user],
+//                                                         profileEditState: .init(
+//                                                            user: [user],
+//                                                            editNicknameState: .init(username: user.name))
+//                                                        )))
                 return .none
                 
             default:

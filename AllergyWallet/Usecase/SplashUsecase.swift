@@ -14,7 +14,7 @@ final class SplashUsecase {
         self.repository = repository
     }
     
-    func fetchUser() async -> User? {
+    func fetchUser() async -> [User] {
         return await self.repository.fetchUser()
     }
 }
