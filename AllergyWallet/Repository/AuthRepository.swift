@@ -13,18 +13,18 @@ protocol AuthRepositoryType {
 }
 
 final class AuthRepository: AuthRepositoryType {
-    func signUpUser(user: User) async -> Bool {
-        var users = await fetchUser()
+    func signUpUser(user: User) -> Bool {
+        var users = fetchUser()
         
         guard users.count < 5 else { return false }
         
         users.append(user)
         
-        return UserDefaults.standard.saveUsers(users)
+        return UserStorage.shared.saveUsers(users)
     }
     
-    func fetchUser() async -> [User] {
-        return await UserDefaults.standard.loadUser()
+    func fetchUser() -> [User] {
+        return UserStorage.shared.loadUser()
     }
 }
 
