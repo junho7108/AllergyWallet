@@ -5,16 +5,15 @@
 //  Created by Junho Yoon on 10/8/24.
 //
 
+import Foundation
 import ComposableArchitecture
 
 @Reducer
 struct ProfileEditFeature {
     
-    struct State: Equatable {
+    struct State: Equatable, Identifiable {
         var user: User
-        var isEditNicknamePopupVisible = false
-        
-        var editNicknameState: EditNicknameFeature.State
+        var id: UUID { user.id }
     }
     
     enum Action {
@@ -23,39 +22,27 @@ struct ProfileEditFeature {
         case didTapEditEmergencyContactInfo
         case didTapDeleteAccount
         
-        case showEditNicknamePopup(Bool)
-        
-        case editNicknameAction(EditNicknameFeature.Action)
+        case editUserName(String)
+        case editUser(User)
     }
+    
+    @Dependency(\.editUserProfileUsecase) var usecase: EditUserProfileUseCase
+
     
     var body: some Reducer<State, Action> {
         
-        Scope(state: \.editNicknameState, action: \.editNicknameAction) {
-            EditNicknameFeature()
-        }
-        
         Reduce { state, action in
             switch action {
-            case .didTapEditNickname:
-                state.isEditNicknamePopupVisible = true
-                return .send(.showEditNicknamePopup(true))
+            case .editUser(let user):
+                return .run { send in
+                    let result = usecase.replaceUser(user: user)
+                    print("🟢 result \(result.map { $0.name })")
+                }
                 
-            case .didTapEditAllergySelection:
-                return .none
+            case .editUserName(let name):
+                state.user.name = name
+                return .send(.editUser(state.user))
                 
-            case .didTapEditEmergencyContactInfo:
-                return .none
-                
-            case .didTapDeleteAccount:
-                return .none
-                
-            case .editNicknameAction(.didTapSave(let username)):
-                state.isEditNicknamePopupVisible = false
-                return .send(.showEditNicknamePopup(false))
-          
-            case .editNicknameAction(.didTapCancel):
-                state.isEditNicknamePopupVisible = false
-                return .send(.showEditNicknamePopup(false))
                 
             default:
                 return .none

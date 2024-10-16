@@ -51,7 +51,6 @@ struct RegisterEmergencyCardFeature {
                 
             case .didChangeBirthDate(let birthDate):
                 state.birthDate = formatDateInput(birthDate)
-                
                 return .none
                 
             case .didChangeNationality(let nationality):
@@ -85,7 +84,8 @@ struct RegisterEmergencyCardFeature {
             case .signUpUser(let user):
                 return .run { send in
                     let result = await usecase.signUpUser(user: user)
-                    await send(.navigationToHome([user]))
+                    let users = await usecase.fetchUser()
+                    await send(.navigationToHome(users))
                 }
             }
         }

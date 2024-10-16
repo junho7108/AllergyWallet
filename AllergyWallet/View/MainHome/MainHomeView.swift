@@ -42,8 +42,10 @@ struct MainHomeView: View {
                                                 .foregroundColor(Color.primary500)
                                                 .padding(.bottom, 16)
                                             
-                                            AllergyInfoView(allergies: .constant([]))
-                                                .padding(.bottom, 48)
+                                            CreateAccountView(didTapCreateAccount: {
+                                                viewStore.send(.didTapCreateAccount)
+                                            })
+                                            .padding(.bottom, 48)
                                             
                                             createAllergyCardView()
                                             
@@ -70,8 +72,6 @@ struct MainHomeView: View {
                                                 viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
                                             }
                                         }
-                                    
-                                        Spacer()
                                     }
                                     .padding(.horizontal, 24)
                                 }

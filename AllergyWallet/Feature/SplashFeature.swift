@@ -28,7 +28,7 @@ struct SplashFeature {
             case .fetchUser:
                 return .run { send in
                     let users = await usecase.fetchUser()
-                    print("🟢 Users \(users)")
+        
                     if users.isEmpty {
                         await send(.navigationToSignUp)
                     } else {

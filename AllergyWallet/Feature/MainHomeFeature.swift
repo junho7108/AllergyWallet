@@ -15,20 +15,21 @@ struct MainHomeFeature {
     }
     
     enum Action {
+        case didTapCreateAccount
+        
         case navigationToAllergyGuide(AllergyGuideType)
         case navigationToCreateEmergencyCard(User)
         case navigationToSetting([User])
+        case naivgationToSignUp
     }
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .navigationToAllergyGuide:
-                return .none
+            case .didTapCreateAccount:
+                print("🟢 didTapCreateAccount")
+                return .send(.naivgationToSignUp)
             
-            case .navigationToCreateEmergencyCard:
-                return .none
-                
             default:
                 return .none
             }

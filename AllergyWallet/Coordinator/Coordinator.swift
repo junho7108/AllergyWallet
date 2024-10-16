@@ -5,6 +5,7 @@
 //  Created by Junho Yoon on 10/2/24.
 //
 
+import Foundation
 import ComposableArchitecture
 import TCACoordinators
 
@@ -72,12 +73,12 @@ struct Coordinator {
                 state.routes.push(.registerEmergencyCard(.init(user: user)))
                 return .none
                 
-            case .router(.routeAction(_, action: .mainHome(.navigationToSetting(let user)))):
-//                state.routes.presentCover(.setting(.init(user: [user],
-//                                                         profileEditState: .init(
-//                                                            user: [user],
-//                                                            editNicknameState: .init(username: user.name))
-//                                                        )))
+            case .router(.routeAction(_, action: .mainHome(.navigationToSetting(let users)))):
+                state.routes.presentCover(.setting(.init(users: users)))
+                return .none
+                    
+            case .router(.routeAction(_, action: .mainHome(.naivgationToSignUp))):
+                state.routes.push(.signUp(.init()))
                 return .none
                 
             default:
