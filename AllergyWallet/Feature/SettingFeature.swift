@@ -12,18 +12,11 @@ import ComposableArchitecture
 struct SettingFeature {
     
     struct State: Equatable {
-        var users: [User]
+        @Shared var users: [User]
         var profileEditState: IdentifiedArray<UUID, ProfileEditFeature.State>
         var isEditNicknameHidden: Bool = true
         
         var selectedUser: User? = nil
-        
-        init(users: [User]) {
-            self.users = users
-            self.profileEditState = IdentifiedArray(uniqueElements: users.map { user in
-                ProfileEditFeature.State(user: user)
-            })
-        }
     }
     
     enum Action {
@@ -46,8 +39,18 @@ struct SettingFeature {
                     state.isEditNicknameHidden = false
                     return .none
                     
-                case .editUserName:
+                case .editUser(let user):
+                    if let index = state.users.firstIndex(where: { $0.id == user.id }) {
+                        state.users[index] = user
+                    }
+                    
+                    print("🟢 Shared Users \(state.users)")
+                    
                     return .send(.didClose)
+             
+                case .editComplete(let users):
+                    state.users = users
+                    return .none
                     
                 default:
                     return .none

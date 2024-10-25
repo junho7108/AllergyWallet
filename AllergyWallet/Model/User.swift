@@ -13,7 +13,7 @@ struct User: Codable, Equatable {
     var allergries: [Allergy] = []
     var emergencyCard: EmergencyCard?
     
-    var uuid = UUID()
+    private(set) var uuid = UUID()
 }
 
 extension User: Identifiable {

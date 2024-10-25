@@ -11,15 +11,14 @@ import ComposableArchitecture
 struct MainHomeFeature {
     
     struct State: Equatable {
-        var users: [User]
+        @Shared var users: [User]
     }
     
     enum Action {
         case didTapCreateAccount
         
         case navigationToAllergyGuide(AllergyGuideType)
-        case navigationToCreateEmergencyCard(User)
-        case navigationToSetting([User])
+        case navigationToSetting(Shared<[User]>)
         case naivgationToSignUp
     }
     

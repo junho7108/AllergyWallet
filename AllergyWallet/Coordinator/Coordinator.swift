@@ -31,7 +31,7 @@ struct Coordinator {
                 return .none
                 
             case .router(.routeAction(_, action: .splash(.navigationToMainHome(let users)))):
-                state.routes = [.root(.mainHome(.init(users: users)), embedInNavigationView: true)]
+                state.routes = [.root(.mainHome(.init(users: Shared(users))), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .signUp(.navigateToSelectAllergies(let user)))):
@@ -43,7 +43,7 @@ struct Coordinator {
                 return .none
                 
             case .router(.routeAction(_, action: .registerEmergencyCard(.navigationToHome(let users)))):
-                state.routes = [.root(.mainHome(.init(users: users)), embedInNavigationView: true)]
+                state.routes = [.root(.mainHome(.init(users: Shared(users))), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .mainHome(.navigationToAllergyGuide(let guide)))):
@@ -68,13 +68,15 @@ struct Coordinator {
                     .router(.routeAction(_, action: .setting(.didTapBack))):
                 state.routes.removeLast()
                 return .none
-                
-            case .router(.routeAction(_, action: .mainHome(.navigationToCreateEmergencyCard(let user)))):
-                state.routes.push(.registerEmergencyCard(.init(user: user)))
-                return .none
-                
+    
             case .router(.routeAction(_, action: .mainHome(.navigationToSetting(let users)))):
-                state.routes.presentCover(.setting(.init(users: users)))
+                state.routes.push(.setting(.init(
+                    users: users,
+                    profileEditState: .init(uniqueElements: users.wrappedValue.map { user in
+                        ProfileEditFeature.State(user: user)
+                    })
+                )))
+                
                 return .none
                     
             case .router(.routeAction(_, action: .mainHome(.naivgationToSignUp))):

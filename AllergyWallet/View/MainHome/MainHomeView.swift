@@ -21,7 +21,7 @@ struct MainHomeView: View {
                 
                 VStack(alignment: .leading, spacing: 24) {
                     
-                    MainTopView { viewStore.send(.navigationToSetting(viewStore.users)) }
+                    MainTopView { viewStore.send(.navigationToSetting(viewStore.$users)) }
                         .padding(.horizontal, 24)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -83,6 +83,7 @@ struct MainHomeView: View {
                 .scrollTargetBehavior(.paging)
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

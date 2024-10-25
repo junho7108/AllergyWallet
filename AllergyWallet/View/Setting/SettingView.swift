@@ -56,5 +56,6 @@ struct SettingView: View {
                 }
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }

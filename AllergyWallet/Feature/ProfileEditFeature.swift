@@ -13,7 +13,8 @@ struct ProfileEditFeature {
     
     struct State: Equatable, Identifiable {
         var user: User
-        var id: UUID { user.id }
+        
+        var id: UUID { return user.id }
     }
     
     enum Action {
@@ -23,20 +24,23 @@ struct ProfileEditFeature {
         case didTapDeleteAccount
         
         case editUserName(String)
+        
         case editUser(User)
+        case editComplete([User])
     }
     
     @Dependency(\.editUserProfileUsecase) var usecase: EditUserProfileUseCase
 
-    
     var body: some Reducer<State, Action> {
         
         Reduce { state, action in
             switch action {
             case .editUser(let user):
+                state.user = user
+               
                 return .run { send in
-                    let result = usecase.replaceUser(user: user)
-                    print("🟢 result \(result.map { $0.name })")
+                    let users = usecase.replaceUser(user: user)
+                    await send(.editComplete(users))
                 }
                 
             case .editUserName(let name):
