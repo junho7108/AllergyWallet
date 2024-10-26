@@ -19,7 +19,7 @@ struct ProfileEditFeature {
     
     enum Action {
         case didTapEditNickname
-        case didTapEditAllergySelection
+        case didTapEditAllergySelection(User)
         case didTapEditEmergencyContactInfo
         case didTapDeleteAccount
         
@@ -46,7 +46,6 @@ struct ProfileEditFeature {
             case .editUserName(let name):
                 state.user.name = name
                 return .send(.editUser(state.user))
-                
                 
             default:
                 return .none

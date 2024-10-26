@@ -65,7 +65,9 @@ struct Coordinator {
                 
             case .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))),
                     .router(.routeAction(_, action: .emergencyCard(.didTapBackButton))),
-                    .router(.routeAction(_, action: .setting(.didTapBack))):
+                    .router(.routeAction(_, action: .setting(.didTapBack))),
+                    .router(.routeAction(_, action: .editSelectedAllergy(.didTapBackButton))):
+
                 state.routes.removeLast()
                 return .none
     
@@ -78,11 +80,20 @@ struct Coordinator {
                 )))
                 
                 return .none
+                
+            case .router(.routeAction(_, action: .setting(.profileEditAction(_, action: .didTapEditAllergySelection(let user))))):
+                state.routes.push(.editSelectedAllergy(.init(user: user)))
+                return .none
                     
             case .router(.routeAction(_, action: .mainHome(.naivgationToSignUp))):
                 state.routes.push(.signUp(.init()))
                 return .none
                 
+            case .router(.routeAction(let id, action: .editSelectedAllergy(.didSaveAllergyChanges(let user)))):
+                state.routes.removeLast()
+                return .send(.router(.routeAction(id: id - 1,
+                                                  action: .setting(.profileEditAction(id: user.id,
+                                                                                      action: .editUser(user))))))
             default:
                 return .none
             }

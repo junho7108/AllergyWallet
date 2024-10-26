@@ -43,9 +43,7 @@ struct SettingFeature {
                     if let index = state.users.firstIndex(where: { $0.id == user.id }) {
                         state.users[index] = user
                     }
-                    
-                    print("🟢 Shared Users \(state.users)")
-                    
+             
                     return .send(.didClose)
              
                 case .editComplete(let users):

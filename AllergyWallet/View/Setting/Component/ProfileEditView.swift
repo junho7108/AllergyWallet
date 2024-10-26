@@ -36,7 +36,7 @@ struct ProfileEditView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             makeEditButton(title: "Edit Nickname") { viewStore.send(.didTapEditNickname) }
                             
-                            makeEditButton(title: "Edit Allergy Selection") { viewStore.send(.didTapEditAllergySelection) }
+                            makeEditButton(title: "Edit Allergy Selection") { viewStore.send(.didTapEditAllergySelection(viewStore.user)) }
                           
                             makeEditButton(title: "Edit Emergency Contact Info") { viewStore.send(.didTapEditEmergencyContactInfo) }
                             

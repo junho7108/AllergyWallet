@@ -16,7 +16,7 @@ struct AllergyCheckBoxView: View {
     
     private(set) var allegry: Allergy
     
-    @State private(set) var isSelected: Bool = false
+    @Binding var isSelected: Bool
     
     var style: CheckBoxStyle = .round
     

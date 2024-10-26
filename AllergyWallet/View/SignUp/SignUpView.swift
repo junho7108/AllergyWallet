@@ -12,7 +12,7 @@ import ComposableArchitecture
 struct SignUpView: View {
     
     let store: StoreOf<SignUpFeature>
-    
+
     init(store: StoreOf<SignUpFeature>) {
         self.store = store
     }
@@ -63,7 +63,7 @@ struct SignUpView: View {
                 }
                 .disabled(!(viewStore.isValidNickname ?? false))
             }
-            .padding([.top, .leading, .trailing], 24)
+            .padding(.horizontal, 24)
         }
     }
 }

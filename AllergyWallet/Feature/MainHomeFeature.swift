@@ -26,7 +26,6 @@ struct MainHomeFeature {
         Reduce { state, action in
             switch action {
             case .didTapCreateAccount:
-                print("🟢 didTapCreateAccount")
                 return .send(.naivgationToSignUp)
             
             default:

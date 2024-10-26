@@ -83,7 +83,6 @@ struct MainHomeView: View {
                 .scrollTargetBehavior(.paging)
             }
         }
-        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

@@ -44,6 +44,9 @@ struct CoordinatorView: View {
                 
             case .setting(let store):
                 SettingView(store: store)
+                
+            case .editSelectedAllergy(let store):
+                EditSelectedAllergyView(store: store)
             }
         }
     }
@@ -65,6 +68,12 @@ private extension CoordinatorView {
         
         appearance.shadowImage = UIImage()
         appearance.shadowColor = .clear
+        
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor(color: .gray900) ?? .white,
+            .font: UIFont.systemFont(ofSize: 18)
+        ]
+        
         
         // 네비게이션 바에 스타일 적용
         UINavigationBar.appearance().standardAppearance = appearance

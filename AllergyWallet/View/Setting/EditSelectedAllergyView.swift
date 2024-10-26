@@ -1,16 +1,16 @@
 //
-//  SelectAllergyView.swift
+//  EditAllergySelectionView.swift
 //  AllergyWallet
 //
-//  Created by Junho Yoon on 10/2/24.
+//  Created by Junho Yoon on 10/25/24.
 //
 
 import SwiftUI
 import ComposableArchitecture
 
-struct SelectAllergyView: View {
+struct EditSelectedAllergyView: View {
     
-    let store: StoreOf<SelectAllergyFeature>
+    let store: StoreOf<EditSelectedAllergyFeature>
     
     var body: some View {
         
@@ -34,6 +34,7 @@ struct SelectAllergyView: View {
                         Spacer()
                         
                         ForEach(viewStore.originAllergies) { allergy in
+                            
                             if allergy.allergies.count == 1 {
                                 let allergy = allergy.allergies[0]
                                 
@@ -45,8 +46,8 @@ struct SelectAllergyView: View {
                                     viewStore.send(.didSelectAllegry(selectedInfo))
                                 }
                             } else {
-                                
-                                AllergyPickerView(category: allergy.category,
+                                AllergyPickerView(selectedAllergy: viewStore.selectedAllergies,
+                                                  category: allergy.category,
                                                   allergies: allergy.allergies) { selectedInfo in
                                     viewStore.send(.didSelectAllegry(selectedInfo))
                                 }
@@ -61,24 +62,43 @@ struct SelectAllergyView: View {
                     .frame(height: 0.8)
                     .foregroundColor(Color.gray200)
                 
-                Button(action: {
-                    viewStore.send(.navigationToRegisterCard(viewStore.user))
-                }) {
-                    Text("Next")
-                        .font(.system(size: 16))
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 51)
-                        .background(viewStore.isEnabledButton ? Color.primary500 : Color.gray200)
-                        .cornerRadius(12)
+                HStack(spacing: 12) {
+                    Button(action: {
+                        viewStore.send(.didTapBackButton)
+                    }) {
+                        Text("Cancel")
+                            .font(.system(size: 16))
+                            .foregroundColor(.primary500)
+                            .padding()
+                            .frame(maxWidth: .infinity, maxHeight: 51)
+                            .background(Color.white)
+                            .cornerRadius(12)
+                    } 
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.primary500, lineWidth: 0.8)
+                    )
+                    
+                    
+                    Button(action: {
+                        viewStore.send(.editSelectedAllergy(viewStore.selectedAllergies))
+                    }) {
+                        Text("Next")
+                            .font(.system(size: 16))
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity, maxHeight: 51)
+                            .background(Color.primary500)
+                            .cornerRadius(12)
+                    }
                 }
-                .disabled(!viewStore.isEnabledButton)
             }
             .padding([.leading, .trailing], 24)
             .onAppear {
                 viewStore.send(.fetchData)
             }
         }
+        .navigationTitle("Edit Allergy Selection")
     }
 }
 
