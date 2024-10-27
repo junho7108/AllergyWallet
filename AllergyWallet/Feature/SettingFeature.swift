@@ -11,11 +11,16 @@ import ComposableArchitecture
 @Reducer
 struct SettingFeature {
     
+    enum SettingPopupType: Equatable {
+        case editNickname
+        case deleteAccount
+        case none
+    }
+    
     struct State: Equatable {
         @Shared var users: [User]
         var profileEditState: IdentifiedArray<UUID, ProfileEditFeature.State>
-        var isEditNicknameHidden: Bool = true
-        
+        var popupState: SettingPopupType = .none
         var selectedUser: User? = nil
     }
     
@@ -36,14 +41,17 @@ struct SettingFeature {
                 
                 switch editAction {
                 case .didTapEditNickname:
-                    state.isEditNicknameHidden = false
+                    state.popupState = .editNickname
+                    return .none
+                    
+                case .didTapDeleteAccount:
+                    state.popupState = .deleteAccount
                     return .none
                     
                 case .editUser(let user):
                     if let index = state.users.firstIndex(where: { $0.id == user.id }) {
                         state.users[index] = user
                     }
-             
                     return .send(.didClose)
              
                 case .editComplete(let users):
@@ -55,7 +63,7 @@ struct SettingFeature {
                 }
                 
             case .didClose:
-                state.isEditNicknameHidden = true
+                state.popupState = .none
                 return .none
                 
             default:

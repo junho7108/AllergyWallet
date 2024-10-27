@@ -45,13 +45,26 @@ struct SettingView: View {
                 }
                 .padding(.horizontal, 24)
                 
-                if !viewStore.isEditNicknameHidden,
+                if viewStore.popupState != .none,
                    let selectedUserId = viewStore.selectedUser?.id,
                    let user = viewStore.users.first(where: { $0.id == selectedUserId }) {
-                    EditNicknamePopup(username: user.name) {
-                        viewStore.send(.didClose)
-                    } didTapSave: { name in
-                        viewStore.send(.profileEditAction(id: user.id, action: .editUserName(name)))
+                    
+                    switch viewStore.popupState {
+                    case .editNickname:
+                        EditNicknamePopup(username: user.name) {
+                            viewStore.send(.didClose)
+                        } didTapSave: { name in
+                            viewStore.send(.profileEditAction(id: user.id, action: .editUserName(name)))
+                        }
+                    case .deleteAccount:
+                        DeleteAccountPopup(username: user.name) {
+                            viewStore.send(.didClose)
+                        } didTapDelete: {
+                            
+                        }
+                        
+                    case .none:
+                        EmptyView()
                     }
                 }
             }

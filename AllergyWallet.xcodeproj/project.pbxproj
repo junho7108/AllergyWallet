@@ -10,6 +10,7 @@
 		1203B1622CCB53D200D21DB9 /* EditSelectedAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1612CCB53D200D21DB9 /* EditSelectedAllergyView.swift */; };
 		1203B1642CCB545B00D21DB9 /* EditSelectedAllergyFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1632CCB545B00D21DB9 /* EditSelectedAllergyFeature.swift */; };
 		1203B1672CCE084300D21DB9 /* ChipLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1662CCE084300D21DB9 /* ChipLayout.swift */; };
+		1203B16B2CCE22CF00D21DB9 /* DeleteAccountPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B16A2CCE22CF00D21DB9 /* DeleteAccountPopup.swift */; };
 		125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B62CB017D4000D0ADA /* AllergyRepository.swift */; };
 		125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B82CB01911000D0ADA /* AllergyUsecase.swift */; };
 		125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */; };
@@ -80,6 +81,7 @@
 		1203B1612CCB53D200D21DB9 /* EditSelectedAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSelectedAllergyView.swift; sourceTree = "<group>"; };
 		1203B1632CCB545B00D21DB9 /* EditSelectedAllergyFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSelectedAllergyFeature.swift; sourceTree = "<group>"; };
 		1203B1662CCE084300D21DB9 /* ChipLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipLayout.swift; sourceTree = "<group>"; };
+		1203B16A2CCE22CF00D21DB9 /* DeleteAccountPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountPopup.swift; sourceTree = "<group>"; };
 		125159B62CB017D4000D0ADA /* AllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRepository.swift; sourceTree = "<group>"; };
 		125159B82CB01911000D0ADA /* AllergyUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyUsecase.swift; sourceTree = "<group>"; };
 		125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyPickerView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				12515A072CB52248000D0ADA /* SettingTopView.swift */,
 				12515A092CB5253E000D0ADA /* ProfileEditView.swift */,
 				12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */,
+				1203B16A2CCE22CF00D21DB9 /* DeleteAccountPopup.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				125159C32CB1525D000D0ADA /* CrossContaminationCheckView.swift in Sources */,
 				127EC0E32CAE5DAB00A3408C /* EmergencyCard.swift in Sources */,
 				1203B1622CCB53D200D21DB9 /* EditSelectedAllergyView.swift in Sources */,
+				1203B16B2CCE22CF00D21DB9 /* DeleteAccountPopup.swift in Sources */,
 				12515A0E2CB532CE000D0ADA /* EditNicknamePopup.swift in Sources */,
 				125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */,
 				127EC0D82CAD5CFA00A3408C /* Allergy.swift in Sources */,
@@ -589,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -646,7 +650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -673,6 +677,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -703,6 +708,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
