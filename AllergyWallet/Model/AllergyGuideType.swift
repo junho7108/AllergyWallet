@@ -8,6 +8,7 @@
 import Foundation
 
 enum AllergyGuideType: Equatable {
+    case myAllergyInfo(User)
     case checkMenu(User)
     case recommendMenu(User)
     case requestAllergenFree(User)

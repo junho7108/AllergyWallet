@@ -48,6 +48,12 @@ struct Coordinator {
                 
             case .router(.routeAction(_, action: .mainHome(.navigationToAllergyGuide(let guide)))):
                 switch guide {
+                case .myAllergyInfo(let user):
+                    state.routes.presentCover(.myAllergyInfo(.init(user: user,
+                                                                   type: guide,
+                                                                   grid: .init(allergies: user.allergries))))
+                    return .none
+                    
                 case .checkMenu(let user),
                         .recommendMenu(let user),
                         .requestAllergenFree(let user),
@@ -63,14 +69,16 @@ struct Coordinator {
                     return .none
                 }
                 
-            case .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))),
+            // go Back
+            case .router(.routeAction(_, action: .myAllergyInfo(.didTapBackButton))),
+                    .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))),
                     .router(.routeAction(_, action: .emergencyCard(.didTapBackButton))),
                     .router(.routeAction(_, action: .setting(.didTapBack))),
                     .router(.routeAction(_, action: .editSelectedAllergy(.didTapBackButton))):
-
+                
                 state.routes.removeLast()
                 return .none
-    
+                
             case .router(.routeAction(_, action: .mainHome(.navigationToSetting(let users)))):
                 state.routes.push(.setting(.init(
                     users: users,
@@ -84,7 +92,7 @@ struct Coordinator {
             case .router(.routeAction(_, action: .setting(.profileEditAction(_, action: .didTapEditAllergySelection(let user))))):
                 state.routes.push(.editSelectedAllergy(.init(user: user)))
                 return .none
-                    
+                
             case .router(.routeAction(_, action: .mainHome(.naivgationToSignUp))):
                 state.routes.push(.signUp(.init()))
                 return .none

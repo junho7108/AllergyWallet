@@ -14,6 +14,8 @@ enum Screen {
     case selectAllergy(SelectAllergyFeature)
     case registerEmergencyCard(RegisterEmergencyCardFeature)
     case mainHome(MainHomeFeature)
+    
+    case myAllergyInfo(AllergyGuideCardFeature)
     case allergyGuideCard(AllergyGuideCardFeature)
     case emergencyCard(EmergencyCardFeature)
     

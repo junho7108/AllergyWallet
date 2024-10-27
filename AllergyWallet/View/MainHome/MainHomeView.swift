@@ -57,9 +57,11 @@ struct MainHomeView: View {
                                                 .foregroundColor(Color.primary500)
                                                 .padding(.bottom, 16)
                                             
-                                            AllergyInfoView(allergies: .constant(user.allergries))
-                                                .padding(.bottom, 48)
-                                             
+                                            AllergyInfoView(allergies: .constant(user.allergries)) { _ in
+                                                viewStore.send(.navigationToAllergyGuide(.myAllergyInfo(user)))
+                                            }
+                                            .padding(.bottom, 48)
+                                            
                                             createAllergyCardView {
                                                 viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
                                             } didTapRecommendMenu: {

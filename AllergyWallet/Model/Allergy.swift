@@ -24,4 +24,12 @@ struct Allergy: Codable, Equatable {
 
 extension Allergy: Identifiable {
     var id: String { return engName }
+    
+    var name: String {
+        switch Const.language {
+        case .eng: engName
+        case .kor: korName
+        }
+    }
 }
+

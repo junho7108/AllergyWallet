@@ -16,6 +16,8 @@ struct AllergyInfoView: View {
     
     @Binding var allergies: [Allergy]
     
+    var didTapButton: (([Allergy]) -> Void)? = nil
+    
     var body: some View {
         
         ZStack(alignment: .bottomTrailing) {
@@ -36,7 +38,9 @@ struct AllergyInfoView: View {
                     
                     Spacer()
                     
-                    Button { } label: {
+                    Button {
+                        didTapButton?(allergies)
+                    } label: {
                         HStack {
                             Spacer()
                             Image("Icon_arrow")
