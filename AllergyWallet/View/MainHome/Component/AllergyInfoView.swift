@@ -44,42 +44,29 @@ struct AllergyInfoView: View {
                                 .scaledToFit()
                                 .frame(width: 24, height: 24)
                         }
-                        
                     }
                     .frame(width: 40, height: 40)
                 }
-                .frame(height: 24)
-                .padding(16)
                 
-                
-                let columns = [GridItem(.flexible()),
-                               GridItem(.flexible()),
-                               GridItem(.flexible())]
-                
-                
-                LazyVGrid(columns: columns) {
+                ChipLayout(verticalSpacing: 8, horizontalSpacing: 8) {
                     ForEach(allergies) { allergy in
                         
                         ZStack {
-                            RoundedRectangle(cornerRadius: 12)
+                            RoundedRectangle(cornerRadius: 36)
                                 .fill(.white)
                             
                             Text("\(allergy.emoji) \(allergy.engName)")
                                 .padding(.horizontal, 12)
-                                .padding(.vertical, 2)
                             
                         }
+                        .frame(height: 32)
                         .fixedSize()
-                        
                     }
                 }
-                .background(.red)
-                .padding(.horizontal, 16)
-                
-                Spacer()
             }
+            .padding(16)
         }
-        .shadow(color: .black.opacity(0.1), radius: 5)
         .frame(maxWidth: .infinity, maxHeight: 248)
+        .shadow(color: .black.opacity(0.1), radius: 5)
     }
 }

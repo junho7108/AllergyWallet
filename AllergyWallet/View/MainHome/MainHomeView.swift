@@ -59,7 +59,7 @@ struct MainHomeView: View {
                                             
                                             AllergyInfoView(allergies: .constant(user.allergries))
                                                 .padding(.bottom, 48)
-                                            
+                                             
                                             createAllergyCardView {
                                                 viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
                                             } didTapRecommendMenu: {
