@@ -28,7 +28,7 @@ struct MainHomeView: View {
                         
                         LazyHStack(spacing: 0) {
                             
-                            ForEach(0 ..< viewStore.users.count + 1) { index in
+                            ForEach(viewStore.users) { user in
                                 
                                 ScrollView(.vertical, showsIndicators: false) {
                                     
@@ -36,49 +36,54 @@ struct MainHomeView: View {
                                         Text("Safe Travels,")
                                             .font(.system(size: 28, weight: .semibold))
                                         
-                                        if index >= viewStore.users.count {
-                                            Text("New Account")
-                                                .font(.system(size: 28, weight: .semibold))
-                                                .foregroundColor(Color.primary500)
-                                                .padding(.bottom, 16)
-                                            
-                                            CreateAccountView(didTapCreateAccount: {
-                                                viewStore.send(.didTapCreateAccount)
-                                            })
-                                            .padding(.bottom, 48)
-                                            
-                                            createAllergyCardView()
-                                            
-                                        } else {
-                                            let user = viewStore.users[index]
-                                            
-                                            Text(user.name)
-                                                .font(.system(size: 28, weight: .semibold))
-                                                .foregroundColor(Color.primary500)
-                                                .padding(.bottom, 16)
-                                            
-                                            AllergyInfoView(allergies: .constant(user.allergries)) { _ in
-                                                viewStore.send(.navigationToAllergyGuide(.myAllergyInfo(user)))
-                                            }
-                                            .padding(.bottom, 48)
-                                            
-                                            createAllergyCardView {
-                                                viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
-                                            } didTapRecommendMenu: {
-                                                viewStore.send(.navigationToAllergyGuide(.recommendMenu(user)))
-                                            } didTapReqeustAllergyFree: {
-                                                viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user)))
-                                            } didTapCrossContaminationCheck: {
-                                                viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user)))
-                                            } didTapEmergencySituation: {
-                                                viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
-                                            }
+                                        Text(user.name)
+                                            .font(.system(size: 28, weight: .semibold))
+                                            .foregroundColor(Color.primary500)
+                                            .padding(.bottom, 16)
+                                        
+                                        AllergyInfoView(allergies: .constant(user.allergries)) { _ in
+                                            viewStore.send(.navigationToAllergyGuide(.myAllergyInfo(user)))
                                         }
+                                        .padding(.bottom, 48)
+                                        
+                                        createAllergyCardView {
+                                            viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
+                                        } didTapRecommendMenu: {
+                                            viewStore.send(.navigationToAllergyGuide(.recommendMenu(user)))
+                                        } didTapReqeustAllergyFree: {
+                                            viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user)))
+                                        } didTapCrossContaminationCheck: {
+                                            viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user)))
+                                        } didTapEmergencySituation: {
+                                            viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
+                                        }
+                                        
                                     }
                                     .padding(.horizontal, 24)
                                 }
                                 .frame(width: UIScreen.main.bounds.width)
                             }
+                            
+                            ScrollView(.vertical) {
+                                VStack(alignment: .leading, spacing: 0) {
+                                    Text("Safe Travels,")
+                                        .font(.system(size: 28, weight: .semibold))
+                                    
+                                    Text("New Account")
+                                        .font(.system(size: 28, weight: .semibold))
+                                        .foregroundColor(Color.primary500)
+                                        .padding(.bottom, 16)
+                                    
+                                    CreateAccountView(didTapCreateAccount: {
+                                        viewStore.send(.didTapCreateAccount)
+                                    })
+                                    .padding(.bottom, 48)
+                                    
+                                    createAllergyCardView()
+                                }
+                                .padding(.horizontal, 24)
+                            }
+                            .frame(width: UIScreen.main.bounds.width)
                         }
                     }
                 }
