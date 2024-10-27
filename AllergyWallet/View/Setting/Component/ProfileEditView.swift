@@ -12,6 +12,8 @@ struct ProfileEditView: View {
     
     let store: StoreOf<ProfileEditFeature>
     
+    var enableDeleteAcctount: Bool = true
+    
     var body: some View {
         
         WithViewStore(store, observe: { $0 }) { viewStore in
@@ -40,7 +42,9 @@ struct ProfileEditView: View {
                           
                             makeEditButton(title: "Edit Emergency Contact Info") { viewStore.send(.didTapEditEmergencyContactInfo) }
                             
-                            makeEditButton(title: "Delete Account") { viewStore.send(.didTapDeleteAccount) }
+                            if enableDeleteAcctount {
+                                makeEditButton(title: "Delete Account") { viewStore.send(.didTapDeleteAccount) }
+                            }
                         }
                         .padding(.horizontal, 16)
                     }

@@ -18,6 +18,10 @@ final class EditUserProfileUseCase {
     func replaceUser(user: User) -> [User] {
         return repository.replaceUser(user: user)
     }
+    
+    func deleteUser(user: User) -> [User] {
+        return repository.deleteUser(user: user)
+    }
 }
 
 extension EditUserProfileUseCase: DependencyKey {

@@ -30,12 +30,11 @@ struct SettingView: View {
                             .padding(.bottom, 12)
                         
                         ForEach(viewStore.users) { user in
-                            
                             IfLetStore(store.scope(
                                 state: \.profileEditState[id: user.id],
                                 action: { SettingFeature.Action.profileEditAction(id: user.id, action: $0) })) { store in
                                     
-                                    ProfileEditView(store: store)
+                                    ProfileEditView(store: store, enableDeleteAcctount: viewStore.users.count > 1)
                                         .padding(.bottom, 16)
                                 }
                         }
@@ -60,7 +59,7 @@ struct SettingView: View {
                         DeleteAccountPopup(username: user.name) {
                             viewStore.send(.didClose)
                         } didTapDelete: {
-                            
+                            viewStore.send(.profileEditAction(id: user.id, action: .deleteUser(user)))
                         }
                         
                     case .none:

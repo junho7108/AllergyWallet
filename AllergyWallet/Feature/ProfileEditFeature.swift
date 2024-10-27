@@ -26,7 +26,9 @@ struct ProfileEditFeature {
         case editUserName(String)
         
         case editUser(User)
-        case editComplete([User])
+        case deleteUser(User)
+        
+        case updateUserList([User])
     }
     
     @Dependency(\.editUserProfileUsecase) var usecase: EditUserProfileUseCase
@@ -40,7 +42,13 @@ struct ProfileEditFeature {
                
                 return .run { send in
                     let users = usecase.replaceUser(user: user)
-                    await send(.editComplete(users))
+                    await send(.updateUserList(users))
+                }
+                
+            case .deleteUser(let user):
+                return .run { send in
+                    let users = usecase.deleteUser(user: user)
+                    await send(.updateUserList(users))
                 }
                 
             case .editUserName(let name):

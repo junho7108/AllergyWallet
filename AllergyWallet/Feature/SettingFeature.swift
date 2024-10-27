@@ -47,16 +47,10 @@ struct SettingFeature {
                 case .didTapDeleteAccount:
                     state.popupState = .deleteAccount
                     return .none
-                    
-                case .editUser(let user):
-                    if let index = state.users.firstIndex(where: { $0.id == user.id }) {
-                        state.users[index] = user
-                    }
-                    return .send(.didClose)
-             
-                case .editComplete(let users):
+        
+                case .updateUserList(let users):
                     state.users = users
-                    return .none
+                    return .send(.didClose)
                     
                 default:
                     return .none
