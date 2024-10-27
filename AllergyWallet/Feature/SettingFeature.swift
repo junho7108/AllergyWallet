@@ -47,7 +47,7 @@ struct SettingFeature {
                 case .didTapDeleteAccount:
                     state.popupState = .deleteAccount
                     return .none
-        
+                    
                 case .updateUserList(let users):
                     state.users = users
                     return .send(.didClose)

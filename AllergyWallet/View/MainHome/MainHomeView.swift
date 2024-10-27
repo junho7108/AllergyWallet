@@ -28,6 +28,7 @@ struct MainHomeView: View {
                         
                         LazyHStack(spacing: 0) {
                             
+                            //MARK: 기존 계정
                             ForEach(viewStore.users) { user in
                                 
                                 ScrollView(.vertical, showsIndicators: false) {
@@ -64,6 +65,7 @@ struct MainHomeView: View {
                                 .frame(width: UIScreen.main.bounds.width)
                             }
                             
+                            //MARK: 계정 추가
                             ScrollView(.vertical) {
                                 VStack(alignment: .leading, spacing: 0) {
                                     Text("Safe Travels,")

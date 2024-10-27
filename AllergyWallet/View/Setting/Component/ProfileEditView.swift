@@ -40,7 +40,7 @@ struct ProfileEditView: View {
                             
                             makeEditButton(title: "Edit Allergy Selection") { viewStore.send(.didTapEditAllergySelection(viewStore.user)) }
                           
-                            makeEditButton(title: "Edit Emergency Contact Info") { viewStore.send(.didTapEditEmergencyContactInfo) }
+                            makeEditButton(title: "Edit Emergency Contact Info") { viewStore.send(.didTapEditEmergencyContactInfo(viewStore.user)) }
                             
                             if enableDeleteAcctount {
                                 makeEditButton(title: "Delete Account") { viewStore.send(.didTapDeleteAccount) }

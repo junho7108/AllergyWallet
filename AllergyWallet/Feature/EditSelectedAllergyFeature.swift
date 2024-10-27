@@ -37,7 +37,6 @@ struct EditSelectedAllergyFeature {
         case editSelectedAllergy([Allergy])
         case didSaveAllergyChanges(User)
     }
-    
   
     var body: some Reducer<State, Action> {
         Reduce { state, action in

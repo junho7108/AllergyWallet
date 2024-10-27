@@ -21,4 +21,5 @@ enum Screen {
     
     case setting(SettingFeature)
     case editSelectedAllergy(EditSelectedAllergyFeature)
+    case editEmergencyCard(EditEmergencyCardFeature)
 }

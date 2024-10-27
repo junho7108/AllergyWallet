@@ -33,7 +33,6 @@ struct SettingView: View {
                             IfLetStore(store.scope(
                                 state: \.profileEditState[id: user.id],
                                 action: { SettingFeature.Action.profileEditAction(id: user.id, action: $0) })) { store in
-                                    
                                     ProfileEditView(store: store, enableDeleteAcctount: viewStore.users.count > 1)
                                         .padding(.bottom, 16)
                                 }

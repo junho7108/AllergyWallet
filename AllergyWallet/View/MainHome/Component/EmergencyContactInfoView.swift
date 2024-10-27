@@ -24,32 +24,32 @@ struct EmergencyContactInfoView: View {
                     .fill(Color.white)
                 
                 VStack(spacing: 24) {
-                    if let firstName = user.emergencyCard?.firstName {
+                    if let firstName = user.emergencyCard?.firstName, !firstName.isEmpty {
                         personalInfoView(title: language == .eng ? "First Name" : "이름",
                                          value: firstName)
                     }
                    
-                    if let lastName = user.emergencyCard?.lastName {
+                    if let lastName = user.emergencyCard?.lastName, !lastName.isEmpty {
                         personalInfoView(title: language == .eng ? "Last Name" : "성",
                                          value: lastName)
                     }
                     
-                    if let birthDate = user.emergencyCard?.birthDate {
+                    if let birthDate = user.emergencyCard?.birthDate, !birthDate.isEmpty {
                         personalInfoView(title: language == .eng ? "Birth Date" : "생년월일",
                                          value: birthDate)
                     }
                    
-                    if let nationality = user.emergencyCard?.nationality {
+                    if let nationality = user.emergencyCard?.nationality, !nationality.isEmpty {
                         personalInfoView(title: language == .eng ? "Nationality" : "국적",
                                          value: nationality)
                     }
                     
-                    if let emergencyContact = user.emergencyCard?.emergencyContact {
+                    if let emergencyContact = user.emergencyCard?.emergencyContact, !emergencyContact.isEmpty {
                         personalInfoView(title: language == .eng ? "Emergency contack" : "응급 연락처",
                                          value: emergencyContact)
                     }
                     
-                    if let koreanContact = user.emergencyCard?.koreanContact {
+                    if let koreanContact = user.emergencyCard?.koreanContact, !koreanContact.isEmpty {
                         personalInfoView(title: language == .eng ? "Korean contact" : "한국내 응급 연락처",
                                          value: koreanContact)
                     }

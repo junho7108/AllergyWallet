@@ -50,6 +50,9 @@ struct CoordinatorView: View {
                 
             case .editSelectedAllergy(let store):
                 EditSelectedAllergyView(store: store)
+                
+            case .editEmergencyCard(let store):
+                EditEmergencyCardView(store: store)
             }
         }
     }

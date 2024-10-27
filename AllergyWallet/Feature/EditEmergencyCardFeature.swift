@@ -1,15 +1,14 @@
 //
-//  RegisterEmergencyCardFeature.swift
+//  EditEmergencyCardFeature.swift
 //  AllergyWallet
 //
-//  Created by Junho Yoon on 10/2/24.
+//  Created by Junho Yoon on 10/27/24.
 //
 
-import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct RegisterEmergencyCardFeature: DateFormatterProtocol {
+struct EditEmergencyCardFeature: DateFormatterProtocol {
     
     struct State: Equatable {
         var user: User
@@ -20,6 +19,16 @@ struct RegisterEmergencyCardFeature: DateFormatterProtocol {
         var nationality: String?
         var emergencyContact: String?
         var koreanContact: String?
+        
+        init(user: User) {
+            self.user = user
+            self.firstName = user.emergencyCard?.firstName
+            self.lastName = user.emergencyCard?.lastName
+            self.birthDate = user.emergencyCard?.birthDate
+            self.nationality = user.emergencyCard?.nationality
+            self.emergencyContact = user.emergencyCard?.emergencyContact
+            self.koreanContact = user.emergencyCard?.koreanContact
+        }
     }
     
     enum Action {
@@ -29,14 +38,12 @@ struct RegisterEmergencyCardFeature: DateFormatterProtocol {
         case didChangeNationality(String)
         case didChangeEmergencyContact(String)
         case didChangeKoreanContact(String)
-        case didTapSkip
-        case didTapRegisterEmergencyCard
         
-        case signUpUser(User)
-        case navigationToHome([User])
+        case didTapCancel
+        case didTapEditEmergencyCard
+        
+        case didSaveEmergencyChanges(User)
     }
-    
-    @Dependency(\.signUpUsecase) var usecase: SignUpUsecase
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
@@ -65,30 +72,20 @@ struct RegisterEmergencyCardFeature: DateFormatterProtocol {
                 state.koreanContact = koreanContact
                 return .none
                 
-            case .didTapSkip:
-                return .send(.signUpUser(state.user))
+            case .didTapEditEmergencyCard:
+                let card = EmergencyCard(firstName: state.firstName,
+                              lastName: state.lastName,
+                              birthDate: state.birthDate,
+                              nationality: state.nationality,
+                              emergencyContact: state.emergencyContact,
+                              koreanContact: state.koreanContact)
                 
-            case .navigationToHome:
+                state.user.emergencyCard = card
+                return .send(.didSaveEmergencyChanges(state.user))
+                
+            default:
                 return .none
-                
-            case .didTapRegisterEmergencyCard:
-                state.user.emergencyCard = EmergencyCard(firstName: state.firstName,
-                                                         lastName: state.lastName,
-                                                         birthDate: state.birthDate,
-                                                         nationality: state.nationality,
-                                                         emergencyContact: state.emergencyContact,
-                                                         koreanContact: state.koreanContact)
-                
-                return .send(.signUpUser(state.user))
-                
-            case .signUpUser(let user):
-                return .run { send in
-                    let result = await usecase.signUpUser(user: user)
-                    let users = await usecase.fetchUser()
-                    await send(.navigationToHome(users))
-                }
             }
         }
     }
 }
-

@@ -1,16 +1,15 @@
 //
-//  RegisterEmergencyCardView.swift
+//  EditEmergencyCardView.swift
 //  AllergyWallet
 //
-//  Created by Junho Yoon on 10/2/24.
+//  Created by Junho Yoon on 10/27/24.
 //
 
 import SwiftUI
 import ComposableArchitecture
 
-struct RegisterEmergencyCardView: View {
-    
-    let store: StoreOf<RegisterEmergencyCardFeature>
+struct EditEmergencyCardView: View {
+    let store: StoreOf<EditEmergencyCardFeature>
     
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
@@ -90,9 +89,9 @@ struct RegisterEmergencyCardView: View {
 
                 HStack {
                     Button(action: {
-                        viewStore.send(.didTapSkip)
+                        viewStore.send(.didTapCancel)
                     }) {
-                        Text("Skip")
+                        Text("Cancel")
                             .font(.system(size: 16))
                             .foregroundColor(Color.primary500)
                             .frame(width: 185, height: 51)
@@ -108,7 +107,7 @@ struct RegisterEmergencyCardView: View {
                     Spacer()
                     
                     Button(action: {
-                        viewStore.send(.didTapRegisterEmergencyCard)
+                        viewStore.send(.didTapEditEmergencyCard)
                     }) {
                         Text("Create")
                             .font(.system(size: 16))
@@ -122,5 +121,6 @@ struct RegisterEmergencyCardView: View {
             }
             .padding([.leading, .trailing], 24)
         }
+        .navigationTitle("Edit Emergency Contact Info")
     }
 }
