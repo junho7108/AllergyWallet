@@ -21,7 +21,9 @@ struct ProfileEditView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.primary50)
+                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 4)
                     
+               
                 VStack(alignment: .leading) {
                   
                     Text(viewStore.user.name)
@@ -52,8 +54,6 @@ struct ProfileEditView: View {
                 .padding(.vertical, 16)
             }
             .frame(maxWidth: .infinity, maxHeight: 256)
-            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 4)
-            
         }
     }
 }

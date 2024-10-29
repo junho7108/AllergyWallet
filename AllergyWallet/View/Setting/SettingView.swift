@@ -28,7 +28,7 @@ struct SettingView: View {
                             .font(.system(size: 14))
                             .foregroundColor(.gray700)
                             .padding(.bottom, 12)
-                        
+
                         ForEach(viewStore.users) { user in
                             IfLetStore(store.scope(
                                 state: \.profileEditState[id: user.id],

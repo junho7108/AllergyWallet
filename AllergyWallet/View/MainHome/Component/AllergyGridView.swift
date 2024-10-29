@@ -30,7 +30,7 @@ struct AllergyGridView: View {
                             RoundedRectangle(cornerRadius: 24)
                                 .fill(.white)
                             
-                            VStack {
+                            VStack(spacing: 8) {
                                 Text(allergy.emoji)
                                     .font(.system(size: 120, weight: .semibold))
                                 
