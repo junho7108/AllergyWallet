@@ -1,5 +1,5 @@
 //
-//  SelectAllergyFeature.swift
+//  RegisterSelectAllergyFeature.swift
 //  AllergyWallet
 //
 //  Created by Junho Yoon on 10/2/24.
@@ -9,7 +9,7 @@ import ComposableArchitecture
 import Dependencies
 
 @Reducer
-struct SelectAllergyFeature {
+struct RegisterSelectAllergyFeature {
     
     typealias AllegrySelectInfo = (allergy: Allergy, isSelected: Bool)
     

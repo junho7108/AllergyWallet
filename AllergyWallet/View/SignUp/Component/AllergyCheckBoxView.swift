@@ -20,7 +20,7 @@ struct AllergyCheckBoxView: View {
     
     var style: CheckBoxStyle = .round
     
-    var didSelect: ((SelectAllergyFeature.AllegrySelectInfo) -> Void)
+    var didSelect: ((RegisterSelectAllergyFeature.AllegrySelectInfo) -> Void)
     
     var body: some View {
         

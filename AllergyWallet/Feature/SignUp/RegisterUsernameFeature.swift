@@ -1,5 +1,5 @@
 //
-//  SignUpFeature.swift
+//  RegisterUsernameFeature.swift
 //  AllergyWallet
 //
 //  Created by Junho Yoon on 10/2/24.
@@ -9,10 +9,10 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct SignUpFeature {
+struct RegisterUsernameFeature {
     
     struct State: Equatable {
-        var username: String?
+        var username: String = ""
         var isValidNickname: Bool?
     }
     
@@ -26,18 +26,16 @@ struct SignUpFeature {
         Reduce { state, action in
             
             switch action {
-            case .didChangeNickname(let text):
+            case .didChangeNickname(var text):
                 state.username = text
                 state.isValidNickname = text.isEmpty ? nil : isValidNickname(nickname: text)
                 return .none
                 
             case .createUser:
-                if let username = state.username {
-                    let user = User(name: username)
-                    return .send(.navigateToSelectAllergies(user))
-                }
-               
-                return .none
+                guard isValidNickname(nickname: state.username) else { return .none }
+                
+                let user = User(name: state.username)
+                return .send(.navigateToSelectAllergies(user))
                 
             case .navigateToSelectAllergies:
                 return .none
@@ -46,7 +44,7 @@ struct SignUpFeature {
     }
 }
 
-private extension SignUpFeature {
+private extension RegisterUsernameFeature {
     func isValidNickname(nickname: String) -> Bool {
         
         let pattern = "^(?=.*[a-zA-Z0-9])[-_a-zA-Z0-9]{1,20}$"

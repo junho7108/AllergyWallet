@@ -59,12 +59,12 @@
 		127EC0AA2CACFFA300A3408C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0A92CACFFA300A3408C /* Assets.xcassets */; };
 		127EC0AD2CACFFA300A3408C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */; };
 		127EC0B52CAD02B700A3408C /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 127EC0B42CAD02B700A3408C /* TCACoordinators */; };
-		127EC0BA2CAD033300A3408C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0B92CAD033300A3408C /* SignUpView.swift */; };
+		127EC0BA2CAD033300A3408C /* RegisterUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0B92CAD033300A3408C /* RegisterUsernameView.swift */; };
 		127EC0BF2CAD059A00A3408C /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0BE2CAD059A00A3408C /* Color+Extensions.swift */; };
-		127EC0C12CAD08D600A3408C /* SignUpFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C02CAD08D600A3408C /* SignUpFeature.swift */; };
-		127EC0C32CAD16DB00A3408C /* SelectAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C22CAD16DB00A3408C /* SelectAllergyView.swift */; };
+		127EC0C12CAD08D600A3408C /* RegisterUsernameFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C02CAD08D600A3408C /* RegisterUsernameFeature.swift */; };
+		127EC0C32CAD16DB00A3408C /* RegisterSelectAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C22CAD16DB00A3408C /* RegisterSelectAllergyView.swift */; };
 		127EC0C52CAD177C00A3408C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C42CAD177C00A3408C /* Screen.swift */; };
-		127EC0C72CAD17B200A3408C /* SelectAllergyFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C62CAD17B200A3408C /* SelectAllergyFeature.swift */; };
+		127EC0C72CAD17B200A3408C /* RegisterSelectAllergyFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C62CAD17B200A3408C /* RegisterSelectAllergyFeature.swift */; };
 		127EC0C92CAD17FE00A3408C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0C82CAD17FE00A3408C /* Coordinator.swift */; };
 		127EC0CB2CAD18B300A3408C /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0CA2CAD18B300A3408C /* CoordinatorView.swift */; };
 		127EC0CE2CAD477300A3408C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0CD2CAD477300A3408C /* UIColor+Extensions.swift */; };
@@ -134,12 +134,12 @@
 		127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyWalletApp.swift; sourceTree = "<group>"; };
 		127EC0A92CACFFA300A3408C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		127EC0AC2CACFFA300A3408C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		127EC0B92CAD033300A3408C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		127EC0B92CAD033300A3408C /* RegisterUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUsernameView.swift; sourceTree = "<group>"; };
 		127EC0BE2CAD059A00A3408C /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		127EC0C02CAD08D600A3408C /* SignUpFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFeature.swift; sourceTree = "<group>"; };
-		127EC0C22CAD16DB00A3408C /* SelectAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllergyView.swift; sourceTree = "<group>"; };
+		127EC0C02CAD08D600A3408C /* RegisterUsernameFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUsernameFeature.swift; sourceTree = "<group>"; };
+		127EC0C22CAD16DB00A3408C /* RegisterSelectAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSelectAllergyView.swift; sourceTree = "<group>"; };
 		127EC0C42CAD177C00A3408C /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
-		127EC0C62CAD17B200A3408C /* SelectAllergyFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllergyFeature.swift; sourceTree = "<group>"; };
+		127EC0C62CAD17B200A3408C /* RegisterSelectAllergyFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSelectAllergyFeature.swift; sourceTree = "<group>"; };
 		127EC0C82CAD17FE00A3408C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		127EC0CA2CAD18B300A3408C /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		127EC0CD2CAD477300A3408C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -175,6 +175,37 @@
 				1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */,
 			);
 			path = BaseComponent;
+			sourceTree = "<group>";
+		};
+		1203B1762CD23CDE00D21DB9 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0C02CAD08D600A3408C /* RegisterUsernameFeature.swift */,
+				127EC0C62CAD17B200A3408C /* RegisterSelectAllergyFeature.swift */,
+				127EC0DB2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		1203B1772CD23CE500D21DB9 /* MainHome */ = {
+			isa = PBXGroup;
+			children = (
+				127EC0E62CAE668E00A3408C /* MainHomeFeature.swift */,
+				125159DD2CB189D7000D0ADA /* AllergyGuideCardFeature.swift */,
+				125159F52CB3DD61000D0ADA /* EmergencyCardFeature.swift */,
+			);
+			path = MainHome;
+			sourceTree = "<group>";
+		};
+		1203B1782CD23CFB00D21DB9 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				12515A042CB5210C000D0ADA /* SettingFeature.swift */,
+				12515A0B2CB52EBE000D0ADA /* ProfileEditFeature.swift */,
+				1203B1632CCB545B00D21DB9 /* EditSelectedAllergyFeature.swift */,
+				1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		125159B42CB017BD000D0ADA /* Usecase */ = {
@@ -245,8 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				127EC0DD2CAD752A00A3408C /* Component */,
-				127EC0B92CAD033300A3408C /* SignUpView.swift */,
-				127EC0C22CAD16DB00A3408C /* SelectAllergyView.swift */,
+				127EC0B92CAD033300A3408C /* RegisterUsernameView.swift */,
+				127EC0C22CAD16DB00A3408C /* RegisterSelectAllergyView.swift */,
 				127EC0D92CAD6EAA00A3408C /* RegisterEmergencyCardView.swift */,
 			);
 			path = SignUp;
@@ -351,17 +382,10 @@
 			isa = PBXGroup;
 			children = (
 				125159C82CB15CCF000D0ADA /* SplashFeature.swift */,
-				127EC0C02CAD08D600A3408C /* SignUpFeature.swift */,
-				127EC0C62CAD17B200A3408C /* SelectAllergyFeature.swift */,
-				127EC0DB2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift */,
-				127EC0E62CAE668E00A3408C /* MainHomeFeature.swift */,
 				125159EB2CB28D70000D0ADA /* LanguageFeature.swift */,
-				125159DD2CB189D7000D0ADA /* AllergyGuideCardFeature.swift */,
-				125159F52CB3DD61000D0ADA /* EmergencyCardFeature.swift */,
-				12515A042CB5210C000D0ADA /* SettingFeature.swift */,
-				12515A0B2CB52EBE000D0ADA /* ProfileEditFeature.swift */,
-				1203B1632CCB545B00D21DB9 /* EditSelectedAllergyFeature.swift */,
-				1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */,
+				1203B1762CD23CDE00D21DB9 /* SignUp */,
+				1203B1772CD23CE500D21DB9 /* MainHome */,
+				1203B1782CD23CFB00D21DB9 /* Setting */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -516,7 +540,7 @@
 				125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */,
 				125159EC2CB28D70000D0ADA /* LanguageFeature.swift in Sources */,
 				127EC0E92CAFDAA500A3408C /* AllergyInfoView.swift in Sources */,
-				127EC0C32CAD16DB00A3408C /* SelectAllergyView.swift in Sources */,
+				127EC0C32CAD16DB00A3408C /* RegisterSelectAllergyView.swift in Sources */,
 				127EC0DC2CAD6EF500A3408C /* RegisterEmergencyCardFeature.swift in Sources */,
 				12515A052CB5210C000D0ADA /* SettingFeature.swift in Sources */,
 				125159E42CB280B8000D0ADA /* View+Extensions.swift in Sources */,
@@ -529,12 +553,12 @@
 				125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */,
 				127EC0D82CAD5CFA00A3408C /* Allergy.swift in Sources */,
 				125159FE2CB42934000D0ADA /* PopupView.swift in Sources */,
-				127EC0C12CAD08D600A3408C /* SignUpFeature.swift in Sources */,
+				127EC0C12CAD08D600A3408C /* RegisterUsernameFeature.swift in Sources */,
 				127EC0DF2CAD755600A3408C /* InputTextField.swift in Sources */,
 				12515A002CB51CA1000D0ADA /* MainTopView.swift in Sources */,
-				127EC0BA2CAD033300A3408C /* SignUpView.swift in Sources */,
+				127EC0BA2CAD033300A3408C /* RegisterUsernameView.swift in Sources */,
 				127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */,
-				127EC0C72CAD17B200A3408C /* SelectAllergyFeature.swift in Sources */,
+				127EC0C72CAD17B200A3408C /* RegisterSelectAllergyFeature.swift in Sources */,
 				1203B16D2CCE407D00D21DB9 /* EditEmergencyCardView.swift in Sources */,
 				127EC0BF2CAD059A00A3408C /* Color+Extensions.swift in Sources */,
 				125159BD2CB14C35000D0ADA /* CheckMenuForAllergyView.swift in Sources */,

@@ -24,11 +24,11 @@ struct CoordinatorView: View {
             case .splash(let store):
                 SplashView(store: store)
                 
-            case .signUp(let store):
-                SignUpView(store: store)
+            case .registerUsername(let store):
+                RegisterUsernameView(store: store)
                 
-            case .selectAllergy(let store):
-                SelectAllergyView(store: store)
+            case .registerSelectAllergy(let store):
+                RegisterSelectAllergyView(store: store)
                 
             case .registerEmergencyCard(let store):
                 RegisterEmergencyCardView(store: store)

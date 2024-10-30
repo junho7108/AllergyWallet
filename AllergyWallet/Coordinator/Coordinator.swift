@@ -27,7 +27,7 @@ struct Coordinator {
           
             switch action {
             case .router(.routeAction(_, action: .splash(.navigationToSignUp))):
-                state.routes = [.root(.signUp(.init()), embedInNavigationView: true)]
+                state.routes = [.root(.registerUsername(.init()), embedInNavigationView: true)]
                 return .none
                 
             case .router(.routeAction(_, action: .splash(.navigationToMainHome(let users)))):
@@ -35,11 +35,11 @@ struct Coordinator {
                 return .none
                 
                 
-            case .router(.routeAction(_, action: .signUp(.navigateToSelectAllergies(let user)))):
-                state.routes.push(.selectAllergy(.init(user: user)))
+            case .router(.routeAction(_, action: .registerUsername(.navigateToSelectAllergies(let user)))):
+                state.routes.push(.registerSelectAllergy(.init(user: user)))
                 return .none
                 
-            case .router(.routeAction(_, action: .selectAllergy(.navigationToRegisterCard(let user)))):
+            case .router(.routeAction(_, action: .registerSelectAllergy(.navigationToRegisterCard(let user)))):
                 state.routes.push(.registerEmergencyCard(.init(user: user)))
                 return .none
                 
@@ -48,7 +48,7 @@ struct Coordinator {
                 return .none
                 
             case .router(.routeAction(_, action: .mainHome(.naivgationToSignUp))):
-                state.routes.push(.signUp(.init()))
+                state.routes.push(.registerUsername(.init()))
                 return .none
                 
             //MARK: Home

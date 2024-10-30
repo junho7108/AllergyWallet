@@ -1,5 +1,5 @@
 //
-//  SelectAllergyView.swift
+//  RegisterSelectAllergyView.swift
 //  AllergyWallet
 //
 //  Created by Junho Yoon on 10/2/24.
@@ -8,9 +8,9 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct SelectAllergyView: View {
+struct RegisterSelectAllergyView: View {
     
-    let store: StoreOf<SelectAllergyFeature>
+    let store: StoreOf<RegisterSelectAllergyFeature>
     
     var body: some View {
         
