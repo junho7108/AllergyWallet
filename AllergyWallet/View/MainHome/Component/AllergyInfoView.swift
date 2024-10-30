@@ -18,6 +18,8 @@ struct AllergyInfoView: View {
     
     var didTapButton: (([Allergy]) -> Void)? = nil
     
+    private(set) var maxCount = 4
+    
     var body: some View {
         
         ZStack(alignment: .bottomTrailing) {
@@ -55,17 +57,15 @@ struct AllergyInfoView: View {
                 .padding(.bottom, 24)
                 
                 ChipLayout(verticalSpacing: 8, horizontalSpacing: 8) {
-                    ForEach(Array(allergies.enumerated()), id: \.element.id) { index, allergy in
-                        
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 36)
-                                .fill(.white)
-                            
-                            Text("\(allergy.emoji) \(allergy.engName)")
-                                .padding(.horizontal, 12)
-                        }
-                        .frame(height: 32)
-                        .fixedSize()
+                    
+                    let showMoreIndicator = allergies.count > maxCount
+                    
+                    ForEach(allergies.prefix(maxCount)) { allergy in
+                        chipView(title: "\(allergy.emoji) \(allergy.engName)")
+                    }
+                    
+                    if showMoreIndicator {
+                        chipView(title: "‧‧‧ and more")
                     }
                 }
                 
@@ -75,5 +75,19 @@ struct AllergyInfoView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: 248)
         .shadow(color: .black.opacity(0.1), radius: 5)
+    }
+}
+
+private extension AllergyInfoView {
+    func chipView(title: String) -> some View{
+        ZStack {
+            RoundedRectangle(cornerRadius: 36)
+                .fill(.white)
+            
+            Text(title)
+                .padding(.horizontal, 12)
+        }
+        .frame(height: 32)
+        .fixedSize()
     }
 }
