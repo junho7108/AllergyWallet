@@ -32,7 +32,6 @@ struct AllergyGuideCardFeature {
         
         Reduce { state, action in
             switch action {
-           
             case .didTapAllergenIncluded(let selected):
                 state.hasAllergen = selected
                 return .none

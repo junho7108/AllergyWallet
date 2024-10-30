@@ -73,7 +73,7 @@ struct AllergyInfoView: View {
             }
             .padding(16)
         }
-//        .frame(maxWidth: .infinity, maxHeight: 248)
+        .frame(maxWidth: .infinity, maxHeight: 248)
         .shadow(color: .black.opacity(0.1), radius: 5)
     }
 }

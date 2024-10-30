@@ -41,7 +41,9 @@ struct AllergyGuideCardView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 24)
                 
-                AllergyGridView(store: store.scope(state: \.grid, action: \.never))
+                AllergyGridView(store: store.scope(state: \.grid, action: \.never),
+                                language: Binding<LanguageType>(get: { viewStore.languageState.language },
+                                                                set: { _ in }))
                   
                 Spacer()
      
@@ -107,6 +109,7 @@ private extension AllergyGuideCardView {
         default: return .white
         }
     }
+    
     func makeTitle(guide: AllergyGuideType, language: LanguageType) -> String {
         switch language {
         case .eng:

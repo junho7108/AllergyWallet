@@ -21,6 +21,7 @@ struct RegisterUsernameView: View {
                 Text("Choose Nickname for Allergy Wallet")
                     .font(.system(size: 28, weight: .semibold))
                     .padding(.bottom, 48)
+
                
                UsernameTextField(placeholder: "Nickname", textBinding: Binding<String>(
                 get: { viewStore.username },

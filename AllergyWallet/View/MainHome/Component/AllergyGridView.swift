@@ -16,6 +16,8 @@ struct AllergyGridView: View {
     
     let store: Store<AllergyGridState, Never>
     
+    @Binding var language: LanguageType
+    
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             
@@ -34,7 +36,9 @@ struct AllergyGridView: View {
                                 Text(allergy.emoji)
                                     .font(.system(size: 120, weight: .semibold))
                                 
-                                Text(allergy.engName)
+                                let allergyName = language == .eng ? allergy.engName : allergy.korName
+                                
+                                Text(allergyName)
                                     .font(.system(size: 24, weight: .medium))
                             }
                         }
@@ -59,7 +63,9 @@ struct AllergyGridView: View {
                                 Text(allergy.emoji)
                                     .font(.system(size: 60, weight: .semibold))
                                 
-                                Text(allergy.engName)
+                                let allergyName = language == .eng ? allergy.engName : allergy.korName
+                                
+                                Text(allergyName)
                                     .font(.system(size: 24, weight: .medium))
                             }
                         }
@@ -84,7 +90,9 @@ struct AllergyGridView: View {
                                 Text(allergy.emoji)
                                     .font(.system(size: 40, weight: .semibold))
                                 
-                                Text(allergy.engName)
+                                let allergyName = language == .eng ? allergy.engName : allergy.korName
+                                
+                                Text(allergyName)
                                     .font(.system(size: 18, weight: .medium))
                             }
                         }

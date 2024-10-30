@@ -52,7 +52,9 @@ struct MyAllergyInfoView: View {
                     .font(.system(size: 28, weight: .semibold))
                     .padding(.bottom, 24)
                 
-                AllergyGridView(store: store.scope(state: \.grid, action: \.never))
+                AllergyGridView(store: store.scope(state: \.grid, action: \.never),
+                                language: Binding<LanguageType>(get: { viewStore.languageState.language },
+                                                                set: { _ in }))
                     .padding(.bottom, 24)
                     
                 Text(viewStore.languageState.language == .eng
