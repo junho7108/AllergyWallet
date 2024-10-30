@@ -14,6 +14,7 @@
 		1203B16D2CCE407D00D21DB9 /* EditEmergencyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B16C2CCE407D00D21DB9 /* EditEmergencyCardView.swift */; };
 		1203B16F2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */; };
 		1203B1712CCE457500D21DB9 /* DateFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */; };
+		1203B1752CD0CA5700D21DB9 /* PagingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */; };
 		125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B62CB017D4000D0ADA /* AllergyRepository.swift */; };
 		125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B82CB01911000D0ADA /* AllergyUsecase.swift */; };
 		125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */; };
@@ -88,6 +89,7 @@
 		1203B16C2CCE407D00D21DB9 /* EditEmergencyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmergencyCardView.swift; sourceTree = "<group>"; };
 		1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmergencyCardFeature.swift; sourceTree = "<group>"; };
 		1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterProtocol.swift; sourceTree = "<group>"; };
+		1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingIndicatorView.swift; sourceTree = "<group>"; };
 		125159B62CB017D4000D0ADA /* AllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRepository.swift; sourceTree = "<group>"; };
 		125159B82CB01911000D0ADA /* AllergyUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyUsecase.swift; sourceTree = "<group>"; };
 		125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyPickerView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				1203B1662CCE084300D21DB9 /* ChipLayout.swift */,
+				1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */,
 			);
 			path = BaseComponent;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				127EC0CE2CAD477300A3408C /* UIColor+Extensions.swift in Sources */,
 				127EC0CB2CAD18B300A3408C /* CoordinatorView.swift in Sources */,
 				125159C92CB15CCF000D0ADA /* SplashFeature.swift in Sources */,
+				1203B1752CD0CA5700D21DB9 /* PagingIndicatorView.swift in Sources */,
 				127EC0E52CAE656400A3408C /* MainHomeView.swift in Sources */,
 				125159E82CB283B5000D0ADA /* LanguageSelectButton.swift in Sources */,
 				125159D42CB16398000D0ADA /* AuthRepository.swift in Sources */,

@@ -12,14 +12,22 @@ struct MyAllergyInfoView: View {
     
     let store: StoreOf<AllergyGuideCardFeature>
     
+    @State private var isFloating: Bool = false
+    @State private var capturedImage: Image?
+    
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 0) {
                 
                 HStack {
                     
-                    LanguageSelectButton(store: store.scope(state: \.languageState, action: \.languageAction))
+                    LanguageSelectButton(store: store.scope(state: \.languageState, action: \.languageAction)) { _ in
+                        captureScreen { image in
+                            guard let image else { return }
+                            capturedImage = Image(uiImage: image)
+                        }
+                    }
                     
                     Spacer()
                     
@@ -35,14 +43,17 @@ struct MyAllergyInfoView: View {
                     .frame(width: 40, height: 40)
                 }
                 .frame(height: 65)
+                .padding(.bottom, 6)
                   
                 
                 Text(viewStore.languageState.language == .eng
                      ? "I have food allergies to the following ingredients:"
                      : "아래의 식품에 심각한 알레르기 반응이 있습니다:")
                     .font(.system(size: 28, weight: .semibold))
+                    .padding(.bottom, 24)
                 
                 AllergyGridView(store: store.scope(state: \.grid, action: \.never))
+                    .padding(.bottom, 24)
                     
                 Text(viewStore.languageState.language == .eng
                      ? "Immediate medical attention is required if I consume or come into contact with any foods or sauces containing this ingredient."
@@ -64,39 +75,52 @@ struct MyAllergyInfoView: View {
                 HStack(spacing: 8) {
                     Spacer()
                     
-                    Button {
-                        captureScreen { image in
-                            guard let image else { return }
-                            saveImageToGallery(image)
+                    if isFloating {
+                        Button {
+                            captureScreen { image in
+                                guard let image else { return }
+                                capturedImage = Image(uiImage: image)
+                                saveImageToGallery(image)
+                            }
+                        } label: {
+                            Image("Button_download")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .scaledToFit()
                         }
                         
-                    } label: {
-                        Image("Button_download")
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .scaledToFit()
-                    }
-
-                    Button {
-                        
-                    } label: {
-                        Image("Button_share")
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .scaledToFit()
-                    }
-                    
-                    Button {
-                        
-                    } label: {
-                        Image("Button_close")
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .scaledToFit()
+                        if let capturedImage {
+                            ShareLink(item: capturedImage, preview: SharePreview("")) {
+                                Image("Button_share")
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
+                                    .scaledToFit()
+                            }
+                        }
+                            
+                        Button { isFloating = false } label: {
+                            Image("Button_close")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .scaledToFit()
+                        }
+                    } else {
+                        Button {
+                            isFloating = true
+                            captureScreen { image in
+                                guard let image else { return }
+                                capturedImage = Image(uiImage: image)
+                            }
+                        } label: {
+                            Image("Button_floating")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .scaledToFit()
+                        }
                     }
                 }
             }
-            .padding(.horizontal, 24)
+            .padding([.horizontal, .bottom], 24)
             .background(Color.primary50)
         }
         .statusBarHidden(true)
