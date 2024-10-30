@@ -14,7 +14,7 @@ struct AllergyGuideCardView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 0) {
                 
                 HStack {
                     LanguageSelectButton(store: store.scope(state: \.languageState, action: \.languageAction))
@@ -33,19 +33,18 @@ struct AllergyGuideCardView: View {
                     .frame(width: 40, height: 40)
                 }
                 .frame(height: 65)
+                .padding(.bottom, 6)
                   
                 
                 Text(makeTitle(guide: viewStore.type, language: viewStore.languageState.language))
                     .font(.system(size: 28, weight: .semibold))
                     .multilineTextAlignment(.center)
+                    .padding(.bottom, 24)
                 
                 AllergyGridView(store: store.scope(state: \.grid, action: \.never))
-                    
-               
+                  
                 Spacer()
-                
-             
-
+     
                 VStack(spacing: 12) {
                     Button(action: {
                         viewStore.send(.didTapAllergenIncluded(false))
@@ -89,7 +88,7 @@ struct AllergyGuideCardView: View {
                     )
                 }
             }
-            .padding(.horizontal, 24)
+            .padding([.horizontal, .bottom], 24)
             .background(makeBackgroundColor(guid: viewStore.type))
         }
         .statusBarHidden(true)

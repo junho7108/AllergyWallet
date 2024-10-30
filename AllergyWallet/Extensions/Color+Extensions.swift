@@ -29,6 +29,10 @@ extension Color {
         return .init(hex: "#212121")
     }
     
+    static var primary200: Color {
+        return .init(hex: "#81CCB1")
+    }
+    
     static var primary500: Color {
         return .init(hex: "#00986A")
     }

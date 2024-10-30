@@ -88,39 +88,40 @@ struct RegisterEmergencyCardView: View {
                
                 Spacer()
 
-                HStack {
+                HStack(spacing: 12) {
                     Button(action: {
                         viewStore.send(.didTapSkip)
                     }) {
-                        Text("Skip")
-                            .font(.system(size: 16))
-                            .foregroundColor(Color.primary500)
-                            .frame(width: 185, height: 51)
-                            .background(.white)
-                            .cornerRadius(12)
-                    }
-                    .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.primary500, lineWidth: 0.8)
-                    )
-                    
-                    
-                    Spacer()
-                    
+                            .overlay {
+                                Text("Skip")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color.primary500)
+                                    .background(.white)
+                            }
+                        
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 51)
+
                     Button(action: {
                         viewStore.send(.didTapRegisterEmergencyCard)
                     }) {
-                        Text("Create")
-                            .font(.system(size: 16))
-                            .foregroundColor(.white)
-                            .frame(width: 185, height: 51)
-                            .background(Color.primary500)
-                            .cornerRadius(12)
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.primary500)
+                            .overlay {
+                                Text("Create")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.white)
+                                    .background(Color.primary500)
+                            }
                     }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 51)
                 }
-               
             }
-            .padding([.leading, .trailing], 24)
+            .padding(24)
         }
     }
 }

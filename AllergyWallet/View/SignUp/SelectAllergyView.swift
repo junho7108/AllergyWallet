@@ -74,7 +74,7 @@ struct SelectAllergyView: View {
                 }
                 .disabled(!viewStore.isEnabledButton)
             }
-            .padding([.leading, .trailing], 24)
+            .padding(24)
             .onAppear {
                 viewStore.send(.fetchData)
             }

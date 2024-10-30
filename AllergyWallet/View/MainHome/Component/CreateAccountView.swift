@@ -17,7 +17,7 @@ struct CreateAccountView: View {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color(hex: "#DFF3EC"))
            
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 58) {
                 
                 HStack {
                     Text("My Allegry Info")
@@ -37,8 +37,7 @@ struct CreateAccountView: View {
                     .frame(width: 40, height: 40)
                 }
                 .frame(height: 24)
-                .padding(16)
-                
+               
                 HStack {
                     Spacer()
                     
@@ -68,8 +67,9 @@ struct CreateAccountView: View {
                 }
                 Spacer()
             }
+            .padding(16)
         }
+        .frame(height: 248)
         .shadow(color: .black.opacity(0.1), radius: 5)
-        .frame(maxWidth: .infinity, maxHeight: 248)
     }
 }

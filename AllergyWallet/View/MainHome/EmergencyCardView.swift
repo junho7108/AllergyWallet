@@ -59,31 +59,12 @@ struct EmergencyCardView: View {
                             AllergyListView(language: .constant(viewStore.languageState.language),
                                             allergies: .constant(viewStore.user.allergries))
                                
-                            if let _ = viewStore.user.emergencyCard {
-                                EmergencyContactInfoView(language: .constant(viewStore.languageState.language),
-                                                         user: .constant(viewStore.user))
-                                
-                            } else {
-                                
-                                VStack(alignment: .leading, spacing: 16) {
-                                    Text(viewStore.languageState.language == .eng
-                                         ? "Emergency Contact Info"
-                                         : "응급 상황 개인 정보")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.gray900)
-                                    
-                                    Text(viewStore.languageState.language == .eng
-                                         ? "You can update info in the settings."
-                                         : "업데이트 필요")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(.gray700)
-                                    
-                                }
-                            }
+                            EmergencyContactInfoView(language: .constant(viewStore.languageState.language),
+                                                     user: .constant(viewStore.user))
                         }
                     }
                 }
-                .padding(.horizontal, 24)
+                .padding([.horizontal, .bottom], 24)
             }
             .background(
                 LinearGradient(

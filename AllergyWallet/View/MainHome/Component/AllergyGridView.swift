@@ -41,8 +41,6 @@ struct AllergyGridView: View {
                         .aspectRatio(1, contentMode: .fit)
                     }
                 }
-                .padding(.bottom, 24)
-                               
             } else if viewStore.allergies.count <= 4 {
                 
                 let columns = [GridItem(.flexible(), spacing: 16),
@@ -68,13 +66,11 @@ struct AllergyGridView: View {
                         .aspectRatio(1, contentMode: .fit)
                     }
                 }
-                .padding(.bottom, 24)
-                
             } else {
                 
-                let columns = [GridItem(.flexible()),
-                               GridItem(.flexible()),
-                               GridItem(.flexible())]
+                let columns = [GridItem(.flexible(), spacing: 16),
+                               GridItem(.flexible(), spacing: 16),
+                               GridItem(.flexible(), spacing: 16)]
                 
                 LazyVGrid(columns: columns, spacing: 16) {
                     
@@ -95,7 +91,6 @@ struct AllergyGridView: View {
                         .aspectRatio(1, contentMode: .fit)
                     }
                 }
-                .padding(.bottom, 24)
             }
         }
     }

@@ -9,6 +9,38 @@ import SwiftUI
 
 struct EmergencyContactInfoView: View {
     
+    enum personalInfoType {
+        case firstName(String?)
+        case lastName(String?)
+        case birthDate(String?)
+        case nationality(String?)
+        case emergencyContact(String?)
+        case koreanContact(String?)
+        
+        func title(language: LanguageType) -> String {
+            switch self {
+            case .firstName: return language == .eng ? "First Name" : "이름"
+            case .lastName: return language == .eng ? "Last Name" : "성"
+            case .birthDate:  return language == .eng ? "Birth Date" : "생년월일"
+            case .nationality: return language == .eng ? "Nationality" : "국적"
+            case .emergencyContact: return language == .eng ? "Emergency Contact" : "응급 연락처"
+            case .koreanContact: return language == .eng ? "Korean Contact" : "한국내 응급 연락처"
+            }
+        }
+        
+        var value: String? {
+            switch self {
+            case .firstName(let value),
+                    .lastName(let value),
+                    .birthDate(let value),
+                    .nationality(let value),
+                    .emergencyContact(let value),
+                    .koreanContact(let value):
+                return value
+            }
+        }
+    }
+    
     @Binding var language: LanguageType
     @Binding var user: User
     
@@ -24,35 +56,18 @@ struct EmergencyContactInfoView: View {
                     .fill(Color.white)
                 
                 VStack(spacing: 24) {
-                    if let firstName = user.emergencyCard?.firstName, !firstName.isEmpty {
-                        personalInfoView(title: language == .eng ? "First Name" : "이름",
-                                         value: firstName)
-                    }
-                   
-                    if let lastName = user.emergencyCard?.lastName, !lastName.isEmpty {
-                        personalInfoView(title: language == .eng ? "Last Name" : "성",
-                                         value: lastName)
-                    }
+                    let validColor = Color.gray900
+                    let invalidColor = Color.gray700
                     
-                    if let birthDate = user.emergencyCard?.birthDate, !birthDate.isEmpty {
-                        personalInfoView(title: language == .eng ? "Birth Date" : "생년월일",
-                                         value: birthDate)
-                    }
-                   
-                    if let nationality = user.emergencyCard?.nationality, !nationality.isEmpty {
-                        personalInfoView(title: language == .eng ? "Nationality" : "국적",
-                                         value: nationality)
-                    }
+                    personalInfoView(type: .firstName(user.emergencyCard?.firstName), language: language)
                     
-                    if let emergencyContact = user.emergencyCard?.emergencyContact, !emergencyContact.isEmpty {
-                        personalInfoView(title: language == .eng ? "Emergency contack" : "응급 연락처",
-                                         value: emergencyContact)
-                    }
+                    personalInfoView(type: .lastName(user.emergencyCard?.lastName), language: language)
                     
-                    if let koreanContact = user.emergencyCard?.koreanContact, !koreanContact.isEmpty {
-                        personalInfoView(title: language == .eng ? "Korean contact" : "한국내 응급 연락처",
-                                         value: koreanContact)
-                    }
+                    personalInfoView(type: .birthDate(user.emergencyCard?.birthDate), language: language)
+                    
+                    personalInfoView(type: .emergencyContact(user.emergencyCard?.emergencyContact), language: language)
+                    
+                    personalInfoView(type: .koreanContact(user.emergencyCard?.koreanContact), language: language)
                 }
                 .padding(16)
                 
@@ -64,16 +79,17 @@ struct EmergencyContactInfoView: View {
 }
 
 private extension EmergencyContactInfoView {
-    func personalInfoView(title: String, value: String) -> some View {
+  
+    func personalInfoView(type: personalInfoType, language: LanguageType) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             
-            Text(title)
+            Text(type.title(language: language))
                 .font(.system(size: 14))
                 .foregroundColor(.gray700)
             
-            Text(value)
+            Text(type.value ?? "You can update info in the setting.")
                 .font(.system(size: 18))
-                .foregroundColor(.gray900)
+                .foregroundColor(type.value == nil ? .gray500 : .gray900)
             
             Divider()
         }

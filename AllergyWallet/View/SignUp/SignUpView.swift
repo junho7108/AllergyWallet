@@ -63,7 +63,7 @@ struct SignUpView: View {
                 }
                 .disabled(!(viewStore.isValidNickname ?? false))
             }
-            .padding(.horizontal, 24)
+            .padding(24)
         }
     }
 }

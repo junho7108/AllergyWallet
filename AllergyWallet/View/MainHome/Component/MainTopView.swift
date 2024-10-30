@@ -13,7 +13,7 @@ struct MainTopView: View {
     
     var body: some View {
         
-        HStack {
+        HStack(alignment: .center) {
             Image("TopViewIcon")
                 .resizable()
                 .scaledToFit()

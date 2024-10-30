@@ -30,7 +30,7 @@ struct AllergyInfoView: View {
                 .frame(width: 194)
                 .padding(.trailing, 12)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 
                 HStack {
                     Text("My Allegry Info")
@@ -49,11 +49,13 @@ struct AllergyInfoView: View {
                                 .frame(width: 24, height: 24)
                         }
                     }
-                    .frame(width: 40, height: 40)
+                    .frame(width: 24, height: 24)
                 }
+                .frame(height: 24)
+                .padding(.bottom, 24)
                 
                 ChipLayout(verticalSpacing: 8, horizontalSpacing: 8) {
-                    ForEach(allergies) { allergy in
+                    ForEach(Array(allergies.enumerated()), id: \.element.id) { index, allergy in
                         
                         ZStack {
                             RoundedRectangle(cornerRadius: 36)
@@ -61,16 +63,17 @@ struct AllergyInfoView: View {
                             
                             Text("\(allergy.emoji) \(allergy.engName)")
                                 .padding(.horizontal, 12)
-                            
                         }
                         .frame(height: 32)
                         .fixedSize()
                     }
                 }
+                
+                Spacer()
             }
             .padding(16)
         }
-        .frame(maxWidth: .infinity, maxHeight: 248)
+//        .frame(maxWidth: .infinity, maxHeight: 248)
         .shadow(color: .black.opacity(0.1), radius: 5)
     }
 }

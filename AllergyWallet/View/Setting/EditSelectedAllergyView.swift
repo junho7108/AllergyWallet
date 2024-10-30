@@ -93,7 +93,7 @@ struct EditSelectedAllergyView: View {
                     }
                 }
             }
-            .padding([.leading, .trailing], 24)
+            .padding(24)
             .onAppear {
                 viewStore.send(.fetchData)
             }

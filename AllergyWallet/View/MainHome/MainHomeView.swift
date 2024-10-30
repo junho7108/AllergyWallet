@@ -21,11 +21,15 @@ struct MainHomeView: View {
             
             ZStack {
                 
-                VStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading, spacing: 0) {
                     
                     MainTopView { viewStore.send(.navigationToSetting(viewStore.$users)) }
                         .padding(.horizontal, 24)
+
                     
+//                    PagingIndicatorView(numberOfPages: viewStore.users.count + 1, currentPage: $currentPage)
+//                        .frame(maxWidth: .infinity, alignment: .center)
+
                     TabView(selection: $currentPage) {
                         //MARK: 기존 계정
                         ForEach(viewStore.users.indices, id: \.self) { index in
@@ -33,16 +37,17 @@ struct MainHomeView: View {
                             let user = viewStore.users[index]
                             
                             ScrollView(.vertical, showsIndicators: false) {
-                                
-                                VStack(alignment: .leading, spacing: 0) {
+                               
+                                LazyVStack(alignment: .leading, spacing: 0) {
                                     Text("Safe Travels,")
                                         .font(.system(size: 28, weight: .semibold))
+                                        .padding(.top, 24)
                                     
                                     Text(user.name)
                                         .font(.system(size: 28, weight: .semibold))
                                         .foregroundColor(Color.primary500)
                                         .padding(.bottom, 16)
-                                    
+                                   
                                     AllergyInfoView(allergies: .constant(user.allergries)) { _ in
                                         viewStore.send(.navigationToAllergyGuide(.myAllergyInfo(user)))
                                     }
@@ -60,38 +65,40 @@ struct MainHomeView: View {
                                         viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
                                     }
                                 }
-                                .padding(.horizontal, 24)
                             }
                             .tag(index)
-                        }
-                        
-                        //MARK: 계정 추가
-                        ScrollView(.vertical) {
-                            VStack(alignment: .leading, spacing: 0) {
-                                Text("Safe Travels,")
-                                    .font(.system(size: 28, weight: .semibold))
-                                
-                                Text("New Account")
-                                    .font(.system(size: 28, weight: .semibold))
-                                    .foregroundColor(Color.primary500)
-                                    .padding(.bottom, 16)
-                                
-                                CreateAccountView(didTapCreateAccount: {
-                                    viewStore.send(.didTapCreateAccount)
-                                })
-                                .padding(.bottom, 48)
-                                
-                                createAllergyCardView()
-                            }
                             .padding(.horizontal, 24)
+                            
+                            //MARK: 계정 추가
+                            ScrollView(.vertical, showsIndicators: false) {
+                                
+                                LazyVStack(alignment: .leading, spacing: 0) {
+                                    
+                                    Text("Safe Travels,")
+                                        .font(.system(size: 28, weight: .semibold))
+                                        .padding(.top, 24)
+                                    
+                                    Text("New Account")
+                                        .font(.system(size: 28, weight: .semibold))
+                                        .foregroundColor(Color.primary500)
+                                        .padding(.bottom, 16)
+                                    
+                                    CreateAccountView(didTapCreateAccount: {
+                                        viewStore.send(.didTapCreateAccount)
+                                    })
+                                    .padding(.bottom, 48)
+                                    
+                                    createAllergyCardView()
+                                }
+                            }
+                            .opacity(0.4)
+                            .padding(.horizontal, 24)
+                            .tag(viewStore.users.count)
                         }
-                        .tag(viewStore.users.count)
-                    }
-                    .onChange(of: currentPage) { _, newValue in
-                        print("🟢 newValue \(newValue)")
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                 }
+                .padding(.bottom, 24)
             }
         }
     }
@@ -103,25 +110,20 @@ private extension MainHomeView {
                                didTapReqeustAllergyFree: (() -> Void)? = nil,
                                didTapCrossContaminationCheck: (() -> Void)? = nil,
                                didTapEmergencySituation: (() -> Void)? = nil) -> some View {
-        return ZStack {
+        return VStack(alignment: .leading, spacing: -60) {
             CheckMenuForAllergyView(didTapButton: didTapCheckMenu)
-                .offset(x: 0, y: 0)
                 .zIndex(0)
             
             RecommendMenuView(didTapButton: didTapRecommendMenu)
-                .offset(x: 0, y: 60)
                 .zIndex(1)
             
             AllergenFreeRequestView(didTapButton: didTapReqeustAllergyFree)
-                .offset(x: 0, y: 120)
                 .zIndex(2)
             
             CrossContaminationCheckView(didTapButton: didTapCrossContaminationCheck)
-                .offset(x: 0, y: 180)
                 .zIndex(3)
             
             EmergencySituationView(didTapButton: didTapEmergencySituation)
-                .offset(x: 0, y: 240)
                 .zIndex(4)
         }
     }

@@ -11,6 +11,8 @@ import ComposableArchitecture
 struct LanguageSelectButton: View {
     
     let store: StoreOf<LanguageFeature>
+    
+    var didChangeLanguage: ((LanguageType) -> Void)? = nil
    
     var body: some View {
         
@@ -23,6 +25,7 @@ struct LanguageSelectButton: View {
                 HStack(spacing: 0) {
                     Button {
                         viewStore.send(.didChangeLanguage(.kor))
+                        didChangeLanguage?(.kor)
                     } label: {
                         HStack {
                             Text("KOR")
@@ -43,6 +46,7 @@ struct LanguageSelectButton: View {
                     
                     Button {
                         viewStore.send(.didChangeLanguage(.eng))
+                        didChangeLanguage?(.eng)
                     } label: {
                         HStack {
                             Text("ENG")
