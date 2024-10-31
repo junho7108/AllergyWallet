@@ -121,16 +121,7 @@ struct EditEmergencyCardView: View {
                         .frame(height: 51)
                     }
                     .frame(height: 51 + 24 + 24)
-                    .background(
-                        LinearGradient(
-                            stops: [
-                                Gradient.Stop(color: .white.opacity(0), location: 0.00),
-                                Gradient.Stop(color: .white, location: 0.20),
-                            ],
-                            startPoint: UnitPoint(x: 0.45, y: 0),
-                            endPoint: UnitPoint(x: 0.45, y: 1)
-                        )
-                    )
+                    .transparentGradient()
                 }
             }
             .padding([.horizontal, .top], 24)

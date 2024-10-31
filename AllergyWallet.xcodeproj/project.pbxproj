@@ -15,6 +15,7 @@
 		1203B16F2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */; };
 		1203B1712CCE457500D21DB9 /* DateFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */; };
 		1203B1752CD0CA5700D21DB9 /* PagingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */; };
+		1203B17A2CD3943F00D21DB9 /* GradientDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1792CD3943F00D21DB9 /* GradientDirection.swift */; };
 		125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B62CB017D4000D0ADA /* AllergyRepository.swift */; };
 		125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B82CB01911000D0ADA /* AllergyUsecase.swift */; };
 		125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */; };
@@ -90,6 +91,7 @@
 		1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmergencyCardFeature.swift; sourceTree = "<group>"; };
 		1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterProtocol.swift; sourceTree = "<group>"; };
 		1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingIndicatorView.swift; sourceTree = "<group>"; };
+		1203B1792CD3943F00D21DB9 /* GradientDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDirection.swift; sourceTree = "<group>"; };
 		125159B62CB017D4000D0ADA /* AllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRepository.swift; sourceTree = "<group>"; };
 		125159B82CB01911000D0ADA /* AllergyUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyUsecase.swift; sourceTree = "<group>"; };
 		125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyPickerView.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				127EC0E22CAE5DAB00A3408C /* EmergencyCard.swift */,
 				125159E92CB284E1000D0ADA /* LanguageType.swift */,
 				125159F12CB3D5A2000D0ADA /* AllergyGuideType.swift */,
+				1203B1792CD3943F00D21DB9 /* GradientDirection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1203B17A2CD3943F00D21DB9 /* GradientDirection.swift in Sources */,
 				125159C12CB15203000D0ADA /* AllergenFreeRequestView.swift in Sources */,
 				125159C52CB15285000D0ADA /* EmergencySituationView.swift in Sources */,
 				125159CB2CB15DC9000D0ADA /* SplashUsecase.swift in Sources */,

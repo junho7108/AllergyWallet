@@ -21,13 +21,16 @@ struct MainHomeView: View {
             
             let user = currentPage < viewStore.users.count ? viewStore.users[currentPage] : nil
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 0) {
                 
                 MainTopView { viewStore.send(.navigationToSetting(viewStore.$users)) }
                     .padding(.horizontal, 24)
                 
+                Color.clear
+                    .frame(height: 24)
+                
                 ScrollView(.vertical, showsIndicators: false) {
-                    
+            
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Safe Travels,")
                             .font(.system(size: 28, weight: .semibold))
@@ -39,7 +42,7 @@ struct MainHomeView: View {
                     .opacity(user == nil ? 0.4 : 1)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 12)
                     
                     TabView(selection: $currentPage) {
                         ForEach(viewStore.users.indices, id: \.self) { index in
@@ -56,9 +59,8 @@ struct MainHomeView: View {
                         CreateAccountView(didTapCreateAccount: {
                             viewStore.send(.didTapCreateAccount)
                         })
-                        .opacity(0.4)
                         .padding(.horizontal, 24)
-                        .tag(viewStore.users.count)
+                        .tag(viewStore.users.count + 1)
                     }
                     .frame(height: 248)
                     .tabViewStyle(.page(indexDisplayMode: .never))
