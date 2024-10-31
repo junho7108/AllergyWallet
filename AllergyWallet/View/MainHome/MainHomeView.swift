@@ -19,85 +19,68 @@ struct MainHomeView: View {
         
         WithViewStore(store, observe: { $0 }) { viewStore in
             
-            ZStack {
+            let user = currentPage < viewStore.users.count ? viewStore.users[currentPage] : nil
+            
+            VStack(alignment: .leading, spacing: 16) {
                 
-                VStack(alignment: .leading, spacing: 0) {
+                MainTopView { viewStore.send(.navigationToSetting(viewStore.$users)) }
+                    .padding(.horizontal, 24)
+                
+                ScrollView(.vertical, showsIndicators: false) {
                     
-                    MainTopView { viewStore.send(.navigationToSetting(viewStore.$users)) }
-                        .padding(.horizontal, 24)
-                    
-                    
-                    //                    PagingIndicatorView(numberOfPages: viewStore.users.count + 1, currentPage: $currentPage)
-                    //                        .frame(maxWidth: .infinity, alignment: .center)
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Safe Travels,")
+                            .font(.system(size: 28, weight: .semibold))
+              
+                        Text(user?.name ?? "{Nickname}")
+                            .font(.system(size: 28, weight: .semibold))
+                            .foregroundColor(Color.primary500)
+                    }
+                    .opacity(user == nil ? 0.4 : 1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 16)
                     
                     TabView(selection: $currentPage) {
-                        //MARK: 기존 계정
                         ForEach(viewStore.users.indices, id: \.self) { index in
                             
                             let user = viewStore.users[index]
                             
-                            ScrollView(.vertical, showsIndicators: false) {
-                               
-                                LazyVStack(alignment: .leading, spacing: 0) {
-                                    Text("Safe Travels,")
-                                        .font(.system(size: 28, weight: .semibold))
-                                        .padding(.top, 24)
-                                    
-                                    Text(user.name)
-                                        .font(.system(size: 28, weight: .semibold))
-                                        .foregroundColor(Color.primary500)
-                                        .padding(.bottom, 16)
-                                   
-                                    AllergyInfoView(allergies: .constant(user.allergries)) { _ in
-                                        viewStore.send(.navigationToAllergyGuide(.myAllergyInfo(user)))
-                                    }
-                                    .padding(.bottom, 48)
-                                    
-                                    createAllergyCardView {
-                                        viewStore.send(.navigationToAllergyGuide(.checkMenu(user)))
-                                    } didTapRecommendMenu: {
-                                        viewStore.send(.navigationToAllergyGuide(.recommendMenu(user)))
-                                    } didTapReqeustAllergyFree: {
-                                        viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user)))
-                                    } didTapCrossContaminationCheck: {
-                                        viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user)))
-                                    } didTapEmergencySituation: {
-                                        viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
-                                    }
-                                }
-                                .padding(.bottom, 24)
+                            AllergyInfoView(allergies: .constant(user.allergries)) { _ in
+                                viewStore.send(.navigationToAllergyGuide(.myAllergyInfo(user)))
                             }
-                            .tag(index)
                             .padding(.horizontal, 24)
+                            .tag(index)
                         }
                         
-                        //MARK: 계정 추가
-                        ScrollView(.vertical, showsIndicators: false) {
-                            
-                            LazyVStack(alignment: .leading, spacing: 0) {
-                                
-                                Text("Safe Travels,")
-                                    .font(.system(size: 28, weight: .semibold))
-                                    .padding(.top, 24)
-                                
-                                Text("New Account")
-                                    .font(.system(size: 28, weight: .semibold))
-                                    .foregroundColor(Color.primary500)
-                                    .padding(.bottom, 16)
-                                
-                                CreateAccountView(didTapCreateAccount: {
-                                    viewStore.send(.didTapCreateAccount)
-                                })
-                                .padding(.bottom, 48)
-                                
-                                createAllergyCardView()
-                            }
-                            .padding(.bottom, 24)
-                        }
+                        CreateAccountView(didTapCreateAccount: {
+                            viewStore.send(.didTapCreateAccount)
+                        })
                         .opacity(0.4)
                         .padding(.horizontal, 24)
                         .tag(viewStore.users.count)
                     }
+                    .frame(height: 248)
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    .padding(.bottom, 24)
+                    
+                    PagingIndicatorView(numberOfPages: viewStore.users.count + 1, currentPage: $currentPage)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.bottom, 24)
+                    
+                    createAllergyCardView {
+                        if let user { viewStore.send(.navigationToAllergyGuide(.checkMenu(user))) }
+                    } didTapRecommendMenu: {
+                        if let user { viewStore.send(.navigationToAllergyGuide(.recommendMenu(user))) }
+                    } didTapReqeustAllergyFree: {
+                        if let user { viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user))) }
+                    } didTapCrossContaminationCheck: {
+                        if let user { viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user))) }
+                    } didTapEmergencySituation: {
+                        if let user { viewStore.send(.navigationToAllergyGuide(.emergencySituation(user))) }
+                    }
+                    .opacity(user == nil ? 0.4 : 1)
+                    .padding([.horizontal, .bottom], 24)
                     .tabViewStyle(.page(indexDisplayMode: .never))
                 }
             }
