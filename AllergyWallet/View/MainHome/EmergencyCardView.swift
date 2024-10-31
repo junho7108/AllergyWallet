@@ -63,8 +63,9 @@ struct EmergencyCardView: View {
                                                      user: .constant(viewStore.user))
                         }
                     }
+                    .padding(.bottom, 24)
                 }
-                .padding([.horizontal, .bottom], 24)
+                .padding(.horizontal, 24)
             }
             .background(
                 LinearGradient(

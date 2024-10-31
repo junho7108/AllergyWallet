@@ -25,11 +25,11 @@ struct MainHomeView: View {
                     
                     MainTopView { viewStore.send(.navigationToSetting(viewStore.$users)) }
                         .padding(.horizontal, 24)
-
                     
-//                    PagingIndicatorView(numberOfPages: viewStore.users.count + 1, currentPage: $currentPage)
-//                        .frame(maxWidth: .infinity, alignment: .center)
-
+                    
+                    //                    PagingIndicatorView(numberOfPages: viewStore.users.count + 1, currentPage: $currentPage)
+                    //                        .frame(maxWidth: .infinity, alignment: .center)
+                    
                     TabView(selection: $currentPage) {
                         //MARK: 기존 계정
                         ForEach(viewStore.users.indices, id: \.self) { index in
@@ -65,40 +65,41 @@ struct MainHomeView: View {
                                         viewStore.send(.navigationToAllergyGuide(.emergencySituation(user)))
                                     }
                                 }
+                                .padding(.bottom, 24)
                             }
                             .tag(index)
                             .padding(.horizontal, 24)
-                            
-                            //MARK: 계정 추가
-                            ScrollView(.vertical, showsIndicators: false) {
-                                
-                                LazyVStack(alignment: .leading, spacing: 0) {
-                                    
-                                    Text("Safe Travels,")
-                                        .font(.system(size: 28, weight: .semibold))
-                                        .padding(.top, 24)
-                                    
-                                    Text("New Account")
-                                        .font(.system(size: 28, weight: .semibold))
-                                        .foregroundColor(Color.primary500)
-                                        .padding(.bottom, 16)
-                                    
-                                    CreateAccountView(didTapCreateAccount: {
-                                        viewStore.send(.didTapCreateAccount)
-                                    })
-                                    .padding(.bottom, 48)
-                                    
-                                    createAllergyCardView()
-                                }
-                            }
-                            .opacity(0.4)
-                            .padding(.horizontal, 24)
-                            .tag(viewStore.users.count)
                         }
+                        
+                        //MARK: 계정 추가
+                        ScrollView(.vertical, showsIndicators: false) {
+                            
+                            LazyVStack(alignment: .leading, spacing: 0) {
+                                
+                                Text("Safe Travels,")
+                                    .font(.system(size: 28, weight: .semibold))
+                                    .padding(.top, 24)
+                                
+                                Text("New Account")
+                                    .font(.system(size: 28, weight: .semibold))
+                                    .foregroundColor(Color.primary500)
+                                    .padding(.bottom, 16)
+                                
+                                CreateAccountView(didTapCreateAccount: {
+                                    viewStore.send(.didTapCreateAccount)
+                                })
+                                .padding(.bottom, 48)
+                                
+                                createAllergyCardView()
+                            }
+                            .padding(.bottom, 24)
+                        }
+                        .opacity(0.4)
+                        .padding(.horizontal, 24)
+                        .tag(viewStore.users.count)
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
                 }
-                .padding(.bottom, 24)
             }
         }
     }

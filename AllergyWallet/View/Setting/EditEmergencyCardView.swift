@@ -14,7 +14,7 @@ struct EditEmergencyCardView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             
-            VStack {
+            ZStack {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
@@ -84,43 +84,56 @@ struct EditEmergencyCardView: View {
                         .padding(.bottom, 24)
                     }
                 }
-               
-                Spacer()
-
-                HStack {
-                    Button(action: {
-                        viewStore.send(.didTapCancel)
-                    }) {
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.primary500, lineWidth: 0.8)
-                            .overlay {
-                                Text("Skip")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(Color.primary500)
-                                    .background(.white)
-                            }
+                
+                VStack {
+                    Spacer()
+                    
+                    HStack {
+                        Button(action: {
+                            viewStore.send(.didTapCancel)
+                        }) {
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.primary500, lineWidth: 0.8)
+                                .overlay {
+                                    Text("Skip")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(Color.primary500)
+                                        .background(.white)
+                                }
+                            
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 51)
                         
+                        Button(action: {
+                            viewStore.send(.didTapEditEmergencyCard)
+                        }) {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.primary500)
+                                .overlay {
+                                    Text("Create")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.white)
+                                        .background(Color.primary500)
+                                }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 51)
                     }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 51)
-
-                    Button(action: {
-                        viewStore.send(.didTapEditEmergencyCard)
-                    }) {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.primary500)
-                            .overlay {
-                                Text("Create")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.white)
-                                    .background(Color.primary500)
-                            }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 51)
+                    .frame(height: 51 + 24 + 24)
+                    .background(
+                        LinearGradient(
+                            stops: [
+                                Gradient.Stop(color: .white.opacity(0), location: 0.00),
+                                Gradient.Stop(color: .white, location: 0.20),
+                            ],
+                            startPoint: UnitPoint(x: 0.45, y: 0),
+                            endPoint: UnitPoint(x: 0.45, y: 1)
+                        )
+                    )
                 }
             }
-            .padding(24)
+            .padding([.horizontal, .top], 24)
         }
         .navigationTitle("Edit Emergency Contact Info")
     }
