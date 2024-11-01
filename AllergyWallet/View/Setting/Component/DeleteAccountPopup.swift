@@ -25,15 +25,17 @@ struct DeleteAccountPopup: View {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.white)
                     .overlay {
-                        VStack(alignment: .leading, spacing: 12) {
+                        VStack(alignment: .leading, spacing: 0) {
                             Text("Delete \(username)")
                                 .font(.system(size: 16))
                                 .foregroundColor(.gray700)
+                                .padding(.bottom, 12)
                             
                             Text("Would you like to delete \(username)'s allergy info?")
                                 .font(.system(size: 16))
                                 .foregroundColor(.gray700)
-                                .padding(.bottom, 12)
+                                .multilineTextAlignment(.leading)
+                                .padding(.bottom, 24)
                             
                             HStack(spacing: 16) {
                                 Button(action: { didTapDelete?() }) {

@@ -14,6 +14,8 @@ struct SettingFeature {
     enum SettingPopupType: Equatable {
         case editNickname
         case deleteAccount
+        case editNicknameComplete(String)
+        case accountDeletionCompleted(User)
         case none
     }
     
@@ -44,14 +46,22 @@ struct SettingFeature {
                     state.popupState = .editNickname
                     return .none
                     
-                case .didTapDeleteAccount:
+                case .didTapDeleteAccount(let user):
                     state.popupState = .deleteAccount
+                    return .none
+                    
+                case .editUserName(let username):
+                    state.popupState = .editNicknameComplete(username)
+                    return .none
+                    
+                case .deleteUser(let user):
+                    state.popupState = .accountDeletionCompleted(user)
                     return .none
                     
                 case .updateUserList(let users):
                     state.users = users
-                    return .send(.didClose)
-                    
+                    return .none
+
                 default:
                     return .none
                 }

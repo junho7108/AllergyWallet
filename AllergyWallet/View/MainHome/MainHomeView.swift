@@ -13,14 +13,10 @@ struct MainHomeView: View {
     
     let store: StoreOf<MainHomeFeature>
    
-    @State private var currentPage: Int = 0
-    
     var body: some View {
         
         WithViewStore(store, observe: { $0 }) { viewStore in
-            
-            let user = currentPage < viewStore.users.count ? viewStore.users[currentPage] : nil
-            
+  
             VStack(alignment: .leading, spacing: 0) {
                 
                 MainTopView { viewStore.send(.navigationToSetting(viewStore.$users)) }
@@ -35,16 +31,17 @@ struct MainHomeView: View {
                         Text("Safe Travels,")
                             .font(.system(size: 28, weight: .semibold))
               
-                        Text(user?.name ?? "{Nickname}")
+                        Text(viewStore.currentUser?.name ?? "{Nickname}")
                             .font(.system(size: 28, weight: .semibold))
                             .foregroundColor(Color.primary500)
                     }
-                    .opacity(user == nil ? 0.4 : 1)
+                    .opacity(viewStore.currentUser == nil ? 0.4 : 1)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 12)
                     
-                    TabView(selection: $currentPage) {
+                    TabView(selection: Binding<Int>(get: { viewStore.currentPage },
+                                                    set: { viewStore.send(.setCurrentPage($0))})) {
                         ForEach(viewStore.users.indices, id: \.self) { index in
                             
                             let user = viewStore.users[index]
@@ -60,31 +57,41 @@ struct MainHomeView: View {
                             viewStore.send(.didTapCreateAccount)
                         })
                         .padding(.horizontal, 24)
-                        .tag(viewStore.users.count + 1)
+                        .tag(viewStore.users.count)
                     }
+        
                     .frame(height: 248)
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .padding(.bottom, 24)
                     
-                    PagingIndicatorView(numberOfPages: viewStore.users.count + 1, currentPage: $currentPage)
+                    PagingIndicatorView(numberOfPages: Binding<Int>(get: { viewStore.users.count + 1 }, set: { _ in }),
+                                        currentPage: Binding<Int>(get: { viewStore.currentPage }, set: { _ in }))
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.bottom, 24)
                     
                     createAllergyCardView {
-                        if let user { viewStore.send(.navigationToAllergyGuide(.checkMenu(user))) }
+                        if let currentUser = viewStore.currentUser { viewStore.send(.navigationToAllergyGuide(.checkMenu(currentUser)))
+                        }
                     } didTapRecommendMenu: {
-                        if let user { viewStore.send(.navigationToAllergyGuide(.recommendMenu(user))) }
+                        if let currentUser = viewStore.currentUser { viewStore.send(.navigationToAllergyGuide(.recommendMenu(currentUser)))
+                        }
                     } didTapReqeustAllergyFree: {
-                        if let user { viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(user))) }
+                        if let currentUser = viewStore.currentUser { viewStore.send(.navigationToAllergyGuide(.requestAllergenFree(currentUser)))
+                        }
                     } didTapCrossContaminationCheck: {
-                        if let user { viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(user))) }
+                        if let currentUser = viewStore.currentUser { viewStore.send(.navigationToAllergyGuide(.checkCrossContamination(currentUser)))
+                        }
                     } didTapEmergencySituation: {
-                        if let user { viewStore.send(.navigationToAllergyGuide(.emergencySituation(user))) }
+                        if let currentUser = viewStore.currentUser { viewStore.send(.navigationToAllergyGuide(.emergencySituation(currentUser)))
+                        }
                     }
-                    .opacity(user == nil ? 0.4 : 1)
+                    .opacity(viewStore.currentUser == nil ? 0.4 : 1)
                     .padding([.horizontal, .bottom], 24)
                     .tabViewStyle(.page(indexDisplayMode: .never))
                 }
+            }
+            .onAppear {
+                viewStore.send(.setCurrentPage(viewStore.currentPage))
             }
         }
     }
