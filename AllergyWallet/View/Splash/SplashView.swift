@@ -15,10 +15,16 @@ struct SplashView: View {
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
-                Text("Splash")
+                Spacer()
+                
+                LottieView(animationName: "Splash")
+                
+                Spacer()
             }
             .onAppear {
-                viewStore.send(.fetchUser)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    viewStore.send(.fetchUser)
+                }
             }
         }
     }
