@@ -15,6 +15,13 @@
 		1203B16F2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */; };
 		1203B1712CCE457500D21DB9 /* DateFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */; };
 		1203B1752CD0CA5700D21DB9 /* PagingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */; };
+		1203B17A2CD3943F00D21DB9 /* GradientDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1792CD3943F00D21DB9 /* GradientDirection.swift */; };
+		1203B17C2CD496E800D21DB9 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B17B2CD496E800D21DB9 /* Collection+Extensions.swift */; };
+		1203B17E2CD4AE6200D21DB9 /* EditNicknameCompletePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B17D2CD4AE6200D21DB9 /* EditNicknameCompletePopup.swift */; };
+		1203B1802CD4B14B00D21DB9 /* DeleteAccountCompletePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B17F2CD4B14B00D21DB9 /* DeleteAccountCompletePopup.swift */; };
+		1203B1852CD5216300D21DB9 /* Splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 1203B1842CD5216300D21DB9 /* Splash.json */; };
+		1203B1882CD521A200D21DB9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1203B1872CD521A200D21DB9 /* Lottie */; };
+		1203B18A2CD70C7B00D21DB9 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1892CD70C7B00D21DB9 /* LottieView.swift */; };
 		125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B62CB017D4000D0ADA /* AllergyRepository.swift */; };
 		125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B82CB01911000D0ADA /* AllergyUsecase.swift */; };
 		125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */; };
@@ -90,6 +97,12 @@
 		1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmergencyCardFeature.swift; sourceTree = "<group>"; };
 		1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterProtocol.swift; sourceTree = "<group>"; };
 		1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingIndicatorView.swift; sourceTree = "<group>"; };
+		1203B1792CD3943F00D21DB9 /* GradientDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDirection.swift; sourceTree = "<group>"; };
+		1203B17B2CD496E800D21DB9 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		1203B17D2CD4AE6200D21DB9 /* EditNicknameCompletePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameCompletePopup.swift; sourceTree = "<group>"; };
+		1203B17F2CD4B14B00D21DB9 /* DeleteAccountCompletePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountCompletePopup.swift; sourceTree = "<group>"; };
+		1203B1842CD5216300D21DB9 /* Splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Splash.json; sourceTree = "<group>"; };
+		1203B1892CD70C7B00D21DB9 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		125159B62CB017D4000D0ADA /* AllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRepository.swift; sourceTree = "<group>"; };
 		125159B82CB01911000D0ADA /* AllergyUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyUsecase.swift; sourceTree = "<group>"; };
 		125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyPickerView.swift; sourceTree = "<group>"; };
@@ -162,6 +175,7 @@
 			files = (
 				127EC0B52CAD02B700A3408C /* TCACoordinators in Frameworks */,
 				127EC0D12CAD4E2C00A3408C /* SwiftUIIntrospect in Frameworks */,
+				1203B1882CD521A200D21DB9 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +187,7 @@
 			children = (
 				1203B1662CCE084300D21DB9 /* ChipLayout.swift */,
 				1203B1742CD0CA5700D21DB9 /* PagingIndicatorView.swift */,
+				1203B1892CD70C7B00D21DB9 /* LottieView.swift */,
 			);
 			path = BaseComponent;
 			sourceTree = "<group>";
@@ -206,6 +221,14 @@
 				1203B16E2CCE436C00D21DB9 /* EditEmergencyCardFeature.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		1203B1832CD5214300D21DB9 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				1203B1842CD5216300D21DB9 /* Splash.json */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 		125159B42CB017BD000D0ADA /* Usecase */ = {
@@ -309,6 +332,8 @@
 				12515A092CB5253E000D0ADA /* ProfileEditView.swift */,
 				12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */,
 				1203B16A2CCE22CF00D21DB9 /* DeleteAccountPopup.swift */,
+				1203B17D2CD4AE6200D21DB9 /* EditNicknameCompletePopup.swift */,
+				1203B17F2CD4B14B00D21DB9 /* DeleteAccountCompletePopup.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -332,6 +357,7 @@
 		127EC0A42CACFFA100A3408C /* AllergyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				1203B1832CD5214300D21DB9 /* Files */,
 				125159CE2CB162C3000D0ADA /* Common */,
 				125159B52CB017C5000D0ADA /* Repository */,
 				125159B42CB017BD000D0ADA /* Usecase */,
@@ -396,6 +422,7 @@
 				127EC0BE2CAD059A00A3408C /* Color+Extensions.swift */,
 				127EC0CD2CAD477300A3408C /* UIColor+Extensions.swift */,
 				125159E32CB280B8000D0ADA /* View+Extensions.swift */,
+				1203B17B2CD496E800D21DB9 /* Collection+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +442,7 @@
 				127EC0E22CAE5DAB00A3408C /* EmergencyCard.swift */,
 				125159E92CB284E1000D0ADA /* LanguageType.swift */,
 				125159F12CB3D5A2000D0ADA /* AllergyGuideType.swift */,
+				1203B1792CD3943F00D21DB9 /* GradientDirection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -448,6 +476,7 @@
 			packageProductDependencies = (
 				127EC0B42CAD02B700A3408C /* TCACoordinators */,
 				127EC0D02CAD4E2C00A3408C /* SwiftUIIntrospect */,
+				1203B1872CD521A200D21DB9 /* Lottie */,
 			);
 			productName = AllergyWallet;
 			productReference = 127EC0A22CACFFA100A3408C /* AllergyWallet.app */;
@@ -480,6 +509,7 @@
 			packageReferences = (
 				127EC0B32CAD02B700A3408C /* XCRemoteSwiftPackageReference "TCACoordinators" */,
 				127EC0CF2CAD4E2C00A3408C /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				1203B1862CD521A200D21DB9 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = 127EC0A32CACFFA100A3408C /* Products */;
 			projectDirPath = "";
@@ -497,6 +527,7 @@
 			files = (
 				127EC0AD2CACFFA300A3408C /* Preview Assets.xcassets in Resources */,
 				127EC0AA2CACFFA300A3408C /* Assets.xcassets in Resources */,
+				1203B1852CD5216300D21DB9 /* Splash.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +538,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1203B1802CD4B14B00D21DB9 /* DeleteAccountCompletePopup.swift in Sources */,
+				1203B17A2CD3943F00D21DB9 /* GradientDirection.swift in Sources */,
+				1203B17E2CD4AE6200D21DB9 /* EditNicknameCompletePopup.swift in Sources */,
 				125159C12CB15203000D0ADA /* AllergenFreeRequestView.swift in Sources */,
 				125159C52CB15285000D0ADA /* EmergencySituationView.swift in Sources */,
 				125159CB2CB15DC9000D0ADA /* SplashUsecase.swift in Sources */,
@@ -515,6 +549,7 @@
 				127EC0E72CAE668E00A3408C /* MainHomeFeature.swift in Sources */,
 				125159F22CB3D5A2000D0ADA /* AllergyGuideType.swift in Sources */,
 				125159FC2CB3FADF000D0ADA /* EmergencyContactInfoView.swift in Sources */,
+				1203B17C2CD496E800D21DB9 /* Collection+Extensions.swift in Sources */,
 				12515A122CBE1E3F000D0ADA /* CreateAccountView.swift in Sources */,
 				127EC0C92CAD17FE00A3408C /* Coordinator.swift in Sources */,
 				125159FA2CB3EECC000D0ADA /* AllergyListView.swift in Sources */,
@@ -560,6 +595,7 @@
 				127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */,
 				127EC0C72CAD17B200A3408C /* RegisterSelectAllergyFeature.swift in Sources */,
 				1203B16D2CCE407D00D21DB9 /* EditEmergencyCardView.swift in Sources */,
+				1203B18A2CD70C7B00D21DB9 /* LottieView.swift in Sources */,
 				127EC0BF2CAD059A00A3408C /* Color+Extensions.swift in Sources */,
 				125159BD2CB14C35000D0ADA /* CheckMenuForAllergyView.swift in Sources */,
 				1203B1672CCE084300D21DB9 /* ChipLayout.swift in Sources */,
@@ -790,6 +826,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1203B1862CD521A200D21DB9 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 		127EC0B32CAD02B700A3408C /* XCRemoteSwiftPackageReference "TCACoordinators" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnpatrickmorgan/TCACoordinators";
@@ -809,6 +853,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1203B1872CD521A200D21DB9 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1203B1862CD521A200D21DB9 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		127EC0B42CAD02B700A3408C /* TCACoordinators */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 127EC0B32CAD02B700A3408C /* XCRemoteSwiftPackageReference "TCACoordinators" */;

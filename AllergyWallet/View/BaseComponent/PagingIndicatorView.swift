@@ -10,8 +10,9 @@ import SwiftUI
 
 struct PagingIndicatorView: View {
     
-    @State var numberOfPages: Int
+    @Binding var numberOfPages: Int
     @Binding var currentPage: Int
+    
     
     var body: some View {
         HStack(spacing: 12) {

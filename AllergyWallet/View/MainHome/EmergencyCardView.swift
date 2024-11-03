@@ -52,6 +52,7 @@ struct EmergencyCardView: View {
                             .font(.system(size: 28, weight: .semibold))
                             .foregroundColor(.semanticError)
                             .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity, alignment: .center)
                            
                         VStack(alignment: .leading, spacing: 48) {
                             AllergySymptomsView(language: .constant(viewStore.languageState.language))

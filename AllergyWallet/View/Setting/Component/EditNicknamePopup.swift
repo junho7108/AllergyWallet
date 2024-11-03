@@ -35,11 +35,12 @@ struct EditNicknamePopup: View {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.white)
                     .overlay {
-                        VStack(alignment: .leading, spacing: 12) {
+                        VStack(alignment: .leading, spacing: 0) {
                             
                             Text("Edit Nickname")
                                 .font(.system(size: 16))
                                 .foregroundColor(.gray700)
+                                .padding(.bottom, 12)
                             
                             ZStack {
                                 TextField("Name", text: $username)
@@ -71,6 +72,7 @@ struct EditNicknamePopup: View {
                             }
                             .background(Color.gray50)
                             .cornerRadius(4)
+                            .padding(.bottom, 24)
                             
                             HStack(spacing: 16) {
                                 Button(action: { didTapCancel?() }) {

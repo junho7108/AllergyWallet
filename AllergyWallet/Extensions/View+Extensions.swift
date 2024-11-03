@@ -32,4 +32,30 @@ extension View {
     func defaultShadow() -> some View {
         return self.shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 0)
     }
+    
+    func transparentGradient(color: Color = .white, direction: GradientDirection = .topToBottom) -> some View {
+        let startPoint: UnitPoint
+        let endPoint: UnitPoint
+        
+        switch direction {
+        case .topToBottom:
+            startPoint = .top
+            endPoint = .bottom
+        case .bottomToTop:
+            startPoint = .bottom
+            endPoint = .top
+        }
+        
+        return self
+            .background(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(color: color.opacity(0), location: 0.00),
+                        Gradient.Stop(color: color, location: 0.20),
+                    ],
+                    startPoint: startPoint,
+                    endPoint: endPoint
+                )
+            )
+    }
 }

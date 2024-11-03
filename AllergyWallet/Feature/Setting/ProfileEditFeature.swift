@@ -17,10 +17,10 @@ struct ProfileEditFeature {
     }
     
     enum Action {
-        case didTapEditNickname
+        case didTapEditNickname(User)
         case didTapEditAllergySelection(User)
         case didTapEditEmergencyContactInfo(User)
-        case didTapDeleteAccount
+        case didTapDeleteAccount(User)
         
         case editUserName(String)
         case deleteUser(User)

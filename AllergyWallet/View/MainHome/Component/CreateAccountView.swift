@@ -16,6 +16,7 @@ struct CreateAccountView: View {
         ZStack(alignment: .bottomTrailing) {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color(hex: "#DFF3EC"))
+                .opacity(0.4)
            
             VStack(alignment: .leading, spacing: 58) {
                 
@@ -36,6 +37,7 @@ struct CreateAccountView: View {
                     }
                     .frame(width: 40, height: 40)
                 }
+                .opacity(0.4)
                 .frame(height: 24)
                
                 HStack {

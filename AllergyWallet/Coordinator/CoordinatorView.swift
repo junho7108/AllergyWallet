@@ -66,7 +66,7 @@ private extension CoordinatorView {
         let backImage = UIImage(named: "BackButton")?.withRenderingMode(.alwaysOriginal)
         appearance.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
         appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
-        
+        appearance.backButtonAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -6)
         // 네비게이션 바 배경색
       
         appearance.configureWithTransparentBackground()
@@ -79,8 +79,7 @@ private extension CoordinatorView {
             .foregroundColor: UIColor(color: .gray900) ?? .white,
             .font: UIFont.systemFont(ofSize: 18)
         ]
-        
-        
+
         // 네비게이션 바에 스타일 적용
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance

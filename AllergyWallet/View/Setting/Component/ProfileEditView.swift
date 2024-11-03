@@ -21,39 +21,41 @@ struct ProfileEditView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.primary50)
-                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 4)
-                    
-               
-                VStack(alignment: .leading) {
+                   
+                VStack(alignment: .leading, spacing: 0) {
                   
                     Text(viewStore.user.name)
                         .font(.system(size: 16))
                         .foregroundColor(.primary500)
                         .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
                        
                     ZStack {
                         
                         Rectangle()
                             .fill(.white)
+                            .clipShape(RoundedCorner(corners: [.bottomLeft, .bottomRight], radius: 8))
                             .frame(maxWidth: .infinity)
                         
-                        VStack(alignment: .leading, spacing: 8) {
-                            makeEditButton(title: "Edit Nickname") { viewStore.send(.didTapEditNickname) }
+                        VStack(alignment: .leading, spacing: 4) {
+                            makeEditButton(title: "Edit Nickname") { viewStore.send(.didTapEditNickname(viewStore.user)) }
                             
                             makeEditButton(title: "Edit Allergy Selection") { viewStore.send(.didTapEditAllergySelection(viewStore.user)) }
                           
                             makeEditButton(title: "Edit Emergency Contact Info") { viewStore.send(.didTapEditEmergencyContactInfo(viewStore.user)) }
                             
                             if enableDeleteAcctount {
-                                makeEditButton(title: "Delete Account") { viewStore.send(.didTapDeleteAccount) }
+                                makeEditButton(title: "Delete Account") { viewStore.send(.didTapDeleteAccount(viewStore.user)) }
                             }
                         }
+                        .padding(.top, 12)
+                        .padding(.bottom, 16)
                         .padding(.horizontal, 16)
                     }
                 }
-                .padding(.vertical, 16)
+                .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 4)
             }
-            .frame(maxWidth: .infinity, maxHeight: 256)
+            .frame(maxWidth: .infinity)
         }
     }
 }
@@ -63,7 +65,7 @@ private extension ProfileEditView {
         Button {
             didSelect()
         } label: {
-            HStack {
+            HStack(alignment: .center) {
                 Text(title)
                     .font(.system(size: 16))
                     .foregroundColor(.gray700)
@@ -77,5 +79,15 @@ private extension ProfileEditView {
             }
         }
         .frame(height: 42)
+    }
+}
+
+struct RoundedCorner: Shape {
+    var corners: UIRectCorner
+    var radius: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
     }
 }

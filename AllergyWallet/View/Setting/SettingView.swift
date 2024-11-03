@@ -20,7 +20,7 @@ struct SettingView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     
                     SettingTopView { viewStore.send(.didTapBack) }
-                        .padding(.bottom, 24)
+                        .padding([.horizontal, .bottom], 24)
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         
@@ -28,6 +28,8 @@ struct SettingView: View {
                             .font(.system(size: 14))
                             .foregroundColor(.gray700)
                             .padding(.bottom, 12)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 24)
 
                         ForEach(viewStore.users) { user in
                             IfLetStore(store.scope(
@@ -35,32 +37,41 @@ struct SettingView: View {
                                 action: { SettingFeature.Action.profileEditAction(id: user.id, action: $0) })) { store in
                                     ProfileEditView(store: store, enableDeleteAcctount: viewStore.users.count > 1)
                                         .padding(.bottom, 16)
+                                        .padding(.horizontal, 24)
                                 }
                         }
                     }
-                    
+                   
                     Spacer()
                 }
-                .padding(.horizontal, 24)
                 
-                if viewStore.popupState != .none,
-                   let selectedUserId = viewStore.selectedUser?.id,
-                   let user = viewStore.users.first(where: { $0.id == selectedUserId }) {
-                    
+                if viewStore.popupState != .none, let selectedUser = viewStore.selectedUser {
+                  
                     switch viewStore.popupState {
                     case .editNickname:
-                        EditNicknamePopup(username: user.name) {
+                        EditNicknamePopup(username: selectedUser.name) {
                             viewStore.send(.didClose)
                         } didTapSave: { name in
-                            viewStore.send(.profileEditAction(id: user.id, action: .editUserName(name)))
+                            viewStore.send(.profileEditAction(id: selectedUser.id,
+                                                              action: .editUserName(name)))
                         }
                     case .deleteAccount:
-                        DeleteAccountPopup(username: user.name) {
+                        DeleteAccountPopup(username: selectedUser.name) {
                             viewStore.send(.didClose)
                         } didTapDelete: {
-                            viewStore.send(.profileEditAction(id: user.id, action: .deleteUser(user)))
+                            viewStore.send(.profileEditAction(id: selectedUser.id,
+                                                              action: .deleteUser(selectedUser)))
                         }
                         
+                    case .editNicknameComplete(let username):
+                        EditNicknameCompletePopup(username: username) {
+                            viewStore.send(.didClose)
+                        }
+                    case .accountDeletionCompleted(let user):
+                        DeleteAccountCompletePopup(username: user.name) {
+                            viewStore.send(.didClose)
+                        }
+                       
                     case .none:
                         EmptyView()
                     }
