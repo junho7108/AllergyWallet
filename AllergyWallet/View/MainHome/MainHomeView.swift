@@ -12,10 +12,16 @@ import ComposableArchitecture
 struct MainHomeView: View {
     
     let store: StoreOf<MainHomeFeature>
+    
+    private let maxUserCount: Int = 5
    
     var body: some View {
         
         WithViewStore(store, observe: { $0 }) { viewStore in
+            
+            let indicatorCount = viewStore.users.count < maxUserCount
+                                ? viewStore.users.count + 1
+                                : maxUserCount
   
             VStack(alignment: .leading, spacing: 0) {
                 
@@ -53,18 +59,22 @@ struct MainHomeView: View {
                             .tag(index)
                         }
                         
-                        CreateAccountView(didTapCreateAccount: {
-                            viewStore.send(.didTapCreateAccount)
-                        })
-                        .padding(.horizontal, 24)
-                        .tag(viewStore.users.count)
+                        if viewStore.users.count < maxUserCount {
+                            CreateAccountView(didTapCreateAccount: {
+                                viewStore.send(.didTapCreateAccount)
+                            })
+                            .padding(.horizontal, 24)
+                            .tag(viewStore.users.count)
+                        }
                     }
         
                     .frame(height: 248)
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .padding(.bottom, 24)
                     
-                    PagingIndicatorView(numberOfPages: Binding<Int>(get: { viewStore.users.count + 1 }, set: { _ in }),
+                 
+                    
+                    PagingIndicatorView(numberOfPages: Binding<Int>(get: { indicatorCount }, set: { _ in }),
                                         currentPage: Binding<Int>(get: { viewStore.currentPage }, set: { _ in }))
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.bottom, 24)
