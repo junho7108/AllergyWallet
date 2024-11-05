@@ -7,16 +7,25 @@
 
 import Foundation
 
-struct AllergyType: Codable, Equatable {
-    var category: String
+protocol LocalizedRepresentable {
+    var korName: String { get set }
+    var engName: String { get set }
+    var emoji: String { get set }
+}
+
+struct AllergyCategory: Codable, Equatable, LocalizedRepresentable {
+    var korName: String
+    var engName: String
+    var emoji: String
+    
     var allergies: [Allergy]
 }
 
-extension AllergyType: Identifiable {
-    var id: String { return category }
+extension AllergyCategory: Identifiable {
+    var id: String { return engName }
 }
 
-struct Allergy: Codable, Equatable {
+struct Allergy: Codable, Equatable, LocalizedRepresentable {
     var korName: String
     var engName: String
     var emoji: String

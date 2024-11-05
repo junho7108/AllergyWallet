@@ -18,7 +18,7 @@ struct EditSelectedAllergyFeature {
     struct State: Equatable {
         var user: User
         
-        var originAllergies: [AllergyType] = []
+        var allergyCategories: [AllergyCategory] = []
         
         var selectedAllergies: [Allergy]
        
@@ -30,7 +30,7 @@ struct EditSelectedAllergyFeature {
     
     enum Action {
         case fetchData
-        case fetchAllergies([AllergyType])
+        case fetchAllergies([AllergyCategory])
         case didTapBackButton
         
         case didSelectAllegry(AllegrySelectInfo)
@@ -47,8 +47,8 @@ struct EditSelectedAllergyFeature {
                     await send(.fetchAllergies(allergies))
                 }
                 
-            case .fetchAllergies(let allergies):
-                state.originAllergies = allergies
+            case .fetchAllergies(let categories):
+                state.allergyCategories = categories
                 return .none
                 
             case .didSelectAllegry(let selectedInfo):

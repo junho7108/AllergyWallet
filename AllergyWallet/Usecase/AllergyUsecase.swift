@@ -15,13 +15,13 @@ final class AllergyUsecase {
         self.repository = repository
     }
     
-    func fetchAllergies() async -> [AllergyType] {
+    func fetchAllergies() async -> [AllergyCategory] {
         return await repository.fetchAllergies()
     }
 }
 
 extension AllergyUsecase: DependencyKey {
-    static var liveValue: AllergyUsecase = AllergyUsecase(repository: AllergyRepositoryTest())
+    static var liveValue: AllergyUsecase = AllergyUsecase(repository: AllergyRepository())
 }
 
 extension DependencyValues {
