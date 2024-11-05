@@ -45,17 +45,18 @@ struct MyAllergyInfoView: View {
                 .frame(height: 65)
                 .padding(.bottom, 6)
                   
-                
                 Text(viewStore.languageState.language == .eng
                      ? "I have food allergies to the following ingredients:"
                      : "아래의 식품에 심각한 알레르기 반응이 있습니다:")
                     .font(.system(size: 28, weight: .semibold))
                     .padding(.bottom, 24)
                 
-                AllergyGridView(store: store.scope(state: \.grid, action: \.never),
-                                language: Binding<LanguageType>(get: { viewStore.languageState.language },
-                                                                set: { _ in }))
-                    .padding(.bottom, 24)
+                ScrollView(.vertical, showsIndicators: false) {
+                    AllergyGridView(store: store.scope(state: \.grid, action: \.never),
+                                    language: Binding<LanguageType>(get: { viewStore.languageState.language },
+                                                                    set: { _ in }))
+                }
+                .padding(.bottom, 24)
                     
                 Text(viewStore.languageState.language == .eng
                      ? "Immediate medical attention is required if I consume or come into contact with any foods or sauces containing this ingredient."

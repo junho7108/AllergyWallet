@@ -93,7 +93,6 @@ private extension RegisterUsernameView {
                             .foregroundColor(.gray500)
                     }
                 }
-                 
         }
     }
 }

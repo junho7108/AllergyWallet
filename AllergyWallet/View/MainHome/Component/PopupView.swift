@@ -20,7 +20,7 @@ struct PopupView: View {
     var body: some View {
         ZStack {
             Color.black.opacity(0.6)
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea(.all)
             
             VStack {
                 Spacer()

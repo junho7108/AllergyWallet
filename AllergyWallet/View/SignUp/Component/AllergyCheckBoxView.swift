@@ -29,7 +29,7 @@ struct AllergyCheckBoxView: View {
                 isSelected.toggle()
                 didSelect((allegry, isSelected))
             } label: {
-                Text(allegry.engName)
+                Text("\(allegry.emoji) \(allegry.engName)")
                     .foregroundColor(.gray900)
                     .font(.system(size: 18))
                     .padding(.leading, 16)

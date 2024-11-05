@@ -33,9 +33,9 @@ struct RegisterSelectAllergyView: View {
                         
                         Spacer()
                         
-                        ForEach(viewStore.originAllergies) { allergy in
-                            if allergy.allergies.count == 1 {
-                                let allergy = allergy.allergies[0]
+                        ForEach(viewStore.allergyCategories) { category in
+                            if category.allergies.count == 1 {
+                                let allergy = category.allergies[0]
                                 
                                 var isSelected: Bool = viewStore.selectedAllergies.contains(where: { $0.engName == allergy.engName })
                                 
@@ -46,8 +46,8 @@ struct RegisterSelectAllergyView: View {
                                 }
                             } else {
                                 
-                                AllergyPickerView(category: allergy.category,
-                                                  allergies: allergy.allergies) { selectedInfo in
+                                AllergyPickerView(category: "\(category.emoji) \(category.engName)",
+                                                  allergies: category.allergies) { selectedInfo in
                                     viewStore.send(.didSelectAllegry(selectedInfo))
                                 }
                             }

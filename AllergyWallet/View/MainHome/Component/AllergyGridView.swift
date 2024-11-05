@@ -40,6 +40,8 @@ struct AllergyGridView: View {
                                 
                                 Text(allergyName)
                                     .font(.system(size: 24, weight: .medium))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 8)
                             }
                         }
                         .aspectRatio(1, contentMode: .fit)
@@ -67,12 +69,14 @@ struct AllergyGridView: View {
                                 
                                 Text(allergyName)
                                     .font(.system(size: 24, weight: .medium))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 8)
                             }
                         }
                         .aspectRatio(1, contentMode: .fit)
                     }
                 }
-            } else {
+            } else if viewStore.allergies.count <= 9 {
                 
                 let columns = [GridItem(.flexible(), spacing: 16),
                                GridItem(.flexible(), spacing: 16),
@@ -94,12 +98,35 @@ struct AllergyGridView: View {
                                 
                                 Text(allergyName)
                                     .font(.system(size: 18, weight: .medium))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 8)
                             }
                         }
                         .aspectRatio(1, contentMode: .fit)
                     }
                 }
+            } else {
+                ChipLayout(verticalSpacing: 8, horizontalSpacing: 8) {
+                 
+                    ForEach(viewStore.allergies) { allergy in
+                        chipView(title: "\(allergy.emoji) \(allergy.engName)")
+                    }
+                }
             }
         }
+    }
+}
+
+private extension AllergyGridView {
+    func chipView(title: String) -> some View{
+        ZStack {
+            RoundedRectangle(cornerRadius: 36)
+                .fill(.white)
+            
+            Text(title)
+                .padding(.horizontal, 12)
+        }
+        .frame(height: 32)
+        .fixedSize()
     }
 }
