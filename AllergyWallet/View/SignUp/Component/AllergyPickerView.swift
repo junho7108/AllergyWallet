@@ -21,21 +21,20 @@ struct AllergyPickerView: View {
     var didSelect: ((EditSelectedAllergyFeature.AllegrySelectInfo) -> Void)
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            
-            // 드롭다운을 열고 닫는 버튼
+        VStack(alignment: .leading, spacing: 4) {
+         
             Button(action: {
                 withAnimation {
-                    isExpanded.toggle() // 버튼 클릭 시 드롭다운 열기/닫기
+                    isExpanded.toggle()
                 }
             }) {
                 HStack {
-                    Text(category) // 선택된 옵션 표시
+                    Text(category)
                         .foregroundColor(.black)
                     
                     Spacer()
                     
-                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down") // 아이콘 변경
+                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                         .foregroundColor(.gray)
                 }
                 .padding()

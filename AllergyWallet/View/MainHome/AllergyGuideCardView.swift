@@ -41,12 +41,14 @@ struct AllergyGuideCardView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 24)
                 
-                AllergyGridView(store: store.scope(state: \.grid, action: \.never),
-                                language: Binding<LanguageType>(get: { viewStore.languageState.language },
-                                                                set: { _ in }))
-                  
-                Spacer()
-     
+                ScrollView(.vertical, showsIndicators: false) {
+                    AllergyGridView(store: store.scope(state: \.grid, action: \.never),
+                                    language: Binding<LanguageType>(get: { viewStore.languageState.language },
+                                                                    set: { _ in }))
+                      
+                }
+                .padding(.bottom, 24)
+    
                 VStack(spacing: 12) {
                     Button(action: {
                         viewStore.send(.didTapAllergenIncluded(false))

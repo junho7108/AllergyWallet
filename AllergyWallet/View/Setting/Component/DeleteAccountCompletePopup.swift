@@ -14,10 +14,12 @@ struct DeleteAccountCompletePopup: View {
    
     var didClose: (() -> Void)? = nil
     
+    @State private var closeWorkItem: DispatchWorkItem?
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.6)
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea(.all)
                 .onTapGesture { didClose?() }
             
             VStack {
@@ -56,9 +58,14 @@ struct DeleteAccountCompletePopup: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                didClose?()
+            closeWorkItem = DispatchWorkItem { didClose?() }
+        
+            if let closeWorkItem {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: closeWorkItem)
             }
+        }
+        .onDisappear {
+            closeWorkItem?.cancel()
         }
     }
 }
