@@ -7,6 +7,7 @@
 
 import ComposableArchitecture
 import Dependencies
+import Foundation
 
 @Reducer
 struct RegisterSelectAllergyFeature {
@@ -15,14 +16,14 @@ struct RegisterSelectAllergyFeature {
     
     struct State: Equatable {
         var user: User
-        var originAllergies: [AllergyType] = []
+        var allergyCategories: [AllergyCategory] = []
         var selectedAllergies: [Allergy] = []
         var isEnabledButton: Bool = false
     }
     
     enum Action {
         case fetchData
-        case fetchAllergies([AllergyType])
+        case fetchAllergies([AllergyCategory])
         case didSelectAllegry(AllegrySelectInfo)
         case navigationToRegisterCard(User)
     }
@@ -40,8 +41,8 @@ struct RegisterSelectAllergyFeature {
                 }
                 
                 
-            case .fetchAllergies(let allergies):
-                state.originAllergies = allergies
+            case .fetchAllergies(let categories):
+                state.allergyCategories = categories
                 return .none
                 
             case .didSelectAllegry(let selectedInfo):

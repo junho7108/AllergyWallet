@@ -1,0 +1,776 @@
+[
+  {
+    "emoji" : "🥛",
+    "engName" : "Milk",
+    "korName" : "우유",
+    "allergies" : [
+      {
+        "korName" : "우유",
+        "emoji" : "🥛",
+        "engName" : "Milk"
+      }
+    ]
+  },
+  {
+    "allergies" : [
+      {
+        "emoji" : "🥚",
+        "engName" : "Egg",
+        "korName" : "계란"
+      }
+    ],
+    "engName" : "Egg",
+    "korName" : "계란",
+    "emoji" : "🥚"
+  },
+  {
+    "engName" : "Soy",
+    "allergies" : [
+      {
+        "korName" : "대두",
+        "engName" : "Soy",
+        "emoji" : "🫛"
+      }
+    ],
+    "korName" : "대두",
+    "emoji" : "🫛"
+  },
+  {
+    "korName" : "땅콩",
+    "emoji" : "🥜",
+    "engName" : "Peanut",
+    "allergies" : [
+      {
+        "korName" : "땅콩",
+        "engName" : "Peanut",
+        "emoji" : "🥜"
+      }
+    ]
+  },
+  {
+    "allergies" : [
+      {
+        "engName" : "Almonds",
+        "korName" : "아몬드",
+        "emoji" : "🌰"
+      },
+      {
+        "emoji" : "🌰",
+        "engName" : "Brazil Nuts",
+        "korName" : "브라질너트"
+      },
+      {
+        "korName" : "캐슈넛",
+        "engName" : "Cashews",
+        "emoji" : "🌰"
+      },
+      {
+        "korName" : "밤",
+        "emoji" : "🌰",
+        "engName" : "Chestnuts"
+      },
+      {
+        "korName" : "헤이즐넛",
+        "emoji" : "🌰",
+        "engName" : "Hazelnuts"
+      },
+      {
+        "korName" : "마카다미아 너트",
+        "engName" : "Macadamia nuts",
+        "emoji" : "🌰"
+      },
+      {
+        "emoji" : "🌰",
+        "korName" : "피칸",
+        "engName" : "Pecans"
+      },
+      {
+        "engName" : "Pine nuts",
+        "emoji" : "🌰",
+        "korName" : "잣"
+      },
+      {
+        "korName" : "피스타치오",
+        "engName" : "Pistachios",
+        "emoji" : "🌰"
+      },
+      {
+        "korName" : "호두",
+        "engName" : "Walnuts",
+        "emoji" : "🌰"
+      }
+    ],
+    "emoji" : "🌰",
+    "korName" : "견과류",
+    "engName" : "TreeNut"
+  },
+  {
+    "engName" : "Wheat",
+    "allergies" : [
+      {
+        "korName" : "밀",
+        "engName" : "Wheat",
+        "emoji" : "🌾"
+      }
+    ],
+    "korName" : "밀",
+    "emoji" : "🌾"
+  },
+  {
+    "engName" : "Seed",
+    "allergies" : [
+      {
+        "engName" : "Carob seeds",
+        "emoji" : "🌱",
+        "korName" : "캐롭씨"
+      },
+      {
+        "korName" : "치아씨",
+        "engName" : "Chia seeds",
+        "emoji" : "🌱"
+      },
+      {
+        "korName" : "아마씨",
+        "engName" : "Flaxseeds",
+        "emoji" : "🌱"
+      },
+      {
+        "emoji" : "🌱",
+        "korName" : "겨자씨",
+        "engName" : "Mustard seeds"
+      },
+      {
+        "emoji" : "🌾",
+        "korName" : "들깨",
+        "engName" : "Perilla Seed"
+      },
+      {
+        "korName" : "양귀비씨",
+        "emoji" : "🌺",
+        "engName" : "Poppy seeds"
+      },
+      {
+        "emoji" : "🎃",
+        "engName" : "Pumpkin seeds",
+        "korName" : "호박씨"
+      },
+      {
+        "engName" : "Sesame",
+        "emoji" : "🌾",
+        "korName" : "참깨"
+      },
+      {
+        "korName" : "해바라기씨",
+        "emoji" : "🌻",
+        "engName" : "Sunflower seeds"
+      }
+    ],
+    "korName" : "씨앗",
+    "emoji" : "🌱"
+  },
+  {
+    "allergies" : [
+      {
+        "engName" : "Barley",
+        "emoji" : "🌾",
+        "korName" : "보리"
+      },
+      {
+        "engName" : "Buckwheat",
+        "korName" : "메밀",
+        "emoji" : "🌿"
+      },
+      {
+        "korName" : "옥수수",
+        "engName" : "Corn",
+        "emoji" : "🌽"
+      },
+      {
+        "korName" : "조",
+        "engName" : "Millet",
+        "emoji" : "🌾"
+      },
+      {
+        "korName" : "귀리",
+        "emoji" : "🌾",
+        "engName" : "Oats"
+      },
+      {
+        "emoji" : "🌿",
+        "korName" : "퀴노아",
+        "engName" : "Quinoa"
+      },
+      {
+        "emoji" : "🌾",
+        "korName" : "쌀",
+        "engName" : "Rice"
+      },
+      {
+        "korName" : "호밀",
+        "engName" : "Rye",
+        "emoji" : "🌾"
+      }
+    ],
+    "korName" : "곡물",
+    "engName" : "Grain",
+    "emoji" : "🌾"
+  },
+  {
+    "emoji" : "🍞",
+    "allergies" : [
+      {
+        "emoji" : "🍞",
+        "korName" : "글루텐",
+        "engName" : "Gluten"
+      }
+    ],
+    "korName" : "글루텐",
+    "engName" : "Gluten"
+  },
+  {
+    "engName" : "Legume",
+    "emoji" : "🫘",
+    "allergies" : [
+      {
+        "korName" : "콩과 식물",
+        "engName" : "Legume",
+        "emoji" : "🫘"
+      }
+    ],
+    "korName" : "콩과 식물"
+  },
+  {
+    "engName" : "Fish",
+    "korName" : "생선",
+    "emoji" : "🐟",
+    "allergies" : [
+      {
+        "korName" : "생선",
+        "engName" : "Fish",
+        "emoji" : "🐟"
+      }
+    ]
+  },
+  {
+    "korName" : "갑갹류",
+    "emoji" : "🦀",
+    "engName" : "Crustacean",
+    "allergies" : [
+      {
+        "korName" : "게",
+        "emoji" : "🦀",
+        "engName" : "Crab"
+      },
+      {
+        "engName" : "Crayfish",
+        "korName" : "가재",
+        "emoji" : "🦞"
+      },
+      {
+        "engName" : "Langoustine",
+        "emoji" : "🦞",
+        "korName" : "바닷가재"
+      },
+      {
+        "korName" : "랍스터",
+        "engName" : "Lobster",
+        "emoji" : "🦞"
+      },
+      {
+        "korName" : "새우",
+        "engName" : "Shrimp",
+        "emoji" : "🦐"
+      }
+    ]
+  },
+  {
+    "engName" : "Mollusks",
+    "allergies" : [
+      {
+        "korName" : "전복",
+        "engName" : "Abalone",
+        "emoji" : "🦪"
+      },
+      {
+        "emoji" : "🦪",
+        "engName" : "Clam",
+        "korName" : "조개"
+      },
+      {
+        "emoji" : "🦪",
+        "korName" : "바지락",
+        "engName" : "Cockle"
+      },
+      {
+        "engName" : "Mussel",
+        "emoji" : "🦪",
+        "korName" : "홍합"
+      },
+      {
+        "emoji" : "🐙",
+        "engName" : "Octopus",
+        "korName" : "문어"
+      },
+      {
+        "emoji" : "🦪",
+        "korName" : "굴",
+        "engName" : "Oyster"
+      },
+      {
+        "engName" : "Scallop",
+        "korName" : "가리비",
+        "emoji" : "🦪"
+      },
+      {
+        "engName" : "Squid",
+        "korName" : "오징어",
+        "emoji" : "🦑"
+      },
+      {
+        "engName" : "Whelk",
+        "emoji" : "🐚",
+        "korName" : "소라(골뱅이)"
+      }
+    ],
+    "korName" : "연체류",
+    "emoji" : "🦪"
+  },
+  {
+    "korName" : "과일",
+    "emoji" : "🍎",
+    "engName" : "Fruit",
+    "allergies" : [
+      {
+        "korName" : "아세로라",
+        "engName" : "Acerola",
+        "emoji" : "🍒"
+      },
+      {
+        "korName" : "사과",
+        "engName" : "Apple",
+        "emoji" : "🍎"
+      },
+      {
+        "emoji" : "🍌",
+        "korName" : "바나나",
+        "engName" : "Banana"
+      },
+      {
+        "emoji" : "🥥",
+        "korName" : "코코넛",
+        "engName" : "Coconut"
+      },
+      {
+        "engName" : "Date",
+        "korName" : "대추야자",
+        "emoji" : "🌴"
+      },
+      {
+        "engName" : "Grape",
+        "emoji" : "🍇",
+        "korName" : "포도"
+      },
+      {
+        "korName" : "대추",
+        "emoji" : "🫘",
+        "engName" : "Jujube"
+      },
+      {
+        "korName" : "키위",
+        "engName" : "Kiwi",
+        "emoji" : "🥝"
+      },
+      {
+        "emoji" : "🫒",
+        "korName" : "올리브",
+        "engName" : "Olive"
+      },
+      {
+        "korName" : "배",
+        "engName" : "Pear",
+        "emoji" : "🍐"
+      },
+      {
+        "engName" : "Pineapple",
+        "emoji" : "🍍",
+        "korName" : "파인애플"
+      },
+      {
+        "emoji" : "🍒",
+        "korName" : "석류",
+        "engName" : "Pomegranate"
+      }
+    ]
+  },
+  {
+    "engName" : "Stone Fruit",
+    "allergies" : [
+      {
+        "emoji" : "🍑",
+        "engName" : "Apricot",
+        "korName" : "살구"
+      },
+      {
+        "korName" : "체리",
+        "emoji" : "🍒",
+        "engName" : "Cherry"
+      },
+      {
+        "engName" : "Mango",
+        "emoji" : "🥭",
+        "korName" : "망고"
+      },
+      {
+        "korName" : "매실",
+        "engName" : "Mume",
+        "emoji" : "🍏"
+      },
+      {
+        "emoji" : "🍑",
+        "korName" : "넥타린",
+        "engName" : "Nectarine"
+      },
+      {
+        "emoji" : "🍑",
+        "korName" : "복숭아",
+        "engName" : "Peach"
+      },
+      {
+        "engName" : "Plum",
+        "korName" : "자두",
+        "emoji" : "🍑"
+      }
+    ],
+    "korName" : "석과류",
+    "emoji" : "🍑"
+  },
+  {
+    "allergies" : [
+      {
+        "engName" : "Grapefruit",
+        "emoji" : "🍊",
+        "korName" : "자몽"
+      },
+      {
+        "emoji" : "🍋",
+        "engName" : "Lemon",
+        "korName" : "레몬"
+      },
+      {
+        "engName" : "Lime",
+        "korName" : "라임",
+        "emoji" : "🍋‍🟩"
+      },
+      {
+        "korName" : "만다린",
+        "engName" : "Mandarin",
+        "emoji" : "🍊"
+      },
+      {
+        "engName" : "Orange",
+        "emoji" : "🍊",
+        "korName" : "오렌지"
+      },
+      {
+        "korName" : "귤",
+        "engName" : "Tangerine",
+        "emoji" : "🍊"
+      }
+    ],
+    "korName" : "감굴류",
+    "emoji" : "🍊",
+    "engName" : "Citrus"
+  },
+  {
+    "engName" : "Berries",
+    "emoji" : "🫐",
+    "allergies" : [
+      {
+        "korName" : "블랙라즈베리(복분자)",
+        "engName" : "Black Raspberry",
+        "emoji" : "🫐"
+      },
+      {
+        "engName" : "Blackberry",
+        "emoji" : "🫐",
+        "korName" : "블랙베리"
+      },
+      {
+        "korName" : "블루베리",
+        "engName" : "Blueberry",
+        "emoji" : "🫐"
+      },
+      {
+        "emoji" : "🍒",
+        "engName" : "Cranberry",
+        "korName" : "크랜베리"
+      },
+      {
+        "emoji" : "🍓",
+        "engName" : "Raspberry",
+        "korName" : "라즈베리"
+      },
+      {
+        "korName" : "딸기",
+        "engName" : "Strawberry",
+        "emoji" : "🍓"
+      }
+    ],
+    "korName" : "베리류"
+  },
+  {
+    "allergies" : [
+      {
+        "emoji" : "🍈",
+        "engName" : "Honeydew melon",
+        "korName" : "허니듀 멜론"
+      },
+      {
+        "korName" : "머스크 멜론",
+        "engName" : "Muskmelon",
+        "emoji" : "🍈"
+      },
+      {
+        "emoji" : "🍈",
+        "korName" : "참외",
+        "engName" : "Oriental melon"
+      },
+      {
+        "engName" : "Watermelon",
+        "emoji" : "🍉",
+        "korName" : "수박"
+      }
+    ],
+    "korName" : "멜론류",
+    "engName" : "Melons",
+    "emoji" : "🍈"
+  },
+  {
+    "engName" : "Vegetable",
+    "allergies" : [
+      {
+        "engName" : "Asparagus",
+        "emoji" : "🥬",
+        "korName" : "아스파라거스"
+      },
+      {
+        "emoji" : "🥑",
+        "engName" : "Avocado",
+        "korName" : "아보카도"
+      },
+      {
+        "emoji" : "🫚",
+        "korName" : "도라지",
+        "engName" : "Bellflower roots"
+      },
+      {
+        "korName" : "브로콜리",
+        "emoji" : "🥦",
+        "engName" : "Broccoli"
+      },
+      {
+        "engName" : "Cabbage",
+        "emoji" : "🥬",
+        "korName" : "양배추"
+      },
+      {
+        "emoji" : "🥕",
+        "korName" : "당근",
+        "engName" : "Carrots"
+      },
+      {
+        "engName" : "Celery",
+        "korName" : "샐러리",
+        "emoji" : "🥬"
+      },
+      {
+        "korName" : "쑥갓",
+        "engName" : "Crown daisy",
+        "emoji" : "🌿"
+      },
+      {
+        "korName" : "오이",
+        "engName" : "Cucumber",
+        "emoji" : "🥒"
+      },
+      {
+        "korName" : "더덕",
+        "engName" : "Deodeok",
+        "emoji" : "🫚"
+      },
+      {
+        "engName" : "Eggplants",
+        "korName" : "가지",
+        "emoji" : "🍆"
+      },
+      {
+        "emoji" : "🧄",
+        "korName" : "마늘",
+        "engName" : "Garlic"
+      },
+      {
+        "korName" : "인삼",
+        "emoji" : "🫚",
+        "engName" : "Garlic"
+      },
+      {
+        "engName" : "Lettuce",
+        "korName" : "상추",
+        "emoji" : "🥬"
+      },
+      {
+        "korName" : "연근",
+        "emoji" : "🥔",
+        "engName" : "Lotus root"
+      },
+      {
+        "engName" : "Mushrooms",
+        "emoji" : "🍄‍🟫",
+        "korName" : "버섯류"
+      },
+      {
+        "engName" : "Perilla leaf",
+        "korName" : "깻잎",
+        "emoji" : "🌿"
+      },
+      {
+        "engName" : "Potatoes",
+        "emoji" : "🥔",
+        "korName" : "감자"
+      },
+      {
+        "emoji" : "🎃",
+        "korName" : "호박",
+        "engName" : "Pumpkin"
+      },
+      {
+        "engName" : "Spinach",
+        "emoji" : "🥬",
+        "korName" : "시금치"
+      },
+      {
+        "emoji" : "🍠",
+        "engName" : "Sweet potatoes",
+        "korName" : "고구마"
+      },
+      {
+        "engName" : "Tomato",
+        "korName" : "토마토",
+        "emoji" : "🍅"
+      }
+    ],
+    "korName" : "야채",
+    "emoji" : "🥬"
+  },
+  {
+    "korName" : "양파류",
+    "allergies" : [
+      {
+        "engName" : "Chives",
+        "korName" : "부추",
+        "emoji" : "🥬"
+      },
+      {
+        "emoji" : "🧅",
+        "korName" : "파",
+        "engName" : "Spring onion"
+      },
+      {
+        "emoji" : "🥬",
+        "korName" : "리크",
+        "engName" : "Leeks"
+      },
+      {
+        "korName" : "양파",
+        "emoji" : "🧅",
+        "engName" : "Onion"
+      },
+      {
+        "engName" : "Shallot",
+        "korName" : "샬롯",
+        "emoji" : "🧅"
+      }
+    ],
+    "emoji" : "🧅",
+    "engName" : "Onions"
+  },
+  {
+    "korName" : "고추류",
+    "allergies" : [
+      {
+        "emoji" : "🫑",
+        "korName" : "피망",
+        "engName" : "Bell Pepper"
+      },
+      {
+        "korName" : "캡사이신",
+        "emoji" : "🥵",
+        "engName" : "Capsaicin"
+      },
+      {
+        "emoji" : "🌶️",
+        "korName" : "카이엔 페퍼",
+        "engName" : "Cayenne Pepper"
+      },
+      {
+        "engName" : "Chilli",
+        "emoji" : "🌶️",
+        "korName" : "고추"
+      },
+      {
+        "emoji" : "🌶️",
+        "engName" : "Habanero",
+        "korName" : "하바네로"
+      },
+      {
+        "emoji" : "🌶️",
+        "engName" : "Jalapeno",
+        "korName" : "할라피뇨"
+      },
+      {
+        "emoji" : "🫑",
+        "korName" : "파프리카",
+        "engName" : "Paprika"
+      },
+      {
+        "engName" : "Pepper",
+        "emoji" : "🧂",
+        "korName" : "후추"
+      }
+    ],
+    "emoji" : "🌶️",
+    "engName" : "Chilli&Pepper"
+  },
+  {
+    "engName" : "Meat",
+    "emoji" : "🍖",
+    "allergies" : [
+      {
+        "korName" : "소고기",
+        "engName" : "Beef",
+        "emoji" : "🐂"
+      },
+      {
+        "emoji" : "🐓",
+        "korName" : "닭고기",
+        "engName" : "Chicken"
+      },
+      {
+        "korName" : "오리고기",
+        "engName" : "Duck",
+        "emoji" : "🪿"
+      },
+      {
+        "engName" : "Lamb",
+        "korName" : "양고기",
+        "emoji" : "🐑"
+      },
+      {
+        "korName" : "돼지고기",
+        "engName" : "Pork",
+        "emoji" : "🐖"
+      }
+    ],
+    "korName" : "육류"
+  }
+]
