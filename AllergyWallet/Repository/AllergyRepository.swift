@@ -15,11 +15,9 @@ final class AllergyRepository: AllergyRepositoryType {
     func fetchAllergies() async -> [AllergyCategory] {
         if let jsonData = FileService.shared.loadJSONFromFile(filename: "AllergyData") {
             if let categories = FileService.shared.parse(data: jsonData, modelType: [AllergyCategory].self) {
-                print("🟢 FileService success!")
                 return categories
             }
         }
-        
         return await AllergyRepositoryTest().fetchAllergies()
     }
 }

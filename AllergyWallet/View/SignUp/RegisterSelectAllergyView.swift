@@ -20,7 +20,7 @@ struct RegisterSelectAllergyView: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
-                    LazyVStack(alignment: .leading) {
+                    VStack(alignment: .leading) {
             
                         Text("What Allergies Do You Have?")
                             .font(.system(size: 28, weight: .semibold))
@@ -45,7 +45,6 @@ struct RegisterSelectAllergyView: View {
                                     viewStore.send(.didSelectAllegry(selectedInfo))
                                 }
                             } else {
-                                
                                 AllergyPickerView(category: "\(category.emoji) \(category.engName)",
                                                   allergies: category.allergies) { selectedInfo in
                                     viewStore.send(.didSelectAllegry(selectedInfo))
