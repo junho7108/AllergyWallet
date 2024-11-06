@@ -46,7 +46,10 @@ struct EditSelectedAllergyView: View {
                                     viewStore.send(.didSelectAllegry(selectedInfo))
                                 }
                             } else {
-                                AllergyPickerView(selectedAllergy: viewStore.selectedAllergies,
+                                let isExpanded: Bool = category.allergies.contains(where: { viewStore.selectedAllergies.contains($0)})
+                                
+                                AllergyPickerView(isExpanded: isExpanded,
+                                                  selectedAllergy: viewStore.selectedAllergies,
                                                   category: "\(category.emoji) \(category.engName)",
                                                   allergies: category.allergies) { selectedInfo in
                                     viewStore.send(.didSelectAllegry(selectedInfo))
