@@ -109,6 +109,7 @@
 		1203B1992CD8BD0D00D21DB9 /* AddAccountPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountPopup.swift; sourceTree = "<group>"; };
 		1203B1A42CDA05D800D21DB9 /* AllergyData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AllergyData.json; sourceTree = "<group>"; };
 		1203B1A72CDA065100D21DB9 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
+		1203B1A92CDB8FFB00D21DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		125159B62CB017D4000D0ADA /* AllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRepository.swift; sourceTree = "<group>"; };
 		125159B82CB01911000D0ADA /* AllergyUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyUsecase.swift; sourceTree = "<group>"; };
 		125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyPickerView.swift; sourceTree = "<group>"; };
@@ -373,6 +374,7 @@
 		127EC0A42CACFFA100A3408C /* AllergyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				1203B1A92CDB8FFB00D21DB9 /* Info.plist */,
 				1203B1832CD5214300D21DB9 /* Files */,
 				1203B1A62CDA064700D21DB9 /* Services */,
 				125159CE2CB162C3000D0ADA /* Common */,
@@ -771,14 +773,16 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 23JY2CM997;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AllergyWallet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AllergyWallet;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = AllergyWallet;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -814,14 +818,16 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 23JY2CM997;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AllergyWallet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = AllergyWallet;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = AllergyWallet;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
