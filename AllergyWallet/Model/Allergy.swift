@@ -7,26 +7,38 @@
 
 import Foundation
 
-enum Allergy: String, CaseIterable {
-    case milk, egg, soy, peanut, treeNut, wheat, seed, grain, gluten
+protocol LocalizedRepresentable {
+    var korName: String { get set }
+    var engName: String { get set }
+    var emoji: String { get set }
 }
 
-extension Allergy: Codable, Equatable, Identifiable {
-    var id: String { rawValue }
+struct AllergyCategory: Codable, Equatable, LocalizedRepresentable {
+    var korName: String
+    var engName: String
+    var emoji: String
+    
+    var allergies: [Allergy]
 }
 
-extension Allergy {
-    var text: String {
-        switch self {
-        case .milk: return "🥛 Milk"
-        case .egg: return "🥚 Egg"
-        case .soy: return "🫛 Soy"
-        case .peanut: return "🥜 Peanut"
-        case .treeNut: return "🌰 Tree Nut"
-        case .wheat: return "🌾 Wheat"
-        case .seed: return "🌱 Seed"
-        case .grain: return "🌾 Grain"
-        case .gluten: return "🍞 Gluten"
+extension AllergyCategory: Identifiable {
+    var id: String { return engName }
+}
+
+struct Allergy: Codable, Equatable, LocalizedRepresentable {
+    var korName: String
+    var engName: String
+    var emoji: String
+}
+
+extension Allergy: Identifiable {
+    var id: String { return engName }
+    
+    var name: String {
+        switch Const.language {
+        case .eng: engName
+        case .kor: korName
         }
     }
 }
+
