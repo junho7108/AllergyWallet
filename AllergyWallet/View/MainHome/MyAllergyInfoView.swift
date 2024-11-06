@@ -58,20 +58,23 @@ struct MyAllergyInfoView: View {
                 }
                 .padding(.bottom, 24)
                     
-                Text(viewStore.languageState.language == .eng
-                     ? "Immediate medical attention is required if I consume or come into contact with any foods or sauces containing this ingredient."
-                     : "이 성분을 포함할 수 있는 모든 식품 및 소스들을 먹거나 만진 경우 즉각적인 의료 처치가 필요합니다.")
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray700)
-                    .frame(maxWidth: .infinity)
-                    .padding(.bottom, 8)
-                
-                Text(viewStore.languageState.language == .eng
-                     ? "Allergic reactions may occur if food is prepared using gloves, utensils, or oil that has come into contact with this ingredient."
-                     : "해당 성분이 접촉된 장갑, 조리도구, 기름 등으로 음식을 조리할 경우, 알레르기 반응이 발생할 수 있습니다.")
-                    .font(.system(size: 14))
-                    .foregroundColor(.gray700)
-                    .frame(maxWidth: .infinity)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(viewStore.languageState.language == .eng
+                         ? "Immediate medical attention is required if I consume or come into contact with any foods or sauces containing this ingredient."
+                         : "이 성분을 포함할 수 있는 모든 식품 및 소스들을 먹거나 만진 경우 즉각적인 의료 처치가 필요합니다.")
+                        .font(.system(size: 14))
+                        .foregroundColor(.gray700)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                      
+                    Text(viewStore.languageState.language == .eng
+                         ? "Allergic reactions may occur if food is prepared using gloves, utensils, or oil that has come into contact with this ingredient."
+                         : "해당 성분이 접촉된 장갑, 조리도구, 기름 등으로 음식을 조리할 경우, 알레르기 반응이 발생할 수 있습니다.")
+                        .font(.system(size: 14))
+                        .foregroundColor(.gray700)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
                 
                 Spacer()
                 

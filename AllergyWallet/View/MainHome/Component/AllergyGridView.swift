@@ -107,9 +107,9 @@ struct AllergyGridView: View {
                 }
             } else {
                 ChipLayout(verticalSpacing: 8, horizontalSpacing: 8) {
-                 
                     ForEach(viewStore.allergies) { allergy in
-                        chipView(title: "\(allergy.emoji) \(allergy.engName)")
+                        let allergyName = language == .eng ? allergy.engName : allergy.korName
+                        chipView(title: "\(allergy.emoji) \(allergyName)")
                     }
                 }
             }

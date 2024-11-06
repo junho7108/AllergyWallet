@@ -43,6 +43,7 @@ struct AllergyPickerView: View {
                         .stroke(Color.gray200, lineWidth: 1)
                 )
             }
+            .background(.white)
             
             if isExpanded && allergies.count > 1 {
 
@@ -92,6 +93,7 @@ struct AllergyPickerView: View {
                         }
                     }
                 }
+                .background(.white)
                 .overlay {
                     RoundedRectangle(cornerRadius: 0)
                         .stroke(Color.gray200, lineWidth: 1)

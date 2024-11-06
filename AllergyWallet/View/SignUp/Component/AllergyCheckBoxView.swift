@@ -42,6 +42,7 @@ struct AllergyCheckBoxView: View {
                     .padding(16)
             }
         }
+        .background(.white)
         .overlay {
             if style == .round {
                 RoundedRectangle(cornerRadius: 12)
