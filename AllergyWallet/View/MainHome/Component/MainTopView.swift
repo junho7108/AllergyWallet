@@ -14,7 +14,7 @@ struct MainTopView: View {
     var body: some View {
         
         HStack(alignment: .center) {
-            Image("TopViewIcon")
+            Image("logo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 90, height: 32)
