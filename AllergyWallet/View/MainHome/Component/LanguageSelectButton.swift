@@ -32,7 +32,7 @@ struct LanguageSelectButton: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(viewStore.language == .kor
                                                  ? Color.primary500
-                                                 : Color(hex: "#050B893"))
+                                                 : Color.primary300)
                         }
                         .frame(width: 44, height: 21)
                         .background(viewStore.language == .kor
@@ -53,7 +53,7 @@ struct LanguageSelectButton: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(viewStore.language == .eng
                                                  ? Color.primary500
-                                                 : Color(hex: "#050B893"))
+                                                 : Color.primary300)
                         }
                         .frame(width: 44, height: 21)
                         .background(viewStore.language == .eng

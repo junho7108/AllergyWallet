@@ -12,6 +12,12 @@ import ComposableArchitecture
 struct RegisterUsernameView: View {
     
     let store: StoreOf<RegisterUsernameFeature>
+    
+    @Environment(\.presentationMode) var presentationMode
+       
+    private var isInsideNavigationView: Bool {
+        presentationMode.wrappedValue.isPresented
+    }
 
     var body: some View {
         
@@ -21,8 +27,8 @@ struct RegisterUsernameView: View {
                 Text("Choose Nickname for Allergy Wallet")
                     .font(.system(size: 28, weight: .semibold))
                     .padding(.bottom, 48)
+                    .padding(.top, isInsideNavigationView ? 0 : 52)
 
-               
                UsernameTextField(placeholder: "Nickname", textBinding: Binding<String>(
                 get: { viewStore.username },
                 set: { viewStore.send(.didChangeNickname($0)) }

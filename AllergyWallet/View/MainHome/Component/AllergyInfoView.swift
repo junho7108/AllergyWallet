@@ -36,7 +36,7 @@ struct AllergyInfoView: View {
                 
                 HStack {
                     Text("My Allegry Info")
-                        .font(.system(size: 16))
+                        .font(.system(size: 16, weight: .medium))
                     
                     Spacer()
                     
@@ -47,8 +47,7 @@ struct AllergyInfoView: View {
                             Spacer()
                             Image("Icon_arrow")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
+                                .scaledToFill()
                         }
                     }
                     .frame(width: 24, height: 24)

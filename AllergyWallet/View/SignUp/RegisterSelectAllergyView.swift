@@ -20,45 +20,36 @@ struct RegisterSelectAllergyView: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
-                    VStack(alignment: .leading) {
-            
+                    VStack(alignment: .leading, spacing: 48) {
+                        
                         Text("What Allergies Do You Have?")
                             .font(.system(size: 28, weight: .semibold))
-                            .padding(.bottom, 12)
                         
-                        Text("You can select up to 20 allergies")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.gray700)
-                            .padding(.bottom, 48)
-                        
-                        Spacer()
-                        
-                        ForEach(viewStore.allergyCategories) { category in
-                            if category.allergies.count == 1 {
-                                let allergy = category.allergies[0]
-                                
-                                var isSelected: Bool = viewStore.selectedAllergies.contains(where: { $0.engName == allergy.engName })
-                                
-                                AllergyCheckBoxView(allegry: allergy,
-                                                    isSelected: Binding<Bool>(get: { isSelected },
-                                                                              set: { isSelected = $0 })) { selectedInfo in
-                                    viewStore.send(.didSelectAllegry(selectedInfo))
-                                }
-                            } else {
-                                AllergyPickerView(category: "\(category.emoji) \(category.engName)",
-                                                  allergies: category.allergies) { selectedInfo in
-                                    viewStore.send(.didSelectAllegry(selectedInfo))
+                        LazyVStack(alignment: .leading, spacing: 8) {
+                            ForEach(viewStore.allergyCategories) { category in
+                                if category.allergies.count == 1 {
+                                    let allergy = category.allergies[0]
+                                    
+                                    var isSelected: Bool = viewStore.selectedAllergies.contains(where: { $0.engName == allergy.engName })
+                                    
+                                    AllergyCheckBoxView(allegry: allergy,
+                                                        isSelected: Binding<Bool>(get: { isSelected },
+                                                                                  set: { isSelected = $0 })) { selectedInfo in
+                                        viewStore.send(.didSelectAllegry(selectedInfo))
+                                    }
+                                } else {
+                                    AllergyPickerView(category: "\(category.emoji) \(category.engName)",
+                                                      allergies: category.allergies) { selectedInfo in
+                                        viewStore.send(.didSelectAllegry(selectedInfo))
+                                    }
                                 }
                             }
                         }
                     }
+                    .padding(.horizontal, 24)
                 }
                 
                 Spacer()
-                
-                Rectangle()
-                    .frame(height: 0.8)
-                    .foregroundColor(Color.gray200)
                 
                 Button(action: {
                     viewStore.send(.navigationToRegisterCard(viewStore.user))
@@ -71,9 +62,10 @@ struct RegisterSelectAllergyView: View {
                         .background(viewStore.isEnabledButton ? Color.primary500 : Color.gray200)
                         .cornerRadius(12)
                 }
+                .padding(.horizontal, 24)
                 .disabled(!viewStore.isEnabledButton)
             }
-            .padding(24)
+            .padding(.vertical, 24)
             .onAppear {
                 viewStore.send(.fetchData)
             }

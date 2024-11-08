@@ -33,6 +33,10 @@ extension Color {
         return .init(hex: "#81CCB1")
     }
     
+    static var primary300: Color {
+        return .init(hex: "#50B893")
+    }
+    
     static var primary500: Color {
         return .init(hex: "#00986A")
     }

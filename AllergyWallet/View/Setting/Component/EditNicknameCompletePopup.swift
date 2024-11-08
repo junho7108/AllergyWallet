@@ -31,12 +31,12 @@ struct EditNicknameCompletePopup: View {
                         VStack(alignment: .leading, spacing: 0) {
                             
                             Text("Edit Nickname")
-                                .font(.system(size: 16))
+                                .font(.system(size: 16, weight: .medium))
                                 .foregroundColor(.gray700)
                                 .padding(.bottom, 12)
                             
                             Text(username)
-                                .font(.system(size: 18))
+                                .font(.system(size: 18, weight: .medium))
                                 .foregroundColor(.primary500)
                                 .multilineTextAlignment(.center)
                                 .frame(height: 29)
