@@ -35,11 +35,12 @@ struct AllergyGuideCardView: View {
                 .frame(height: 65)
                 .padding(.bottom, 6)
                   
-                
                 Text(makeTitle(guide: viewStore.type, language: viewStore.languageState.language))
                     .font(.system(size: 28, weight: .semibold))
+                    .lineHeight(117, fontSize: 28)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 24)
+                 
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     AllergyGridView(store: store.scope(state: \.grid, action: \.never),

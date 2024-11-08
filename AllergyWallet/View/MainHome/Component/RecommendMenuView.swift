@@ -18,7 +18,7 @@ struct RecommendMenuView: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(.white)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 
                 HStack {
                     Text("Recommend a Menu")
@@ -33,17 +33,16 @@ struct RecommendMenuView: View {
                             Spacer()
                             Image("Icon_arrow")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
+                                .scaledToFill()
                         }
                         
                     }
-                    .frame(width: 40, height: 40)
+                    .frame(width: 24, height: 24)
                 }
-                .padding(16)
-                
+            
                 Spacer()
             }
+            .padding(16)
         }
         .onTapGesture {
             didTapButton?()

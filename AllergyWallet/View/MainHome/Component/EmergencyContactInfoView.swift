@@ -56,14 +56,13 @@ struct EmergencyContactInfoView: View {
                     .fill(Color.white)
                 
                 VStack(spacing: 24) {
-                    let validColor = Color.gray900
-                    let invalidColor = Color.gray700
-                    
                     personalInfoView(type: .firstName(user.emergencyCard?.firstName), language: language)
                     
                     personalInfoView(type: .lastName(user.emergencyCard?.lastName), language: language)
                     
                     personalInfoView(type: .birthDate(user.emergencyCard?.birthDate), language: language)
+                    
+                    personalInfoView(type: .nationality(user.emergencyCard?.nationality), language: language)
                     
                     personalInfoView(type: .emergencyContact(user.emergencyCard?.emergencyContact), language: language)
                     
@@ -87,9 +86,15 @@ private extension EmergencyContactInfoView {
                 .font(.system(size: 14))
                 .foregroundColor(.gray700)
             
-            Text(type.value ?? "You can update info in the setting.")
+            let text = if let text = type.value, !text.isEmpty { text }
+                        else { "You can update info in the setting." }
+            
+            let textColor = if let text = type.value, !text.isEmpty { Color.gray900 }
+                            else { Color.gray500 }
+            
+            Text(text)
                 .font(.system(size: 18))
-                .foregroundColor(type.value == nil ? .gray500 : .gray900)
+                .foregroundColor(textColor)
             
             Divider()
         }

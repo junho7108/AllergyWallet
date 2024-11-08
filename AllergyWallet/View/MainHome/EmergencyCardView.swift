@@ -16,7 +16,6 @@ struct EmergencyCardView: View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             VStack {
                 HStack {
-                    
                     LanguageSelectButton(store: store.scope(state: \.languageState, action: \.languageAction))
                         .padding(.leading, 24)
                     
@@ -50,9 +49,11 @@ struct EmergencyCardView: View {
                     VStack(alignment: .leading, spacing: 24) {
                         Text(makeTitle(language: viewStore.languageState.language))
                             .font(.system(size: 28, weight: .semibold))
+                            .lineHeight(103, fontSize: 28)
                             .foregroundColor(.semanticError)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(.horizontal, 24)
                            
                         VStack(alignment: .leading, spacing: 48) {
                             AllergySymptomsView(language: .constant(viewStore.languageState.language))
@@ -63,10 +64,10 @@ struct EmergencyCardView: View {
                             EmergencyContactInfoView(language: .constant(viewStore.languageState.language),
                                                      user: .constant(viewStore.user))
                         }
+                        .padding(.horizontal, 24)
                     }
                     .padding(.bottom, 24)
                 }
-                .padding(.horizontal, 24)
             }
             .background(
                 LinearGradient(

@@ -11,83 +11,146 @@ import ComposableArchitecture
 struct EditEmergencyCardView: View {
     let store: StoreOf<EditEmergencyCardFeature>
     
+    enum TextFieldType: Int, CaseIterable {
+        case firstName, lastName, birthDate, nationality, emergencyContact, koreanContact
+    }
+    
     var body: some View {
         WithViewStore(store, observe: { $0 }) { viewStore in
             
             ZStack {
                 
-                ScrollView(.vertical, showsIndicators: false) {
+                ScrollViewReader { proxy in
                     
-                    VStack(alignment: .leading) {
+                    ScrollView(.vertical, showsIndicators: false) {
                         
-                        Text("Input Information for Your Emergency Card")
-                            .font(.system(size: 28, weight: .semibold))
-                            .padding(.bottom, 12)
+                        VStack(alignment: .leading) {
+                            
+                            Text("Input Information for Your Emergency Card")
+                                .font(.system(size: 28, weight: .semibold))
+                                .padding(.bottom, 12)
+                            
+                            Text("in case of emergency, provide your information along with your allergy details.")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundColor(.gray700)
+                                .padding(.bottom, 48)
+                            
+                            InputTextField(title: "First Name",
+                                           placeholder: "FirstName",
+                                           isEditing: Binding<Bool>(
+                                            get: { if case .firstname = viewStore.editState { return true }
+                                                else { return false }},
+                                            set: { _ in }),
+                                           textBinding: Binding<String>(
+                                            get: { viewStore.firstName ?? "" },
+                                            set: { viewStore.send(.editInfo(.firstname($0))) }
+                                           )) {
+                                               withAnimation {
+                                                   proxy.scrollTo(TextFieldType.firstName.rawValue, anchor: .topLeading)
+                                               }
+                                           }
+                            .id(TextFieldType.firstName.rawValue)
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 24)
+                           
+                            InputTextField(title: "Last Name",
+                                           placeholder: "Last Name",
+                                           isEditing: Binding<Bool>(
+                                            get: { if case .lastname = viewStore.editState {
+                                                return true }
+                                                else { return false }},
+                                            set: { _ in }),
+                                           textBinding: Binding<String>(
+                                            get: { viewStore.lastName ?? "" },
+                                            set: { viewStore.send(.editInfo(.lastname($0))) }
+                                           )) {
+                                               withAnimation {
+                                                   proxy.scrollTo(TextFieldType.lastName.rawValue, anchor: .topLeading)
+                                               }
+                                        }
+                            .id(TextFieldType.lastName.rawValue)
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 24)
                           
-                        Text("in case of emergency, provide your information along with your allergy details.")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.gray700)
-                            .padding(.bottom, 48)
-                        
-                        InputTextField(title: "First Name",
-                                       placeholder: "FirstName",
-                                       textBinding: Binding<String>(
-                                        get: { viewStore.firstName ?? "" },
-                                        set: { viewStore.send(.didChangeFirstName($0)) }
-                                       ))
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 24)
-                        
-                        InputTextField(title: "Last Name",
-                                       placeholder: "Last Name",
-                                       textBinding: Binding<String>(
-                                        get: { viewStore.lastName ?? "" },
-                                        set: { viewStore.send(.didChangeLastName($0)) }
-                                       ))
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 24)
-                        
-                        InputTextField(title: "Birth Data",
-                                       placeholder: "YYYY.MM.DD",
-                                       textBinding: Binding<String>(
-                                        get: { viewStore.birthDate ?? "" },
-                                        set: { viewStore.send(.didChangeBirthDate($0)) }
-                                       ))
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 24)
-                        
-                        InputTextField(title: "Nationality",
-                                       placeholder: "Nationality",
-                                       textBinding: Binding<String>(
-                                        get: { viewStore.nationality ?? "" },
-                                        set: { viewStore.send(.didChangeNationality($0)) }
-                                       ))
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 24)
-                        
-                        InputTextField(title: "Emergency Contact",
-                                       placeholder: "Emergency Contact",
-                                       textBinding: Binding<String>(
-                                        get: { viewStore.emergencyContact ?? "" },
-                                        set: { viewStore.send(.didChangeEmergencyContact($0)) }
-                                       ))
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 24)
-                        
-                        InputTextField(title: "Korean Contact",
-                                       placeholder: "Korean Contact",
-                                       textBinding: Binding<String>(
-                                        get: { viewStore.koreanContact ?? "" },
-                                        set: { viewStore.send(.didChangeKoreanContact($0)) }
-                                       ))
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 24)
-                        
-                        Spacer()
-                            .frame(height: 100)
+                            InputTextField(title: "Birth Date",
+                                           placeholder: "YYYY.MM.DD",
+                                           isEditing: Binding<Bool>(
+                                            get: { if case .birthDate = viewStore.editState { return true }
+                                                else { return false }},
+                                            set: { _ in }),
+                                           textBinding: Binding<String>(
+                                            get: { viewStore.birthDate ?? "" },
+                                            set: { viewStore.send(.editInfo(.birthDate($0))) }
+                                           )) {
+                                               withAnimation {
+                                                   proxy.scrollTo(TextFieldType.birthDate.rawValue, anchor: .topLeading)
+                                               }
+                                           }
+                            .id(TextFieldType.birthDate.rawValue)
+                            .keyboardType(.numberPad)
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 24)
+                             
+                            InputTextField(title: "Nationality",
+                                           placeholder: "Nationality",
+                                           isEditing: Binding<Bool>(
+                                            get: { if case .nationality = viewStore.editState { return true }
+                                                else { return false }},
+                                            set: { _ in }),
+                                           textBinding: Binding<String>(
+                                            get: { viewStore.nationality ?? "" },
+                                            set: { viewStore.send(.editInfo(.nationality($0))) }
+                                           )) {
+                                               withAnimation {
+                                                   proxy.scrollTo(TextFieldType.nationality.rawValue, anchor: .topLeading)
+                                               }
+                                           }
+                            .id(TextFieldType.nationality.rawValue)
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 24)
+                         
+                            InputTextField(title: "Emergency Contact",
+                                           placeholder: "Emergency Contact",
+                                           isEditing: Binding<Bool>(
+                                            get: { if case .emergencyContact = viewStore.editState { return true }
+                                                else { return false }},
+                                            set: { _ in }),
+                                           textBinding: Binding<String>(
+                                            get: { viewStore.emergencyContact ?? "" },
+                                            set: { viewStore.send(.editInfo(.emergencyContact($0))) }
+                                           )) {
+                                               withAnimation {
+                                                   proxy.scrollTo(TextFieldType.emergencyContact.rawValue, anchor: .topLeading)
+                                               }
+                                           }
+                            .id(TextFieldType.emergencyContact.rawValue)
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 24)
+                          
+                            InputTextField(title: "Korean Contact",
+                                           placeholder: "Korean Contact",
+                                           isEditing: Binding<Bool>(
+                                            get: { if case .koreanContact = viewStore.editState { return true }
+                                                else { return false }},
+                                            set: { _ in }),
+                                           textBinding: Binding<String>(
+                                            get: { viewStore.koreanContact ?? "" },
+                                            set: { viewStore.send(.editInfo(.koreanContact($0))) }
+                                           )) {
+                                               withAnimation {
+                                                   proxy.scrollTo(TextFieldType.koreanContact.rawValue, anchor: .topLeading)
+                                               }
+                                           }
+                            .id(TextFieldType.koreanContact.rawValue)
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 24)
+                           
+                            Spacer()
+                                .frame(height: 160)
+                        }
                     }
                 }
-                
+                    
                 VStack {
                     Spacer()
                     

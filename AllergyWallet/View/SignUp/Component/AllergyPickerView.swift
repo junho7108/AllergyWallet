@@ -21,12 +21,10 @@ struct AllergyPickerView: View {
     var didSelect: ((EditSelectedAllergyFeature.AllegrySelectInfo) -> Void)
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-         
+        VStack(alignment: .leading, spacing: 0) {
+            
             Button(action: {
-                withAnimation {
-                    isExpanded.toggle()
-                }
+                isExpanded.toggle()
             }) {
                 HStack {
                     Text(category)
@@ -38,12 +36,20 @@ struct AllergyPickerView: View {
                         .foregroundColor(.gray)
                 }
                 .padding()
-                .background(
+            }
+            .overlay {
+                if isExpanded {
+                    Rectangle()
+                        .fill(Color.clear)
+                        .overlay(
+                            RoundedCorner(corners: [.topLeft, .topRight], radius: 12)
+                                .stroke(Color.gray200, lineWidth: 1)
+                        )
+                } else {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(Color.gray200, lineWidth: 1)
-                )
+                }
             }
-            .background(.white)
             
             if isExpanded && allergies.count > 1 {
 
@@ -95,9 +101,12 @@ struct AllergyPickerView: View {
                 }
                 .background(.white)
                 .overlay {
-                    RoundedRectangle(cornerRadius: 0)
-                        .stroke(Color.gray200, lineWidth: 1)
-                        .frame(maxWidth: .infinity)
+                    Rectangle()
+                        .fill(Color.clear)
+                        .overlay(
+                            RoundedCorner(corners: [.bottomLeft, .bottomRight], radius: 12)
+                                .stroke(Color.gray200, lineWidth: 1)
+                        )
                 }
             }
         }

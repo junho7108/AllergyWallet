@@ -20,50 +20,42 @@ struct EditSelectedAllergyView: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     
-                    LazyVStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 48) {
             
                         Text("What Allergies Do You Have?")
                             .font(.system(size: 28, weight: .semibold))
                             .padding(.bottom, 12)
-                        
-                        Text("You can select up to 20 allergies")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.gray700)
-                            .padding(.bottom, 48)
-                        
-                        Spacer()
-                        
-                        ForEach(viewStore.allergyCategories) { category in
-                            
-                            if category.allergies.count == 1 {
-                                let allergy = category.allergies[0]
+    
+                        LazyVStack(alignment: .leading, spacing: 8) {
+                            ForEach(viewStore.allergyCategories) { category in
                                 
-                                var isSelected: Bool = viewStore.selectedAllergies.contains(where: { $0.engName == allergy.engName })
-                                
-                                AllergyCheckBoxView(allegry: allergy,
-                                                    isSelected: Binding<Bool>(get: { isSelected },
-                                                                              set: { isSelected = $0 })) { selectedInfo in
-                                    viewStore.send(.didSelectAllegry(selectedInfo))
-                                }
-                            } else {
-                                let isExpanded: Bool = category.allergies.contains(where: { viewStore.selectedAllergies.contains($0)})
-                                
-                                AllergyPickerView(isExpanded: isExpanded,
-                                                  selectedAllergy: viewStore.selectedAllergies,
-                                                  category: "\(category.emoji) \(category.engName)",
-                                                  allergies: category.allergies) { selectedInfo in
-                                    viewStore.send(.didSelectAllegry(selectedInfo))
+                                if category.allergies.count == 1 {
+                                    let allergy = category.allergies[0]
+                                    
+                                    var isSelected: Bool = viewStore.selectedAllergies.contains(where: { $0.engName == allergy.engName })
+                                    
+                                    AllergyCheckBoxView(allegry: allergy,
+                                                        isSelected: Binding<Bool>(get: { isSelected },
+                                                                                  set: { isSelected = $0 })) { selectedInfo in
+                                        viewStore.send(.didSelectAllegry(selectedInfo))
+                                    }
+                                } else {
+                                    let isExpanded: Bool = category.allergies.contains(where: { viewStore.selectedAllergies.contains($0)})
+                                    
+                                    AllergyPickerView(isExpanded: isExpanded,
+                                                      selectedAllergy: viewStore.selectedAllergies,
+                                                      category: "\(category.emoji) \(category.engName)",
+                                                      allergies: category.allergies) { selectedInfo in
+                                        viewStore.send(.didSelectAllegry(selectedInfo))
+                                    }
                                 }
                             }
                         }
                     }
+                    .padding(.horizontal, 24)
                 }
-                
+            
                 Spacer()
-                
-                Rectangle()
-                    .frame(height: 0.8)
-                    .foregroundColor(Color.gray200)
                 
                 HStack(spacing: 12) {
                     Button(action: {
@@ -82,7 +74,6 @@ struct EditSelectedAllergyView: View {
                             .stroke(Color.primary500, lineWidth: 0.8)
                     )
                     
-                    
                     Button(action: {
                         viewStore.send(.editSelectedAllergy(viewStore.selectedAllergies))
                     }) {
@@ -95,8 +86,9 @@ struct EditSelectedAllergyView: View {
                             .cornerRadius(12)
                     }
                 }
+                .padding(.horizontal, 24)
             }
-            .padding(24)
+            .padding(.vertical, 24)
             .onAppear {
                 viewStore.send(.fetchData)
             }
