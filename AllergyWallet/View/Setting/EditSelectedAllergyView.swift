@@ -86,7 +86,7 @@ struct EditSelectedAllergyView: View {
                     Button(action: {
                         viewStore.send(.editSelectedAllergy(viewStore.selectedAllergies))
                     }) {
-                        Text("Next")
+                        Text("Save")
                             .font(.system(size: 16))
                             .foregroundColor(.white)
                             .padding()

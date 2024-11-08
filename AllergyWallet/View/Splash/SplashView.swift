@@ -17,12 +17,12 @@ struct SplashView: View {
             VStack {
                 Spacer()
                 
-                LottieView(animationName: "Splash")
+                LottieView(animationName: "splash_4s")
                 
                 Spacer()
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     viewStore.send(.fetchUser)
                 }
             }

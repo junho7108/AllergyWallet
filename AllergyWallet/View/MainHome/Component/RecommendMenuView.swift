@@ -26,7 +26,9 @@ struct RecommendMenuView: View {
                     
                     Spacer()
                     
-                    Button {  didTapButton?() } label: {
+                    Button {
+                        didTapButton?()
+                    } label: {
                         HStack {
                             Spacer()
                             Image("Icon_arrow")
@@ -42,6 +44,9 @@ struct RecommendMenuView: View {
                 
                 Spacer()
             }
+        }
+        .onTapGesture {
+            didTapButton?()
         }
         .shadow(color: .black.opacity(0.1), radius: 5)
         .frame(height: 116)

@@ -83,6 +83,9 @@ struct RegisterEmergencyCardView: View {
                                        ))
                         .frame(maxWidth: .infinity)
                         .padding(.bottom, 24)
+                        
+                        Spacer()
+                            .frame(height: 100)
                     }
                 }
                 
