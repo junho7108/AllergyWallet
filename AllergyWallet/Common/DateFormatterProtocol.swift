@@ -10,27 +10,29 @@ import Foundation
 protocol DateFormatterProtocol { }
 
 extension DateFormatterProtocol {
-    func formatDateInput(_ input: String) -> String {
-        let digits = input.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        
-        var formattedDate = ""
-        
-        if digits.count > 0 {
-            let year = String(digits.prefix(4))
-            formattedDate = year
+    func formatDateInput(_ input: String, previousInput: String) -> String {
+        guard input.count > previousInput.count else {
+            var date = input
+            if date.last == "." { date.removeLast() }
+            return date
         }
         
-        if digits.count > 4 {
-            let month = String(digits.prefix(6).suffix(2))
-            formattedDate += ".\(month)"
+        let digits = input.filter { "0123456789".contains($0) }
+        
+        var formattedText = ""
+        for (index, digit) in digits.enumerated() {
+            formattedText.append(digit)
+            
+            if index == 3 || index == 5 {
+                formattedText.append(".")
+            }
+        }
+
+        if formattedText.count > 10 {
+            formattedText = String(formattedText.prefix(10))
         }
         
-        if digits.count > 6 {
-            let day = String(digits.prefix(8).suffix(2))
-            formattedDate += ".\(day)"
-        }
-        
-        return formattedDate
+        return formattedText
     }
     
     func validateDate(_ date: String) -> Bool {

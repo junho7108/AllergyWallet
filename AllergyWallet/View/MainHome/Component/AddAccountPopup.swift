@@ -25,7 +25,7 @@ struct AddAccountPopup: View  {
                     .overlay {
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Add Allergy Account")
-                                .font(.system(size: 16))
+                                .font(.system(size: 16, weight: .medium))
                                 .foregroundColor(.gray700)
                                 .padding(.bottom, 12)
                             

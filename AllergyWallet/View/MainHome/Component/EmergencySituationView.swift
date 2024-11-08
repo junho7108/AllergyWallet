@@ -33,14 +33,12 @@ struct EmergencySituationView: View {
                             Spacer()
                             Image("Icon_arrow")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
+                                .scaledToFill()
                         }
-                        
                     }
-                    .frame(width: 40, height: 24)
+                    .frame(width: 24, height: 24)
                 }
-                
+              
                 Text("Use this when you need medical help due to an allergic reaction.")
                     .foregroundColor(.gray700)
                     .font(.system(size: 14))

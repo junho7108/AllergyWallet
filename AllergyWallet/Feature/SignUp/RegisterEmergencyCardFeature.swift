@@ -11,6 +11,17 @@ import ComposableArchitecture
 @Reducer
 struct RegisterEmergencyCardFeature: DateFormatterProtocol {
     
+    enum EditType: Equatable {
+        case firstname(String)
+        case lastname(String)
+        case birthDate(String)
+        case nationality(String)
+        case emergencyContact(String)
+        case koreanContact(String)
+        
+        case none
+    }
+    
     struct State: Equatable {
         var user: User
         
@@ -20,15 +31,13 @@ struct RegisterEmergencyCardFeature: DateFormatterProtocol {
         var nationality: String?
         var emergencyContact: String?
         var koreanContact: String?
+        
+        var editState: EditType = .none
     }
     
     enum Action {
-        case didChangeFirstName(String)
-        case didChangeLastName(String)
-        case didChangeBirthDate(String)
-        case didChangeNationality(String)
-        case didChangeEmergencyContact(String)
-        case didChangeKoreanContact(String)
+        case editInfo(EditType)
+        
         case didTapSkip
         case didTapRegisterEmergencyCard
         
@@ -41,29 +50,37 @@ struct RegisterEmergencyCardFeature: DateFormatterProtocol {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
-            case .didChangeFirstName(let firstName):
-                state.firstName = firstName
+            case .editInfo(let type):
+                switch type {
+                case .firstname(let value):
+                    state.editState = .firstname(value)
+                    state.firstName = value
+                    
+                case .lastname(let value):
+                    state.editState = .lastname(value)
+                    state.lastName = value
+                    
+                case .birthDate(let value):
+                    state.editState = .birthDate(value)
+                    state.birthDate = formatDateInput(value, previousInput: state.birthDate ?? "")
+                    
+                case .nationality(let value):
+                    state.editState = .nationality(value)
+                    state.nationality = value
+                    
+                case .emergencyContact(let value):
+                    state.editState = .emergencyContact(value)
+                    state.emergencyContact = value
+                    
+                case .koreanContact(let value):
+                    state.editState = .koreanContact(value)
+                    state.koreanContact = value
+                    
+                default:
+                    break
+                }
                 return .none
                 
-            case .didChangeLastName(let lastName):
-                state.lastName = lastName
-                return .none
-                
-            case .didChangeBirthDate(let birthDate):
-                state.birthDate = formatDateInput(birthDate)
-                return .none
-                
-            case .didChangeNationality(let nationality):
-                state.nationality = nationality
-                return .none
-                
-            case .didChangeEmergencyContact(let emergencyContact):
-                state.emergencyContact = emergencyContact
-                return .none
-                
-            case .didChangeKoreanContact(let koreanContact):
-                state.koreanContact = koreanContact
-                return .none
                 
             case .didTapSkip:
                 return .send(.signUpUser(state.user))

@@ -18,33 +18,32 @@ struct CheckMenuForAllergyView: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.primary50)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 
                 HStack {
                     Text("Check Menu For Allergens")
                         .font(.system(size: 16))
-                    
+                      
                     Spacer()
                     
-                    Button { 
+                    Button {
                         didTapButton?()
                     } label: {
-                        
                         HStack {
                             Spacer()
                             Image("Icon_arrow")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
+                                .scaledToFill()
                         }
                         
                     }
-                    .frame(width: 40, height: 40)
+                    .frame(width: 24, height: 24)
                 }
-                .padding(16)
                 
                 Spacer()
             }
+            .padding(16)
+            
         }
         .onTapGesture {
             didTapButton?()

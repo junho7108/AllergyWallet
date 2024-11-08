@@ -19,7 +19,7 @@ struct CrossContaminationCheckView: View {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.white)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 
                 HStack {
                     Text("Cross Contamination Check")
@@ -35,17 +35,16 @@ struct CrossContaminationCheckView: View {
                             Spacer()
                             Image("Icon_arrow")
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
+                                .scaledToFill()
                         }
                         
                     }
-                    .frame(width: 40, height: 40)
+                    .frame(width: 24, height: 24)
                 }
-                .padding(16)
-                
+              
                 Spacer()
             }
+            .padding(16)
         }
         .onTapGesture {
             didTapButton?()

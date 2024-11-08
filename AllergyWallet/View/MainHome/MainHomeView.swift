@@ -69,8 +69,7 @@ struct MainHomeView: View {
                         }
                         .frame(height: 248)
                         .tabViewStyle(.page(indexDisplayMode: .never))
-                        .padding(.bottom, 24)
-                        
+                        .padding(.bottom, 8)
                         
                         PagingIndicatorView(numberOfPages: Binding<Int>(get: { indicatorCount }, set: { _ in }),
                                             currentPage: Binding<Int>(get: { viewStore.currentPage }, set: { _ in }))
