@@ -7,8 +7,16 @@
 
 import Foundation
 import SwiftUI
+import Photos
 
 extension View {
+    
+    func openAppSettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
     
     func captureScreen(completion: @escaping (UIImage?) -> Void) {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -25,8 +33,13 @@ extension View {
         completion(image)
     }
     
-    func saveImageToGallery(_ image: UIImage) {
+    func saveImageToGallery(_ image: UIImage, completion: ((Bool) -> Void)? = nil) {
+
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        let authorized = checkAuthorizationStatus()
+        
+        completion?(authorized)
     }
     
     func defaultShadow() -> some View {
@@ -57,5 +70,19 @@ extension View {
                     endPoint: endPoint
                 )
             )
+    }
+}
+
+private extension View {
+    func checkAuthorizationStatus() -> Bool {
+        let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
+        
+        switch status {
+        case .authorized, .limited:
+            return true
+     
+        default:
+            return false
+        }
     }
 }

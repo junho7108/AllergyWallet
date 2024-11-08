@@ -62,17 +62,14 @@ struct MainHomeView: View {
                             }
                             
                             if viewStore.users.count < maxUserCount {
-                                CreateAccountView(didTapCreateAccount: {
-                                    viewStore.send(.didTapCreateAccount)
-                                })
-                                .padding(.horizontal, 24)
-                                .tag(viewStore.users.count)
+                                CreateAccountView(didTapCreateAccount: { viewStore.send(.didTapCreateAccount) })
+                                    .padding(.horizontal, 24)
+                                    .tag(viewStore.users.count)
                             }
                         }
-                                                        .frame(height: 248)
-                                                        .tabViewStyle(.page(indexDisplayMode: .never))
-                                                        .padding(.bottom, 24)
-                        
+                        .frame(height: 248)
+                        .tabViewStyle(.page(indexDisplayMode: .never))
+                        .padding(.bottom, 24)
                         
                         
                         PagingIndicatorView(numberOfPages: Binding<Int>(get: { indicatorCount }, set: { _ in }),

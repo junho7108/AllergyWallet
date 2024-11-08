@@ -26,7 +26,9 @@ struct AllergenFreeRequestView: View {
                     
                     Spacer()
                     
-                    Button { didTapButton?() } label: {
+                    Button {
+                        didTapButton?()
+                    } label: {
                         
                         HStack {
                             Spacer()
@@ -44,6 +46,9 @@ struct AllergenFreeRequestView: View {
                 
                 Spacer()
             }
+        }
+        .onTapGesture {
+            didTapButton?()
         }
         .shadow(color: .black.opacity(0.1), radius: 5)
         .frame(height: 116)

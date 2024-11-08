@@ -82,6 +82,9 @@ struct EditEmergencyCardView: View {
                                        ))
                         .frame(maxWidth: .infinity)
                         .padding(.bottom, 24)
+                        
+                        Spacer()
+                            .frame(height: 100)
                     }
                 }
                 
@@ -95,7 +98,7 @@ struct EditEmergencyCardView: View {
                             RoundedRectangle(cornerRadius: 12)
                                 .stroke(Color.primary500, lineWidth: 0.8)
                                 .overlay {
-                                    Text("Skip")
+                                    Text("Cancel")
                                         .font(.system(size: 16))
                                         .foregroundColor(Color.primary500)
                                         .background(.white)
@@ -111,7 +114,7 @@ struct EditEmergencyCardView: View {
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(Color.primary500)
                                 .overlay {
-                                    Text("Create")
+                                    Text("Save")
                                         .font(.system(size: 16))
                                         .foregroundColor(.white)
                                         .background(Color.primary500)

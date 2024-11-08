@@ -119,11 +119,12 @@ struct Coordinator {
                     .router(.routeAction(_, action: .allergyGuideCard(.didTapBackButton))),
                     .router(.routeAction(_, action: .emergencyCard(.didTapBackButton))),
                     .router(.routeAction(_, action: .setting(.didTapBack))),
-                    .router(.routeAction(_, action: .editSelectedAllergy(.didTapBackButton))):
+                    .router(.routeAction(_, action: .editSelectedAllergy(.didTapBackButton))),
+                    .router(.routeAction(_, action: .editEmergencyCard(.didTapCancel))):
+                
                 state.routes.goBack()
                 return .none
-                
-                
+            
             default:
                 return .none
             }
