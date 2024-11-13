@@ -7,12 +7,7 @@
 
 import Foundation
 
-protocol AuthRepositoryType {
-    func signUpUser(user: User) async -> Bool
-    func fetchUser() async -> [User]
-}
-
-final class AuthRepository: AuthRepositoryType {
+final class AuthRepository: AuthRepositoryProtocol {
     func signUpUser(user: User) -> Bool {
         var users = fetchUser()
         
@@ -28,7 +23,7 @@ final class AuthRepository: AuthRepositoryType {
     }
 }
 
-final class AuthRepositoryTest: AuthRepositoryType {
+final class AuthRepositoryTest: AuthRepositoryProtocol {
     func signUpUser(user: User) -> Bool {
         return true
     }

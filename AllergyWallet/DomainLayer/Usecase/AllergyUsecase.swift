@@ -9,9 +9,9 @@ import Foundation
 import Dependencies
 
 final class AllergyUsecase {
-    private let repository: AllergyRepositoryType
+    private let repository: AllergyRepositoryProtocol
     
-    init(repository: AllergyRepositoryType) {
+    init(repository: AllergyRepositoryProtocol) {
         self.repository = repository
     }
     

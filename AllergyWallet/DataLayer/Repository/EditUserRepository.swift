@@ -1,5 +1,5 @@
 //
-//  EditUserProfileRepository.swift
+//  EditUserRepository.swift
 //  AllergyWallet
 //
 //  Created by Junho Yoon on 10/16/24.
@@ -7,12 +7,7 @@
 
 import Foundation
 
-protocol EditUserProfileRepositoryType {
-    func replaceUser(user: User) -> [User]
-    func deleteUser(user: User) -> [User]
-}
-
-final class EditUserProfileRepository: EditUserProfileRepositoryType {
+final class EditUserRepository: EditUserRepositoryProtocol {
     func replaceUser(user: User) -> [User] {
         return UserStorage.shared.replaceUser(user: user)
     }

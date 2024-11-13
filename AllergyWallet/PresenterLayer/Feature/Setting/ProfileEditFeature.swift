@@ -29,7 +29,7 @@ struct ProfileEditFeature {
         case updateUserList([User])
     }
     
-    @Dependency(\.editUserProfileUsecase) var usecase: EditUserProfileUseCase
+    @Dependency(\.editUserProfileUsecase) var usecase: EditUsereUseCase
     
     var body: some Reducer<State, Action> {
         

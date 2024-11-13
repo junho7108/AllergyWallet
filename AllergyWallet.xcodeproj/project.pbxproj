@@ -28,6 +28,9 @@
 		1203B1AB2CDD14A500D21DB9 /* SaveImagePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1AA2CDD14A500D21DB9 /* SaveImagePopup.swift */; };
 		1203B1B32CDDFDFA00D21DB9 /* splash_4s.json in Resources */ = {isa = PBXBuildFile; fileRef = 1203B1B22CDDFDFA00D21DB9 /* splash_4s.json */; };
 		1203B1B52CDE522D00D21DB9 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1B42CDE522D00D21DB9 /* Text+Extensions.swift */; };
+		1203B1BB2CE4CDF100D21DB9 /* AuthRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1BA2CE4CDF100D21DB9 /* AuthRepositoryProtocol.swift */; };
+		1203B1BD2CE4CE2800D21DB9 /* AllergyRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1BC2CE4CE2800D21DB9 /* AllergyRepositoryProtocol.swift */; };
+		1203B1BF2CE4CE5500D21DB9 /* EditUserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203B1BE2CE4CE5500D21DB9 /* EditUserRepositoryProtocol.swift */; };
 		125159B72CB017D4000D0ADA /* AllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B62CB017D4000D0ADA /* AllergyRepository.swift */; };
 		125159B92CB01911000D0ADA /* AllergyUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159B82CB01911000D0ADA /* AllergyUsecase.swift */; };
 		125159BB2CB023E3000D0ADA /* AllergyPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */; };
@@ -65,7 +68,7 @@
 		12515A0E2CB532CE000D0ADA /* EditNicknamePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */; };
 		12515A122CBE1E3F000D0ADA /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A112CBE1E3F000D0ADA /* CreateAccountView.swift */; };
 		12515A142CBFD2B7000D0ADA /* EditUserProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A132CBFD2B7000D0ADA /* EditUserProfileUseCase.swift */; };
-		12515A162CBFD2CE000D0ADA /* EditUserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A152CBFD2CE000D0ADA /* EditUserProfileRepository.swift */; };
+		12515A162CBFD2CE000D0ADA /* EditUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A152CBFD2CE000D0ADA /* EditUserRepository.swift */; };
 		12515A182CBFD432000D0ADA /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12515A172CBFD432000D0ADA /* UserStorage.swift */; };
 		127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */; };
 		127EC0AA2CACFFA300A3408C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127EC0A92CACFFA300A3408C /* Assets.xcassets */; };
@@ -115,6 +118,9 @@
 		1203B1AA2CDD14A500D21DB9 /* SaveImagePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImagePopup.swift; sourceTree = "<group>"; };
 		1203B1B22CDDFDFA00D21DB9 /* splash_4s.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_4s.json; sourceTree = "<group>"; };
 		1203B1B42CDE522D00D21DB9 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
+		1203B1BA2CE4CDF100D21DB9 /* AuthRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepositoryProtocol.swift; sourceTree = "<group>"; };
+		1203B1BC2CE4CE2800D21DB9 /* AllergyRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRepositoryProtocol.swift; sourceTree = "<group>"; };
+		1203B1BE2CE4CE5500D21DB9 /* EditUserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		125159B62CB017D4000D0ADA /* AllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyRepository.swift; sourceTree = "<group>"; };
 		125159B82CB01911000D0ADA /* AllergyUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyUsecase.swift; sourceTree = "<group>"; };
 		125159BA2CB023E3000D0ADA /* AllergyPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyPickerView.swift; sourceTree = "<group>"; };
@@ -152,7 +158,7 @@
 		12515A0D2CB532CE000D0ADA /* EditNicknamePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknamePopup.swift; sourceTree = "<group>"; };
 		12515A112CBE1E3F000D0ADA /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		12515A132CBFD2B7000D0ADA /* EditUserProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileUseCase.swift; sourceTree = "<group>"; };
-		12515A152CBFD2CE000D0ADA /* EditUserProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileRepository.swift; sourceTree = "<group>"; };
+		12515A152CBFD2CE000D0ADA /* EditUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserRepository.swift; sourceTree = "<group>"; };
 		12515A172CBFD432000D0ADA /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		127EC0A22CACFFA100A3408C /* AllergyWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergyWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyWalletApp.swift; sourceTree = "<group>"; };
@@ -252,6 +258,83 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		1203B1B62CE4CD9200D21DB9 /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				125159B42CB017BD000D0ADA /* Usecase */,
+				1203B1B92CE4CDDD00D21DB9 /* RepositoryProtocol */,
+				127EC0D22CAD52EE00A3408C /* Model */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		1203B1B72CE4CD9800D21DB9 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1203B1832CD5214300D21DB9 /* Files */,
+				125159B52CB017C5000D0ADA /* Repository */,
+				1203B1A62CDA064700D21DB9 /* Services */,
+				1203B1C32CE4D0C900D21DB9 /* Storage */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		1203B1B82CE4CD9E00D21DB9 /* PresenterLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1203B1C02CE4CF7200D21DB9 /* UIModel */,
+				127EC0BC2CAD037000A3408C /* Feature */,
+				127EC0B62CAD030300A3408C /* View */,
+				127EC0BB2CAD036B00A3408C /* Coordinator */,
+			);
+			path = PresenterLayer;
+			sourceTree = "<group>";
+		};
+		1203B1B92CE4CDDD00D21DB9 /* RepositoryProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				1203B1BA2CE4CDF100D21DB9 /* AuthRepositoryProtocol.swift */,
+				1203B1BC2CE4CE2800D21DB9 /* AllergyRepositoryProtocol.swift */,
+				1203B1BE2CE4CE5500D21DB9 /* EditUserRepositoryProtocol.swift */,
+			);
+			path = RepositoryProtocol;
+			sourceTree = "<group>";
+		};
+		1203B1C02CE4CF7200D21DB9 /* UIModel */ = {
+			isa = PBXGroup;
+			children = (
+				125159F12CB3D5A2000D0ADA /* AllergyGuideType.swift */,
+				1203B1792CD3943F00D21DB9 /* GradientDirection.swift */,
+			);
+			path = UIModel;
+			sourceTree = "<group>";
+		};
+		1203B1C12CE4CFF800D21DB9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1203B1C22CE4D06C00D21DB9 /* UtilityLayer */ = {
+			isa = PBXGroup;
+			children = (
+				125159E52CB2829C000D0ADA /* Const.swift */,
+				1203B1C12CE4CFF800D21DB9 /* Protocol */,
+				127EC0BD2CAD057E00A3408C /* Extensions */,
+			);
+			path = UtilityLayer;
+			sourceTree = "<group>";
+		};
+		1203B1C32CE4D0C900D21DB9 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				12515A172CBFD432000D0ADA /* UserStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		125159B42CB017BD000D0ADA /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,19 +351,9 @@
 			children = (
 				125159D32CB16398000D0ADA /* AuthRepository.swift */,
 				125159B62CB017D4000D0ADA /* AllergyRepository.swift */,
-				12515A152CBFD2CE000D0ADA /* EditUserProfileRepository.swift */,
+				12515A152CBFD2CE000D0ADA /* EditUserRepository.swift */,
 			);
 			path = Repository;
-			sourceTree = "<group>";
-		};
-		125159CE2CB162C3000D0ADA /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				125159E52CB2829C000D0ADA /* Const.swift */,
-				12515A172CBFD432000D0ADA /* UserStorage.swift */,
-				1203B1702CCE457500D21DB9 /* DateFormatterProtocol.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		125159D92CB18955000D0ADA /* MainHome */ = {
@@ -379,18 +452,11 @@
 		127EC0A42CACFFA100A3408C /* AllergyWallet */ = {
 			isa = PBXGroup;
 			children = (
+				1203B1B62CE4CD9200D21DB9 /* DomainLayer */,
+				1203B1B72CE4CD9800D21DB9 /* DataLayer */,
+				1203B1B82CE4CD9E00D21DB9 /* PresenterLayer */,
+				1203B1C22CE4D06C00D21DB9 /* UtilityLayer */,
 				1203B1A92CDB8FFB00D21DB9 /* Info.plist */,
-				1203B1832CD5214300D21DB9 /* Files */,
-				1203B1A62CDA064700D21DB9 /* Services */,
-				125159CE2CB162C3000D0ADA /* Common */,
-				125159B52CB017C5000D0ADA /* Repository */,
-				125159B42CB017BD000D0ADA /* Usecase */,
-				127EC0D22CAD52EE00A3408C /* Model */,
-				127EC0CC2CAD46B300A3408C /* Protocol */,
-				127EC0BD2CAD057E00A3408C /* Extensions */,
-				127EC0BC2CAD037000A3408C /* Feature */,
-				127EC0B62CAD030300A3408C /* View */,
-				127EC0BB2CAD036B00A3408C /* Coordinator */,
 				127EC0A52CACFFA100A3408C /* AllergyWalletApp.swift */,
 				127EC0A92CACFFA300A3408C /* Assets.xcassets */,
 				127EC0AB2CACFFA300A3408C /* Preview Content */,
@@ -452,13 +518,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		127EC0CC2CAD46B300A3408C /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		127EC0D22CAD52EE00A3408C /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,8 +525,6 @@
 				127EC0D72CAD5CFA00A3408C /* Allergy.swift */,
 				127EC0E22CAE5DAB00A3408C /* EmergencyCard.swift */,
 				125159E92CB284E1000D0ADA /* LanguageType.swift */,
-				125159F12CB3D5A2000D0ADA /* AllergyGuideType.swift */,
-				1203B1792CD3943F00D21DB9 /* GradientDirection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -568,6 +625,7 @@
 				1203B1802CD4B14B00D21DB9 /* DeleteAccountCompletePopup.swift in Sources */,
 				1203B17A2CD3943F00D21DB9 /* GradientDirection.swift in Sources */,
 				1203B17E2CD4AE6200D21DB9 /* EditNicknameCompletePopup.swift in Sources */,
+				1203B1BB2CE4CDF100D21DB9 /* AuthRepositoryProtocol.swift in Sources */,
 				125159C12CB15203000D0ADA /* AllergenFreeRequestView.swift in Sources */,
 				125159C52CB15285000D0ADA /* EmergencySituationView.swift in Sources */,
 				125159CB2CB15DC9000D0ADA /* SplashUsecase.swift in Sources */,
@@ -576,6 +634,7 @@
 				127EC0E72CAE668E00A3408C /* MainHomeFeature.swift in Sources */,
 				125159F22CB3D5A2000D0ADA /* AllergyGuideType.swift in Sources */,
 				125159FC2CB3FADF000D0ADA /* EmergencyContactInfoView.swift in Sources */,
+				1203B1BD2CE4CE2800D21DB9 /* AllergyRepositoryProtocol.swift in Sources */,
 				1203B1A82CDA065100D21DB9 /* FileService.swift in Sources */,
 				1203B17C2CD496E800D21DB9 /* Collection+Extensions.swift in Sources */,
 				12515A122CBE1E3F000D0ADA /* CreateAccountView.swift in Sources */,
@@ -621,6 +680,7 @@
 				127EC0DF2CAD755600A3408C /* InputTextField.swift in Sources */,
 				1203B19A2CD8BD0D00D21DB9 /* AddAccountPopup.swift in Sources */,
 				12515A002CB51CA1000D0ADA /* MainTopView.swift in Sources */,
+				1203B1BF2CE4CE5500D21DB9 /* EditUserRepositoryProtocol.swift in Sources */,
 				127EC0BA2CAD033300A3408C /* RegisterUsernameView.swift in Sources */,
 				127EC0A62CACFFA100A3408C /* AllergyWalletApp.swift in Sources */,
 				127EC0C72CAD17B200A3408C /* RegisterSelectAllergyFeature.swift in Sources */,
@@ -636,7 +696,7 @@
 				127EC0C52CAD177C00A3408C /* Screen.swift in Sources */,
 				127EC0D42CAD52F500A3408C /* User.swift in Sources */,
 				125159D62CB16447000D0ADA /* SignUpUsecase.swift in Sources */,
-				12515A162CBFD2CE000D0ADA /* EditUserProfileRepository.swift in Sources */,
+				12515A162CBFD2CE000D0ADA /* EditUserRepository.swift in Sources */,
 				125159E62CB2829C000D0ADA /* Const.swift in Sources */,
 				12515A142CBFD2B7000D0ADA /* EditUserProfileUseCase.swift in Sources */,
 				125159EE2CB29643000D0ADA /* AllergyGuideCardView.swift in Sources */,
