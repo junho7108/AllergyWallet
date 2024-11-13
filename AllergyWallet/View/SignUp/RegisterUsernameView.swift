@@ -15,9 +15,9 @@ struct RegisterUsernameView: View {
     
     @Environment(\.presentationMode) var presentationMode
        
-    private var isInsideNavigationView: Bool {
-        presentationMode.wrappedValue.isPresented
-    }
+    private var isInsideNavigationView: Bool { presentationMode.wrappedValue.isPresented }
+    
+    @FocusState private var isEditing: Bool
 
     var body: some View {
         
@@ -33,22 +33,26 @@ struct RegisterUsernameView: View {
                 get: { viewStore.username },
                 set: { viewStore.send(.didChangeNickname($0)) }
                ))
+               .focused($isEditing)
                .padding(.vertical, 12)
                .frame(height: 53)
               
                 Rectangle()
                     .frame(height: 1)
-                    .foregroundColor(
-                        viewStore.isValidNickname.map { $0 ? Color.green : Color.red }
-                        ?? Color.gray200
-                    )
+                    .foregroundColor({
+                        if isEditing {
+                            return viewStore.isValidNickname == false ? Color.semanticError : Color.primary500
+                        } else {
+                            return Color.gray200
+                        }
+                    }())
                     .padding(.bottom, 4)
                 
-                Text("Use only letters, numbers, dashes and underscores")
+                Text("Use only alphabets, numbers, dashes, and underscores")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 14))
                     .foregroundColor(
-                        viewStore.isValidNickname.map { $0 ? Color.gray200 : Color.red }
+                        viewStore.isValidNickname.map { $0 ? Color.gray200 : Color.semanticError }
                         ?? Color.gray200
                     )
                 
