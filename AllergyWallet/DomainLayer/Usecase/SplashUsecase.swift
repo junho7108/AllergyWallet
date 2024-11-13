@@ -8,9 +8,9 @@
 import Dependencies
 
 final class SplashUsecase {
-    private let repository: AuthRepositoryType
+    private let repository: AuthRepositoryProtocol
     
-    init(repository: AuthRepositoryType) {
+    init(repository: AuthRepositoryProtocol) {
         self.repository = repository
     }
     

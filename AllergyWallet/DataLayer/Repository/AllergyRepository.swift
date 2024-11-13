@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol AllergyRepositoryType {
-    func fetchAllergies() async -> [AllergyCategory]
-}
-
-final class AllergyRepository: AllergyRepositoryType {
+final class AllergyRepository: AllergyRepositoryProtocol {
     func fetchAllergies() async -> [AllergyCategory] {
         if let jsonData = FileService.shared.loadJSONFromFile(filename: "AllergyData") {
             if let categories = FileService.shared.parse(data: jsonData, modelType: [AllergyCategory].self) {
@@ -22,7 +18,7 @@ final class AllergyRepository: AllergyRepositoryType {
     }
 }
 
-final class AllergyRepositoryTest: AllergyRepositoryType {
+final class AllergyRepositoryTest: AllergyRepositoryProtocol {
     func fetchAllergies() async -> [AllergyCategory] {
         return await [
             AllergyCategory(korName: "우유", engName: "Milk", emoji: "🥛",
