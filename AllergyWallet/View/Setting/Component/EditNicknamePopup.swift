@@ -17,6 +17,8 @@ struct EditNicknamePopup: View {
     var didTapCancel: (() -> Void)? = nil
     var didTapSave: ((String) -> Void)? = nil
     
+    @FocusState private var isEditing: Bool
+    
     init(username: String, didTapCancel: (() -> Void)? = nil, didTapSave: ((String) -> Void)? = nil) {
         self.username = username
         self.originname = username
@@ -27,89 +29,94 @@ struct EditNicknamePopup: View {
     var body: some View {
         ZStack {
             Color.black.opacity(0.6)
-                .ignoresSafeArea(.all)
+                .ignoresSafeArea()
             
             VStack {
                 Spacer()
                 
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.white)
-                    .overlay {
-                        VStack(alignment: .leading, spacing: 0) {
-                            
-                            Text("Edit Nickname")
-                                .font(.system(size: 16, weight: .medium))
-                                .foregroundColor(.gray700)
-                                .padding(.bottom, 12)
-                            
-                            ZStack {
-                                TextField("Name", text: $username)
-                                    .textFieldStyle(.plain)
-                                    .padding(.horizontal, 8)
-                                    .padding(.vertical, 12)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 4)
-                                            .stroke(isValidNickname(nickname: username)
-                                                    ? Color.primary500
-                                                    : Color.gray200,
-                                                    lineWidth: 1)
-                                            .frame(maxWidth: .infinity)
-                                    }
-                                
-                                HStack {
-                                    Spacer()
-                                    
-                                    Button {
-                                        username.removeAll()
-                                    } label: {
-                                        Image("Icon_close")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 24, height: 24)
-                                    }
-                                    .frame(width: 32, height: 32)
-                                }
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    Text("Edit Nickname")
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundColor(.gray700)
+                        .padding(.bottom, 12)
+                    
+                    ZStack {
+                        TextField("Name", text: $username)
+                            .focused($isEditing)
+                            .textFieldStyle(.plain)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 12)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .stroke(isEditing ? (isValidNickname(nickname: username) || username.isEmpty ? Color.primary500 : Color.semanticError) : Color.gray200, lineWidth: 1)
                             }
-                            .background(Color.gray50)
-                            .cornerRadius(4)
-                            .padding(.bottom, 24)
+                        
+                        HStack {
+                            Spacer()
                             
-                            HStack(spacing: 16) {
-                                Button(action: { didTapCancel?() }) {
-                                    ZStack {
+                            Button {
+                                username.removeAll()
+                            } label: {
+                                Image("Icon_close")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                            }
+                            .frame(width: 32, height: 32)
+                        }
+                    }
+                    .background(Color.gray50)
+                    .cornerRadius(4)
+                    .padding(.bottom, 6)
+                    
+                    if isEditing && !isValidNickname(nickname: username) && !username.isEmpty {
+                        Text("Use only alphabets, numbers, dashes, and underscores")
+                            .font(.system(size: 14))
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(.semanticError)
+                            .padding(.bottom, 24)
+                    } else {
+                        Spacer()
+                            .frame(height: 18)
+                    }
+                    
+                    HStack(spacing: 16) {
+                        Button(action: { didTapCancel?() }) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(.white)
+                                    .overlay(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(.white)
                                             .stroke(Color.primary500, lineWidth: 0.8)
-                                        
-                                        Text("Cancel")
-                                            .font(.system(size: 16))
-                                            .foregroundColor(.primary500)
-                                            .padding(.vertical, 10)
-                                    }
-                                }
-                                .frame(height: 40)
+                                    )
                                 
-                                Button(action: { didTapSave?(username) }) {
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(isValidNickname(nickname: username)
-                                                  ? Color.primary500
-                                                  : Color.gray200)
-                                        
-                                        Text("Save")
-                                            .font(.system(size: 16))
-                                            .foregroundColor(.white)
-                                            .padding(.vertical, 10)
-                                    }
-                                }
-                                .disabled(!isValidNickname(nickname: username))
-                                .frame(height: 40)
+                                Text("Cancel")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.primary500)
+                                    .padding(.vertical, 10)
                             }
                         }
-                        .padding(24)
+                        .frame(height: 40)
+                        
+                        Button(action: { didTapSave?(username) }) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(isValidNickname(nickname: username) ? Color.primary500 : Color.gray200)
+                                
+                                Text("Save")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.white)
+                                    .padding(.vertical, 10)
+                            }
+                        }
+                        .disabled(!isValidNickname(nickname: username))
+                        .frame(height: 40)
                     }
-                    .padding(.horizontal, 24)
-                    .frame(maxHeight: 200)
+                }
+                .padding(24)
+                .background(RoundedRectangle(cornerRadius: 8).fill(Color.white))
+                .padding(.horizontal, 24)
                 
                 Spacer()
             }
@@ -119,7 +126,7 @@ struct EditNicknamePopup: View {
 
 private extension EditNicknamePopup {
     func isValidNickname(nickname: String) -> Bool {
-        guard nickname != originname else { return false }
+//        guard nickname != originname else { return false }
         
         let pattern = "^(?=.*[a-zA-Z0-9])[-_a-zA-Z0-9]{1,20}$"
         
