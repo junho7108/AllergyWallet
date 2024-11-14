@@ -1,9 +1,12 @@
 # AllergyWallet
 음식 알레르기로 한국을 여행하시나요? 포괄적인 알레르기 번역 앱으로 안전하게 지내고 걱정 없이 한국 요리를 즐기세요.
+
+https://apps.apple.com/us/app/allergy-wallet/id6737809315
   
 ![image](https://github.com/user-attachments/assets/75798b78-f13d-4e5f-89a5-52f556cd3ce2)
 
 - 별도의 백엔드 개발자가 없어 사용자 정보를 UserDefaults에 저장하도록 구현하였습니다.
+- 모놀리식 아키텍처
 - UI Framework는 SwiftUI를 이용하였습니다.
 - TCACoordinators 라이브러리를 사용해 화면 전환 및 네비게이션 흐름을 Coordinator에서 처리하여 View에서 네비게이션 관련 로직을 분리하였습니다.
 - 알레르기 정보는 저장 된 JSON 파일로부터 받아올 수 있도록 구현되었습니다.
@@ -17,5 +20,3 @@
         - UI Model, Feature, View, Coordinator가 속합니다.
     - Utility Layer
         - Const, Extensions, Protocol이 속합니다.
-        
-현재 모놀리식 아키텍처 구성으로, 추후에 모듈러 아키텍처로 변경하는 것이 목표입니다 :)
